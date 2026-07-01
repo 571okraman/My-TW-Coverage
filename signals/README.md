@@ -34,5 +34,25 @@ Follow-up 是**由 signal 觸發的驗證問題**，需要：
 4. **Follow-up** — 只有需要驗證才建立
 5. **Export** — SQLite → signals/exports/ → watchlist.md → weekly_digest/
 
+## Ingest (JSON manual)
+
+```bash
+# 從檔案 ingest
+python scripts/ingest_signals.py signals/examples/input-example.json
+
+# 從 stdin
+cat signals.json | python scripts/ingest_signals.py
+
+# 預覽不寫入
+python scripts/ingest_signals.py input.json --dry-run
+```
+
+JSON 格式請參考 `signals/examples/input-example.json`。
+
+Dedup 邏輯（優先順序）：
+1. signal id 已存在 → skip
+2. source URL 已存在 → skip
+3. title fuzzy match (>0.85) → skip
+
 ## 初始化
 
