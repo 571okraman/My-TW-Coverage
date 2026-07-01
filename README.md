@@ -8,6 +8,21 @@ Taiwan's stock market has 1,800+ listed companies, many of which are critical no
 
 **The wikilink graph is the core feature.** Searching `[[Apple]]` reveals 207 Taiwanese companies in Apple's supply chain. Searching `[[CoWoS]]` shows every company involved in TSMC's advanced packaging. Searching `[[光阻液]]` (photoresist) maps every supplier and consumer of that material.
 
+
+## Architecture / Repo Layout
+
+This repo is **data + scripts** only. Agent skills live in a separate repo.
+
+| Repo | Purpose | What's inside |
+|---|---|---|
+| **[Timeverse/My-TW-Coverage](https://github.com/Timeverse/My-TW-Coverage)** (upstream) | Source of truth for ticker reports, scripts, and data | `Pilot_Reports/`, `scripts/`, `CLAUDE.md` |
+| **[571okraman/My-TW-Coverage](https://github.com/571okraman/My-TW-Coverage)** (this fork) | Working copy for development & testing | Same as upstream + local changes |
+| **[openab-agents-config](https://github.com/Timeverse/openab-agents-config)** (separate) | Agent skills & configuration for OpenAB/Hermes | `skills/my-tw-coverage/` (discover, update-enrichment, add-ticker), `SOUL.md`, `config.yaml` |
+
+**Key boundary:** If you're editing ticker reports, financials, or scripts → edit this repo. If you're configuring agent behavior, skills, or SOUL → edit `openab-agents-config`.
+
+**Fork note:** This fork (`571okraman`) has removed the legacy `.claude/` directory. Agent skills have been migrated to `openab-agents-config` as Hermes skills. The upstream (`Timeverse`) may still contain `.claude/` references.
+
 ## Quick Start
 
 ### Prerequisites
@@ -167,11 +182,11 @@ python scripts/build_themes.py --list        # List available themes
 
 Generates [themes/](themes/) — supply chain maps for key investment themes. Each page shows companies grouped by upstream/midstream/downstream role. See [themes/README.md](themes/README.md) for the full index.
 
-## Token Usage & Cost Guide
+## How to Use
 
-Tools fall into two categories: **Python scripts** (free, run locally) and **Claude Code skills** (consume API tokens for AI research).
+Tools fall into two categories: **Python scripts** (free, run locally) and **Hermes skills** (AI-assisted, requires OpenAB/Hermes agent).
 
-### Free — Python Scripts (No Tokens)
+### Free — Python Scripts (No AI, No Cost)
 
 These run 100% locally with Python + yfinance. No AI, no API cost.
 
@@ -186,23 +201,22 @@ These run 100% locally with Python + yfinance. No AI, no API cost.
 | Build Network | `python scripts/build_network.py` | Generate interactive D3.js graph |
 | Build Wikilink Index | `python scripts/build_wikilink_index.py` | Rebuild WIKILINKS.md |
 
-### Consumes Tokens — Claude Code Skills (Requires AI)
+### AI-Assisted — Hermes Skills (Requires OpenAB/Hermes Agent)
 
-These use Claude AI for web research, content generation, and intelligent enrichment. They require [Claude Code](https://claude.ai/claude-code) and consume API tokens.
+These use AI for web research, content generation, and intelligent enrichment. Skills are defined in [openab-agents-config](https://github.com/Timeverse/openab-agents-config) and loaded by Hermes agents.
 
-| Slash Command | Token Usage | What it does |
+| Skill | When to Use | What it does |
 |---|---|---|
-| `/add-ticker 2330 台積電` | Medium | Generate .md + fetch financials + **AI researches** business desc, supply chain, customers |
-| `/update-enrichment 2330` | Medium | **AI re-researches** and rewrites business content (preserves financials) |
-| `/discover 液冷散熱` | Low-High | Scans database (free) → if no results, **AI researches** online and enriches reports |
+| `tw-coverage-discover` | Buzzword search with no DB results | Scans database (free) → if no results, **AI researches** online and enriches reports |
+| `tw-coverage-update-enrichment` | Business description rewrite | **AI re-researches** and rewrites business content (preserves financials) |
+| `tw-coverage-add-ticker` | New company onboarding | Generate .md + fetch financials + **AI researches** business desc, supply chain, customers |
+| `tw-coverage-financials` | Bulk financial refresh | Runs `update_financials.py` — no AI needed |
 
-**Token cost drivers:**
-- `/add-ticker`: ~1 web search + content generation per ticker
-- `/update-enrichment`: ~3-5 web searches + content synthesis per ticker
-- `/discover` with results: **zero tokens** (Python scan only)
-- `/discover` without results: varies by research depth (web searches + file edits)
+**When to use scripts vs skills:**
+- Bulk operations (batches, sectors, all tickers) → use Python scripts directly
+- Individual tickers or when AI research is needed → use Hermes skills
+- Financial data → always use scripts (skills preserve financials but scripts are faster)
 
-**Tip:** For bulk operations, use Python scripts directly. Use slash commands for individual tickers or when AI research is needed.
 
 ## Wikilink Graph
 
@@ -231,7 +245,7 @@ The database contains **4,900+ unique wikilinks** across three categories:
 ## Project Structure
 
 ```
-├── CLAUDE.md                  # Project rules and quality standards
+├── CLAUDE.md                  # Project rules and quality standards (legacy — use openab-agents-config for agent config)
 ├── WIKILINKS.md               # Browsable wikilink index (auto-generated)
 ├── task.md                    # Batch definitions and progress tracking
 ├── requirements.txt           # Python dependencies
@@ -261,8 +275,6 @@ The database contains **4,900+ unique wikilinks** across three categories:
 │   ├── AI_伺服器.md            # 148 companies in AI server ecosystem
 │   ├── NVIDIA.md              # 104 companies in NVIDIA supply chain
 │   └── ... (20 themes)
-└── .claude/
-    └── skills/                # Claude Code skill definitions
 ```
 
 ## Quality Standards
@@ -278,7 +290,7 @@ Every report is validated against 8 quality rules (defined in `CLAUDE.md`):
 7. **Complete metadata** (sector, industry, market cap, enterprise value)
 8. **Segmented supply chain** — upstream/midstream/downstream by category
 
-Current audit score: **1,733/1,733 (100%)** pass all quality checks.
+Current audit score: **1,733/1,735 (100%)** pass all quality checks. (2 reports excluded from audit scope.)
 
 ## Data Sources
 
