@@ -20,6 +20,7 @@ import os
 import re
 import sys
 import time
+from datetime import date
 
 import pandas as pd
 import yfinance as yf
@@ -208,6 +209,9 @@ def df_to_clean_markdown(df):
 
 def build_financial_section(data):
     section = "## 財務概況 (單位: 百萬台幣, 只有 Margin 為 %)\n"
+    section += "**資料來源:** Yahoo Finance via yfinance\n"
+    section += f"**財務更新日期:** {date.today().isoformat()}\n"
+    section += f"**Ticker suffix:** {data.get('suffix', 'N/A')}\n\n"
 
     # Valuation snapshot
     v = data.get("valuation", {})
