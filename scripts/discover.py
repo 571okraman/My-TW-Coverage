@@ -84,6 +84,24 @@ SMART_PROFILES = {
     "all": None,  # None = search everything
 }
 
+# Generic terms that are too broad for --apply.
+# These are banned from [[wikilinks]] by Golden Rule #1.
+GENERIC_DENYLIST = {
+    "大廠", "供應商", "客戶", "廠商", "原廠", "經銷商",
+    "製造商", "業者", "企業", "公司", "代理商", "品牌商",
+    "營運商", "貿易商", "通路商", "零售商", "承包商",
+    "開發商", "服務商", "整合商",
+    "散熱", "設備", "材料", "零組件", "元件", "產品", "技術",
+}
+
+
+def is_generic_buzzword(buzzword):
+    """Check if a buzzword is too generic for --apply."""
+    return buzzword.strip() in GENERIC_DENYLIST
+
+
+GENERIC_BIZWORDS_EXAMPLES = "液冷散熱, 水冷板, CoWoS, HBM, 碳化矽"
+
 # Buzzword hints for smart detection
 TECH_KEYWORDS = [
     "半導體", "晶片", "IC", "AI", "伺服器", "封裝", "製程", "光電",
@@ -269,6 +287,8 @@ def main():
     do_apply = "--apply" in args
     do_rebuild = "--rebuild" in args
     smart = "--smart" in args
+    force = "--force" in args
+    args = [a for a in args if a != "--force"]
 
     # Parse sector filter
     sectors_filter = None
@@ -294,8 +314,19 @@ def main():
     # Report
     print_report(results, buzzword)
 
-    # Apply wikilinks
+    # Apply wikilinks — hard block generic terms unless --force
     if do_apply and results:
+        if is_generic_buzzword(buzzword):
+            if force:
+                print(f"WARNING: forcing --apply for generic buzzword '{buzzword}'.")
+                print(f"This may pollute WIKILINKS/network/themes. Continue only if intentional.")
+            else:
+                print(f"ERROR: buzzword '{buzzword}' is too generic for --apply.")
+                print(f"This would create low-signal wikilinks and pollute the graph.")
+                print(f"Use a specific named technology/material/company instead.")
+                print(f"Examples: {GENERIC_BIZWORDS_EXAMPLES}")
+                print(f"Override only if intentional: --force")
+                sys.exit(2)
         bare_count = sum(r["bare"] for r in results)
         if bare_count > 0:
             applied = apply_wikilinks(results, buzzword)
