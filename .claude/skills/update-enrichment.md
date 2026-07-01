@@ -1,61 +1,77 @@
 ---
-name: update-enrichment
-description: Update business descriptions, supply chain, and customer/supplier sections for ticker reports
-user_invocable: true
+name: tw-coverage-update-enrichment
+description: 更新現有個股報告的業務簡介、供應鏈、客戶供應商內容（保留財務數據）
+deprecated: true
+absorbed_into: my-tw-coverage
 ---
 
-# Update Enrichment
+# 更新個股報告內容
 
-Re-research and update the enrichment content (業務簡介, 供應鏈位置, 主要客戶及供應商) for existing ticker reports. Financial tables are preserved.
+重新研究並更新現有報告的業務簡介、供應鏈位置、主要客戶及供應商。財務數據不變。
 
-## Usage
+## 前置條件
 
-- `/update-enrichment 2330` — single ticker
-- `/update-enrichment 2330 2317 3034` — multiple tickers
-- `/update-enrichment --batch 101` — all tickers in a batch
-- `/update-enrichment --sector Semiconductors` — entire sector folder
-- `/update-enrichment` — all tickers (will ask for confirmation first)
+專案路徑：`/home/jyw-debian/My-TW-Coverage`
+虛擬環境：`source /home/jyw-debian/My-TW-Coverage/venv/bin/activate`
 
-## Instructions
+## 使用方式
 
-### Step 1: Identify targets
+- `update-enrichment 2330` — 單個
+- `update-enrichment 2330 2317 3034` — 多個
+- `update-enrichment --batch 101` — 整批
+- `update-enrichment --sector Semiconductors` — 整產業
+- `update-enrichment` — 全部（需確認）
 
-Parse the user's scope from their message. If scope is "all" or very large (>50 tickers), ask for confirmation.
+## 執行步驟
 
-### Step 2: Research
+### Step 1: 確認範圍
 
-For each ticker in scope:
-1. Read the current file to understand existing content
-2. Web search: `[Ticker] 法說會`, `[Ticker] 年報 主要客戶`, `[Company] supplier customer`
-3. **VERIFY**: company name in filename matches research (Golden Rule #2)
-4. Prepare enrichment with:
-   - `desc`: Traditional Chinese business description with [[wikilinks]] for companies, technologies, and materials
-   - `supply_chain`: Segmented upstream/midstream/downstream with specific names
-   - `cust`: Customers and suppliers by business segment with specific names
+解析使用者指定的範圍。如果範圍太大（>50 檔），先問確認。
 
-### Step 3: Apply
+### Step 2: 研究
 
-Write enrichment data as a JSON file, then run:
+對每個標的：
+1. 讀取現有檔案內容
+2. 網路搜尋：`[代號] 法說會`、`[代號] 年報 主要客戶`、`[公司名] supplier customer`
+3. **驗證**：檔名公司名是否一致（Golden Rule #2 — 檔名是 ground truth）
+4. 準備 enrichment：
+   - `desc`: 繁體中文業務描述，含 [[wikilinks]]，**標註來源**（如「根據 2026 Q1 法說會...」、「2025 年報披露...」）
+   - `supply_chain`: 分段上下游，含具體名稱
+   - `cust`: 按業務部門的客戶與供應商
 
+### Step 3: 套用
+
+寫 JSON 檔後執行：
 ```bash
-cd "f:\My TW Coverage" && python scripts/update_enrichment.py --data enrichment.json [scope]
+cd /home/jyw-debian/My-TW-Coverage && source venv/bin/activate && python scripts/update_enrichment.py --data enrichment.json [範圍]
 ```
 
-Scope options: `2330`, `2330 2317`, `--batch 101`, `--sector Semiconductors`, or omit for all entries in JSON.
+範圍選項：`2330`、`2330 2317`、`--batch 101`、`--sector Semiconductors`，或省略 JSON 內所有項目。
 
-### Step 4: Audit
+### Step 4: 稽核
 
 ```bash
 python scripts/audit_batch.py <batch> -v
 ```
 
-Verify all targets pass (8+ wikilinks, no generics, no placeholders, no English).
+確認全部通過（8+ wikilinks、無通用詞、無佔位符、無英文）。
 
-### Quality Rules (from CLAUDE.md)
+### Step 5: 重建索引
 
-- Every `[[wikilink]]` must be a specific proper noun
-- Minimum 8 wikilinks per file
-- Technology/material wikilinks equally important: `[[CoWoS]]`, `[[HBM]]`, `[[光阻液]]`, `[[碳化矽]]`
-- NO generic words inside brackets: 供應商, 客戶, 大廠, 企業
-- All content in Traditional Chinese
-- Supply chain must be segmented by category, not single-line stubs
+只要這次更新有新增或修改 wikilink（幾乎每次都會），執行：
+
+```bash
+cd /home/jyw-debian/My-TW-Coverage && source venv/bin/activate && python scripts/build_wikilink_index.py
+```
+
+避免 `WIKILINKS.md`、`network/index.html`、`themes/` 跟報告內容脫節。
+
+## 品質規則
+
+- 每個 `[[wikilink]]` 必須是具體專有名詞
+- 每檔至少 8 個 wikilinks
+- 科技/材料 wikilinks 同等重要：`[[CoWoS]]`、`[[HBM]]`、`[[光阻液]]`、`[[碳化矽]]`
+- **禁用通用詞**（禁止放在 `[[...]]` 內）：大廠、供應商、客戶、廠商、原廠、經銷商、製造商、業者、企業、公司
+- 全部繁體中文
+- 供應鏈要分段，不能單行
+- 檔名是公司身份 ground truth，絕不能寫錯檔案

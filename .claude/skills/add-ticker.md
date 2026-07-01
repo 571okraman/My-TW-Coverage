@@ -1,58 +1,81 @@
 ---
-name: add-ticker
-description: Add a new ticker to the coverage database with financials and enrichment
-user_invocable: true
+name: tw-coverage-add-ticker
+description: 新增台股公司到 My-TW-Coverage 資料庫，生成報告並 AI 研究補充內容
+deprecated: true
+absorbed_into: my-tw-coverage
 ---
 
-# Add Ticker
+# 新增台股公司報告
 
-Add a new Taiwan-listed company to the coverage database. Generates the .md report file with financials, then researches and enriches it.
+將一家台灣上市公司加入資料庫，生成 .md 報告檔並補充業務內容。
 
-## Usage
+## 前置條件
 
-- `/add-ticker 2330 台積電` — auto-detect sector from yfinance
-- `/add-ticker 2330 台積電 --sector Semiconductors` — specify sector
+專案路徑：`/home/jyw-debian/My-TW-Coverage`
+虛擬環境：`source /home/jyw-debian/My-TW-Coverage/venv/bin/activate`
 
-## Instructions
+## 使用方式
 
-### Step 1: Generate the base file
+- `add-ticker 2330 台積電` — 自動偵測產業
+- `add-ticker 2330 台積電 --sector Semiconductors` — 指定產業
+
+## 執行步驟
+
+### Step 1: 生成基礎報告
 
 ```bash
-cd "f:\My TW Coverage" && python scripts/add_ticker.py <ticker> <name> [--sector <sector>]
+cd /home/jyw-debian/My-TW-Coverage && source venv/bin/activate && python scripts/add_ticker.py <代號> <公司名> [--sector <產業>]
 ```
 
-This creates the .md file with metadata + financials from yfinance and placeholder enrichment sections.
+會生成 .md 檔，包含 yfinance 財務數據 + 佔位符 enrichment 區塊。
 
-### Step 2: Research and enrich
+### Step 2: AI 研究與補充
 
-After generating, research the company:
-1. Web search: `[Ticker] 法說會`, `[Ticker] 年報 主要客戶`, `[Company] supplier customer`
-2. **VERIFY**: the company name from filename matches your research (CLAUDE.md Golden Rule #2)
-3. Write enrichment data as JSON:
-
+1. 網路搜尋：`[代號] 法說會`、`[代號] 年報 主要客戶`、`[公司名] supplier customer`
+2. **驗證**：檔名公司名是否與研究一致（Golden Rule #2 — 檔名是 ground truth）
+3. 準備 JSON 格式的 enrichment 數據：
 ```json
 {
-  "XXXX": {
-    "desc": "Traditional Chinese description with [[wikilinks]]...",
+  "2330": {
+    "desc": "繁體中文描述，含 [[wikilinks]]，**標註來源**（如「根據 2026 Q1 法說會...」、「2025 年報披露...」）...",
     "supply_chain": "**上游:**\n- ...\n**中游:**\n- ...\n**下游:**\n- ...",
     "cust": "### 主要客戶\n- ...\n\n### 主要供應商\n- ..."
   }
 }
 ```
-
-4. Save to a temp file and apply:
+4. 儲存為 temp 檔並套用：
 ```bash
-python scripts/update_enrichment.py --data /tmp/enrich.json <ticker>
+python scripts/update_enrichment.py --data /tmp/enrich.json <代號>
 ```
 
-### Step 3: Audit
+### Step 3: 品質稽核
 
 ```bash
-python scripts/audit_batch.py --all -v 2>&1 | grep <ticker>
+python scripts/audit_batch.py --all -v 2>&1 | grep <代號>
 ```
 
-Or just read the file and verify it meets Golden Rules (8+ wikilinks, no generics, no English).
+或讀取檔案確認符合 Golden Rules（8+ wikilinks、無通用詞、無英文）。
 
-### Step 4: Add to task.md if applicable
+### Step 4: 重建索引
 
-If the ticker belongs to an existing batch, add it. Otherwise note it as a standalone addition.
+寫入新公司的 wikilinks 後，索引必須跟著更新：
+
+```bash
+cd /home/jyw-debian/My-TW-Coverage && source venv/bin/activate && python scripts/build_wikilink_index.py
+```
+
+確認 `WIKILINKS.md` 已包含新公司。
+
+### Step 5: 加入 task.md
+
+如果屬於現有 batch 就加入，否則標記為獨立新增。
+
+## 品質規則
+
+- 每個 `[[wikilink]]` 必須是具體專有名詞
+- 每檔至少 8 個 wikilinks
+- 科技/材料 wikilinks 與公司同等重要：`[[CoWoS]]`、`[[HBM]]`、`[[光阻液]]`
+- **禁用通用詞**：大廠、供應商、客戶、廠商、原廠、經銷商、製造商、業者、企業、公司
+- 全部繁體中文
+- 供應鏈要分段，不能單行
+- 檔名是公司身份 ground truth，絕不能寫錯檔案
