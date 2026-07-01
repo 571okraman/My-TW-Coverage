@@ -31,9 +31,34 @@ import os
 import re
 import sys
 import json
+from datetime import date
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from utils import find_ticker_files, parse_scope_args, PROJECT_ROOT, normalize_wikilinks
+
+
+def build_research_sources_section(data):
+    """Build the ## 研究來源 section from enrichment data sources."""
+    updated_at = data.get("updated_at") or date.today().isoformat()
+    sources = data.get("sources") or []
+
+    lines = ["## 研究來源", f"**內容更新日期:** {updated_at}", ""]
+
+    if sources:
+        for s in sources:
+            title = s.get("title", "未命名來源")
+            url = s.get("url", "")
+            typ = s.get("type", "source")
+            src_date = s.get("date", "")
+            label = f"{typ}, {src_date}".strip(", ")
+            if url:
+                lines.append(f"- [{title}]({url}) — {label}")
+            else:
+                lines.append(f"- {title} — {label}")
+    else:
+        lines.append("- ⚠️ 待補")
+
+    return "\n".join(lines) + "\n"
 
 
 def replace_section(content, pattern, repl, ticker, section_name):
@@ -95,6 +120,37 @@ def apply_enrichment(filepath, ticker, data):
             ticker,
             "主要客戶及供應商",
         )
+
+    # Insert/update 研究來源 section before 財務概況
+    research_section = build_research_sources_section(data)
+
+    # Check if 研究來源 already exists in the file
+    if "## 研究來源" in content:
+        # Replace entire 研究來源 block: from ## 研究來源 through to ## 財務概況
+        # (this handles both single and stale duplicate blocks)
+        content, n = re.subn(
+            r"(## 研究來源\n).*?(?=\n## 財務概況)",
+            research_section,
+            content,
+            count=1,
+            flags=re.DOTALL,
+        )
+        if n != 1:
+            raise ValueError(
+                f"{ticker}: failed to update 研究來源; expected 1 match, got {n}"
+            )
+    else:
+        # Insert 研究來源 before 財務概況
+        content, n = re.subn(
+            r"(## 財務概況)",
+            research_section + r"\1",
+            content,
+            count=1,
+        )
+        if n != 1:
+            raise ValueError(
+                f"{ticker}: 財務概況 section not found for research sources insertion"
+            )
 
     # Normalize wikilinks: standardize aliases, collapse duplicates
     content = normalize_wikilinks(content)
