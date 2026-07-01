@@ -277,6 +277,28 @@ The database contains **4,900+ unique wikilinks** across three categories:
 │   └── ... (20 themes)
 ```
 
+
+### Signal / Follow-up Layer (new in PS-20260701-004)
+
+```
+├── data/
+│   └── signals.sqlite              # local operational state DB
+├── signals/
+│   ├── README.md                   # workflow / schema 說明
+│   ├── exports/                    # signal / follow-up human-readable exports
+│   ├── watchlist.md                # generated watchlist summary
+│   └── weekly_digest/              # generated weekly summaries
+├── scripts/
+│   ├── init_signal_db.py           # create / migrate SQLite schema
+│   └── ...
+├── migrations/
+│   └── 001_signal_followup_schema.sql
+```
+
+Signal layer = thin trigger layer: News/Events → Signal → Follow-up → Watchlist.
+SQLite stores state, Markdown stores review output.
+See `signals/README.md` for full workflow.
+
 ## Quality Standards
 
 Every report is validated against 8 quality rules (defined in `CLAUDE.md`):

@@ -9,3 +9,10 @@ venv/
 _temp_fix_*.py
 enrichment*.json
 .claude/settings.local.json
+
+# Signal layer runtime artifacts
+*.sqlite-wal
+*.sqlite-shm
+
+# SQLite runtime DB
+data/signals.sqlite
