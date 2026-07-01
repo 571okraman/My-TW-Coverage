@@ -1,0 +1,85 @@
+[
+  {
+    "title": "NVIDIA new platform increases HBM demand",
+    "summary": "NVIDIA announced a new AI platform that significantly increases HBM3E memory demand per GPU, driving tighter supply for HBM capacity.",
+    "trigger_type": "supply_demand_imbalance",
+    "event_date": "2026-07-01",
+    "sources": [
+      {
+        "url": "https://nvidianews.com/new-ai-platform-2026",
+        "title": "NVIDIA Unveils Next-Gen AI Platform",
+        "publisher": "NVIDIA Newsroom",
+        "source_type": "company_disclosure",
+        "trust_level": "high",
+        "published_at": "2026-07-01T09:00:00Z"
+      }
+    ],
+    "topics": ["HBM", "CoWoS", "NVIDIA", "AI server"],
+    "tickers": [
+      {"ticker": "2330", "company_name": "台積電", "exposure_reason": "CoWoS-L 封裝供應商"},
+      {"ticker": "3711", "company_name": "日月光", "exposure_reason": "HBM 記憶體測試與研磨設備"}
+    ]
+  },
+  {
+    "title": "Taiwan government announces new semiconductor subsidy program",
+    "summary": "The Ministry of Economic Affairs announced a NT$300B subsidy program for advanced packaging and semiconductor manufacturing equipment over the next 5 years.",
+    "trigger_type": "policy_regulation",
+    "event_date": "2026-06-28",
+    "sources": [
+      {
+        "url": "https://www.moea.gov.tw/news/semiconductor-subsidy-2026",
+        "title": "經濟部宣布半導體補助計畫",
+        "publisher": "經濟部",
+        "source_type": "government",
+        "trust_level": "high",
+        "published_at": "2026-06-28T10:30:00Z"
+      }
+    ],
+    "topics": ["半導體補助", "先進封裝", "設備本土化"],
+    "tickers": [
+      {"ticker": "2330", "company_name": "台積電", "exposure_reason": "封裝補助受惠者"},
+      {"ticker": "8064", "company_name": "正崴", "exposure_reason": "設備補助受惠者"}
+    ]
+  },
+  {
+    "title": "TSMC July 2026 monthly revenue exceeds market consensus by 15%",
+    "summary": "TSMC reported July 2026 revenue of NT$280B, exceeding consensus estimates of NT$243B by 15%, driven by strong 3nm and CoWoS ramp.",
+    "trigger_type": "financial_inflection",
+    "event_date": "2026-07-01",
+    "sources": [
+      {
+        "url": "https://mops.twse.com.tw/tsmc-202607-revenue",
+        "title": "TSMC July 2026 Revenue Report",
+        "publisher": "TWSE",
+        "source_type": "exchange",
+        "trust_level": "high",
+        "published_at": "2026-07-01T16:00:00Z"
+      }
+    ],
+    "topics": ["月營收", "3nm", "CoWoS", "組合民"],
+    "tickers": [
+      {"ticker": "2330", "company_name": "台積電", "exposure_reason": "直接關聯"}
+    ]
+  },
+  {
+    "title": "Samsung reportedly developing custom HBM for NVIDIA next-gen GPUs",
+    "summary": "Industry sources suggest Samsung is developing custom HBM4 memory tailored for NVIDIA's next-gen Rubin architecture, potentially disrupting the TSMC/CoWoS supply chain.",
+    "trigger_type": "tech_shift",
+    "event_date": "2026-06-30",
+    "sources": [
+      {
+        "url": "https://semianalysis.com/samsung-hbm-nvidia-2026",
+        "title": "Samsung HBM4 Custom for NVIDIA Rubin",
+        "publisher": "SemiAnalysis",
+        "source_type": "report",
+        "trust_level": "medium",
+        "published_at": "2026-06-30T14:00:00Z"
+      }
+    ],
+    "topics": ["HBM4", "NVIDIA", "Samsung", "封裝錯位"],
+    "tickers": [
+      {"ticker": "2330", "company_name": "台積電", "exposure_reason": "CoWoS 替代風險"},
+      {"ticker": "3711", "company_name": "日月光", "exposure_reason": "HBM 供應錯位"}
+    ]
+  }
+]
