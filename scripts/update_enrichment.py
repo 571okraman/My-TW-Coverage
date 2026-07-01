@@ -36,8 +36,22 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from utils import find_ticker_files, parse_scope_args, PROJECT_ROOT, normalize_wikilinks
 
 
+def replace_section(content, pattern, repl, ticker, section_name):
+    """Replace exactly once; hard-fail if pattern doesn't match exactly once."""
+    new_content, n = re.subn(pattern, repl, content, flags=re.DOTALL)
+    if n != 1:
+        raise ValueError(
+            f"{ticker}: failed to replace {section_name}; "
+            f"expected 1 match, got {n}"
+        )
+    return new_content
+
+
 def apply_enrichment(filepath, ticker, data):
-    """Apply enrichment data to a single file. Preserves metadata and financials."""
+    """Apply enrichment data to a single file. Preserves metadata and financials.
+    
+    Raises ValueError if any required section replacement fails.
+    """
     with open(filepath, "r", encoding="utf-8") as f:
         content = f.read()
 
@@ -52,31 +66,34 @@ def apply_enrichment(filepath, ticker, data):
     if "desc" in data:
         def repl_desc(m):
             return f"{m.group(1)}{data['desc']}\n"
-        content = re.sub(
+        content = replace_section(
+            content,
             r"(## 業務簡介\n(?:.*?企業價值:.*?\n\n|))(.*?)(?=\n## 供應鏈位置)",
             repl_desc,
-            content,
-            flags=re.DOTALL,
+            ticker,
+            "業務簡介",
         )
 
     # Replace supply chain section
     if "supply_chain" in data:
         sc = data["supply_chain"] + "\n"
-        content = re.sub(
+        content = replace_section(
+            content,
             r"(## 供應鏈位置\n)(.*?)(?=\n## 主要客戶及供應商)",
             rf"\g<1>{sc}",
-            content,
-            flags=re.DOTALL,
+            ticker,
+            "供應鏈位置",
         )
 
     # Replace customers/suppliers section
     if "cust" in data:
         ct = data["cust"] + "\n"
-        content = re.sub(
+        content = replace_section(
+            content,
             r"(## 主要客戶及供應商\n)(.*?)(?=\n## 財務概況)",
             rf"\g<1>{ct}",
-            content,
-            flags=re.DOTALL,
+            ticker,
+            "主要客戶及供應商",
         )
 
     # Normalize wikilinks: standardize aliases, collapse duplicates
@@ -140,15 +157,22 @@ def main():
         print("No matching files found.")
         return
 
-    enriched = skipped = 0
+    enriched = skipped = failed = 0
     for ticker in sorted(files.keys()):
         if ticker in enrichment_data:
-            apply_enrichment(files[ticker], ticker, enrichment_data[ticker])
-            enriched += 1
+            try:
+                apply_enrichment(files[ticker], ticker, enrichment_data[ticker])
+                enriched += 1
+            except Exception as e:
+                failed += 1
+                print(f"  {ticker}: FAILED ({e})")
         else:
             skipped += 1
 
-    print(f"\nDone. Enriched: {enriched} | Skipped: {skipped}")
+    print(f"\nDone. Enriched: {enriched} | Skipped: {skipped} | Failed: {failed}")
+
+    if failed:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
