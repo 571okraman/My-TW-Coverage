@@ -1,0 +1,180 @@
+# My-TW-Coverage — Signal Layer source registry (v1)
+# Spec: PS-20260701-002-T07 §2.1（2026-07-02 收斂）
+#
+# Source policy:
+#   1. news tier 的數字不當硬事實，必須 cross-check 官源後才採用（對齊 F5）。
+#   2. 市場資料類（價量 / 融資券 / 法人）為全量 time-series，不逐筆產 signal；
+#      只有異常 flag（創新高 / 連 N 月成長 / 法人異常買賣超）才建 signal，維持 thin trigger 邊界。
+#   3. tier 對齊 trust hierarchy：government / company_disclosure / exchange > news > social。
+#   4. access: free / paid — 之後回測只允許官方 free / paid 源，registry 層直接過濾。
+#
+# 欄位: name / category / tier / url / cadence / access（+ 選填 notes / alt_urls）
+
+sources:
+  # ── 政策 / 法規 ──────────────────────────────
+  - name: 經濟部產業發展署 — 產業政策公告
+    category: policy_regulation
+    tier: government
+    url: https://www.ida.gov.tw/ctlr?PRO=policy.rwdPolicyAllList
+    cadence: irregular
+    access: free
+    notes: 補助方案 / 產業政策公告
+
+  - name: 國科會 — 計畫徵求專區
+    category: policy_regulation
+    tier: government
+    url: https://www.nstc.gov.tw/folksonomy/rfpList?l=ch
+    cadence: irregular
+    access: free
+    notes: 補助徵案 / 專題研究計畫
+
+  - name: 金管會官網
+    category: policy_regulation
+    tier: government
+    url: https://www.fsc.gov.tw
+    cadence: irregular
+    access: free
+    notes: 金融監理政策 / 法規命令
+
+  - name: 全國法規資料庫
+    category: policy_regulation
+    tier: government
+    url: https://law.moj.gov.tw
+    cadence: event_driven
+    access: free
+    notes: 公告指向的實際條文作事實底稿
+
+  # ── 公司 / 交易所 ────────────────────────────
+  - name: MOPS 公開資訊觀測站 — 重大訊息
+    category: company_disclosure
+    tier: company_disclosure
+    url: https://mops.twse.com.tw
+    cadence: daily
+    access: free
+
+  - name: MOPS — 月營收公告
+    category: company_disclosure
+    tier: company_disclosure
+    url: https://mops.twse.com.tw
+    cadence: monthly
+    access: free
+
+  - name: MOPS — 法說會公告
+    category: company_disclosure
+    tier: company_disclosure
+    url: https://mops.twse.com.tw
+    cadence: irregular
+    access: free
+
+  - name: 上市公司每月營業收入彙總表（政府開放資料）
+    category: company_disclosure
+    tier: government
+    url: https://data.gov.tw/dataset/18420
+    cadence: monthly
+    access: free
+    notes: 機器可讀、政府開放授權；⚠️ dataset id 開工時再確認一次
+
+  - name: 上市公司基本資料（政府開放資料）
+    category: company_disclosure
+    tier: government
+    url: https://data.gov.tw/dataset/18419
+    cadence: low_freq
+    access: free
+    notes: ticker ↔ 公司名 mapping 用；⚠️ dataset id 開工時再確認一次
+
+  # ── 市場資料 ────────────────────────────────
+  - name: TWSE OpenAPI — 個股日成交
+    category: market_data
+    tier: exchange
+    url: https://openapi.twse.com.tw
+    cadence: daily
+    access: free
+
+  - name: TPEx open data — 上櫃個股價量
+    category: market_data
+    tier: exchange
+    url: https://www.tpex.org.tw/openapi/
+    cadence: daily
+    access: free
+
+  - name: TPEx open data — 上櫃融資融券餘額
+    category: market_data
+    tier: exchange
+    url: https://data.gov.tw/dataset/11387
+    cadence: daily
+    access: free
+
+  - name: TPEx open data — 上櫃三大法人買賣明細
+    category: market_data
+    tier: exchange
+    url: https://data.nat.gov.tw/dataset/11856
+    cadence: daily
+    access: free
+
+  - name: TWSE — 融資融券餘額概況表
+    category: market_data
+    tier: exchange
+    url: https://www.twse.com.tw/zh/trading/margin/mi-margn.html
+    cadence: monthly
+    access: free
+    notes: ⚠️ 月度粒度，不得偽裝日級資料
+
+  - name: TWSE — 上市三大法人買賣超日報（T86）
+    category: market_data
+    tier: exchange
+    url: https://www.twse.com.tw/zh/trading/foreign/t86.html
+    url_template: "https://www.twse.com.tw/rwd/zh/fund/T86?date=YYYYMMDD&selectType=ALLBUT0999&response=json"
+    cadence: daily
+    access: free
+    notes: legacy JSON（非 OpenAPI Swagger）；注意請求頻率限制；Data E-Shop（paid）僅作批次檔 fallback
+
+  # ── 技術 / 專利 / 論文 ───────────────────────
+  - name: TIPO — 專利公報 / 公開資訊查詢
+    category: tech_patent_paper
+    tier: government
+    url: https://cloud.tipo.gov.tw/S220/gazette/patent
+    cadence: periodic
+    access: free
+
+  - name: 國際專利庫（USPTO / Espacenet / WIPO PATENTSCOPE）
+    category: tech_patent_paper
+    tier: government
+    url: https://worldwide.espacenet.com
+    cadence: event_driven
+    access: free
+    alt_urls:
+      - https://www.uspto.gov
+      - https://patentscope.wipo.int
+    notes: TIPO 白名單國際源
+
+  - name: arXiv（cs.LG / cs.CL / cs.AI 等）
+    category: tech_patent_paper
+    tier: paper
+    url: https://arxiv.org
+    cadence: daily
+    access: free
+    notes: 可借力本地 arXiv MCP（arxiv_index_search / arxiv_get_fulltext）
+
+  - name: 頂會論文庫（NeurIPS / ICML / ICLR 等）
+    category: tech_patent_paper
+    tier: paper
+    url: https://openreview.net
+    cadence: conference_driven
+    access: free
+
+  # ── 產業新聞 ────────────────────────────────
+  - name: DIGITIMES 產業資訊網
+    category: industry_news
+    tier: news
+    url: https://www.digitimes.com.tw
+    cadence: daily
+    access: free
+    notes: 解讀層；數字須 cross-check 官源
+
+  - name: 經濟日報 — 產業版 / 科技產業 tag
+    category: industry_news
+    tier: news
+    url: https://money.udn.com/industry/index
+    cadence: daily
+    access: free
+    notes: 解讀層；數字須 cross-check 官源

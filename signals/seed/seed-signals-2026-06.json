@@ -1,0 +1,393 @@
+[
+  {
+    "title": "TSMC CoWoS 供需缺口自 20% 收斂至 10%，2026 年底月產能上看 12~14 萬片",
+    "summary": "TrendForce 引述報導：台積電加速與 OSAT 夥伴擴建 CoWoS 產能，2026 年供需缺口預期由 20% 收斂至 10%，台積電月產能 2026 年可達 12~14 萬片，加計 OSAT 夥伴 5~6 萬片，產業總產能逼近每月 20 萬片；2.5D 封裝短缺預計 2027 年開始緩解。",
+    "trigger_type": "supply_demand_imbalance",
+    "event_date": "2026-06-15",
+    "sources": [
+      {
+        "url": "https://www.trendforce.com/news/2026/06/15/news-tsmc-cowos-supply-demand-gap-reportedly-seen-narrowing-from-20-to-10-by-end-2026-as-capacity-expands/",
+        "title": "TSMC CoWoS Supply-Demand Gap Reportedly Seen Narrowing from 20% to 10% by End-2026",
+        "publisher": "TrendForce",
+        "source_type": "report",
+        "trust_level": "medium",
+        "published_at": "2026-06-15T00:00:00+08:00"
+      },
+      {
+        "url": "https://money.udn.com/money/story/5612/9566295",
+        "title": "台積電衝先進封裝揪伴擴產 今年CoWoS產能缺口有望收斂至一成",
+        "publisher": "經濟日報",
+        "source_type": "news",
+        "trust_level": "medium",
+        "published_at": "2026-06-15T00:00:00+08:00"
+      }
+    ],
+    "topics": [
+      "CoWoS",
+      "先進封裝",
+      "AI GPU",
+      "OSAT"
+    ],
+    "tickers": [
+      {
+        "ticker": "2330",
+        "company_name": "台積電",
+        "exposure_reason": "CoWoS 產能主體，缺口收斂直接影響 AI 晶片出貨"
+      },
+      {
+        "ticker": "3711",
+        "company_name": "日月光投控",
+        "exposure_reason": "OSAT 外溢產能承接者（oS 委外核心夥伴）"
+      }
+    ]
+  },
+  {
+    "title": "NVIDIA Vera Rubin 平台進入全面量產，H2 2026 由夥伴出貨",
+    "summary": "NVIDIA 官方宣布 Rubin 平台（六顆新晶片）全面量產，Rubin 產品 2026 下半年由夥伴供貨；首批雲端部署包含 AWS、Google Cloud、Microsoft、OCI、CoreWeave 等。對 Blackwell 相比宣稱推理 token 成本降至 1/10。第三方整理指出全面量產時點為 2026-06-01。",
+    "trigger_type": "anchor_customer_roadmap",
+    "event_date": "2026-06-01",
+    "sources": [
+      {
+        "url": "https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer",
+        "title": "NVIDIA Kicks Off the Next Generation of AI With Rubin",
+        "publisher": "NVIDIA Newsroom",
+        "source_type": "company_disclosure",
+        "trust_level": "high",
+        "published_at": "2026-06-01T00:00:00Z"
+      }
+    ],
+    "topics": [
+      "Rubin",
+      "HBM4",
+      "NVL144",
+      "AI server"
+    ],
+    "tickers": [
+      {
+        "ticker": "2330",
+        "company_name": "台積電",
+        "exposure_reason": "Rubin GPU 先進製程 + CoWoS-L 封裝供應商"
+      },
+      {
+        "ticker": "2317",
+        "company_name": "鴻海",
+        "exposure_reason": "Vera Rubin rack 級系統組裝"
+      },
+      {
+        "ticker": "2382",
+        "company_name": "廣達",
+        "exposure_reason": "AI server ODM 主力供應商"
+      }
+    ]
+  },
+  {
+    "title": "黃仁勳：Rubin 供應鏈夥伴數為 Blackwell 兩倍，台灣即佔 150 家、年採購上看 1,500 億美元",
+    "summary": "Computex 2026 期間黃仁勳於台北表示，Vera Rubin 供應鏈夥伴數量為 Blackwell 世代的兩倍，其中台灣佔 150 家；NVIDIA 每年對台灣供應商支出高達 1,500 億美元（引述 Nikkei Asia）。",
+    "trigger_type": "anchor_customer_roadmap",
+    "event_date": "2026-06-03",
+    "sources": [
+      {
+        "url": "https://dominotheory.com/taiwan-tech-update-june-3-2026/",
+        "title": "Taiwan Tech Update: June 3, 2026",
+        "publisher": "Domino Theory",
+        "source_type": "news",
+        "trust_level": "medium",
+        "published_at": "2026-06-03T00:00:00+08:00"
+      },
+      {
+        "url": "https://asia.nikkei.com/business/technology/artificial-intelligence/nvidia-spending-up-to-150bn-a-year-on-taiwan-ai-suppliers-jensen-huang",
+        "title": "Nvidia spending up to $150bn a year on Taiwan AI suppliers: Jensen Huang",
+        "publisher": "Nikkei Asia",
+        "source_type": "news",
+        "trust_level": "medium",
+        "published_at": "2026-06-03T00:00:00+08:00"
+      }
+    ],
+    "topics": [
+      "NVIDIA",
+      "Rubin",
+      "台灣供應鏈",
+      "Computex 2026"
+    ],
+    "tickers": [
+      {
+        "ticker": "2330",
+        "company_name": "台積電",
+        "exposure_reason": "NVIDIA 最大代工與封裝供應商"
+      },
+      {
+        "ticker": "2382",
+        "company_name": "廣達",
+        "exposure_reason": "NVIDIA AI server 主力 ODM"
+      },
+      {
+        "ticker": "3231",
+        "company_name": "緯創",
+        "exposure_reason": "NVIDIA AI server ODM／板卡供應"
+      }
+    ]
+  },
+  {
+    "title": "台灣外銷訂單創新高，AI server 需求推升 2026 年出口規模朝 1 兆美元",
+    "summary": "DIGITIMES 報導台灣外銷訂單創歷史新高，AI server 需求為主要推力，2026 年出口規模朝 1 兆美元邁進（付費牆，標題與導言可見；金額細節待驗證）。",
+    "trigger_type": "financial_inflection",
+    "event_date": "2026-06-24",
+    "sources": [
+      {
+        "url": "https://www.digitimes.com/news/a20260624PD208/taiwan-2026-ai-server-demand-production.html",
+        "title": "Taiwan export orders hit record as AI server demand pushes 2026 toward US$1 trillion",
+        "publisher": "DIGITIMES",
+        "source_type": "news",
+        "trust_level": "medium",
+        "published_at": "2026-06-24T00:00:00+08:00"
+      }
+    ],
+    "topics": [
+      "外銷訂單",
+      "AI server",
+      "出口"
+    ],
+    "tickers": [
+      {
+        "ticker": "2317",
+        "company_name": "鴻海",
+        "exposure_reason": "AI server 出貨最大宗"
+      },
+      {
+        "ticker": "2382",
+        "company_name": "廣達",
+        "exposure_reason": "AI server ODM 出口主力"
+      },
+      {
+        "ticker": "3231",
+        "company_name": "緯創",
+        "exposure_reason": "AI server ODM 出口主力"
+      }
+    ]
+  },
+  {
+    "title": "AI server 需求推升 MLCC 價格大幅上漲",
+    "summary": "DIGITIMES 報導 AI server 需求帶動 MLCC 價格大幅調漲（sharp price increases）；與記憶體、LFP 成本上升同週出現，屬 AI 基建對被動元件供應鏈的外溢緊縮（細節在付費牆內，漲幅數字待驗證）。",
+    "trigger_type": "supply_demand_imbalance",
+    "event_date": "2026-06-24",
+    "sources": [
+      {
+        "url": "https://www.digitimes.com/news/a20260624PD208/taiwan-2026-ai-server-demand-production.html",
+        "title": "AI server demand drives sharp MLCC price increases",
+        "publisher": "DIGITIMES",
+        "source_type": "news",
+        "trust_level": "medium",
+        "published_at": "2026-06-24T00:00:00+08:00"
+      }
+    ],
+    "topics": [
+      "MLCC",
+      "被動元件",
+      "AI server"
+    ],
+    "tickers": [
+      {
+        "ticker": "2327",
+        "company_name": "國巨",
+        "exposure_reason": "MLCC 龍頭，漲價直接受惠"
+      }
+    ]
+  },
+  {
+    "title": "台積電 3nm 交期突破一年，Samsung、Intel 競逐外溢訂單",
+    "summary": "DIGITIMES 報導 TSMC 3nm lead time 超過一年，Samsung 與 Intel 藉機競逐 foundry 訂單；IC 設計業者因封測產能持續吃緊而擴大供應商名單（付費牆，標題可見）。",
+    "trigger_type": "supply_demand_imbalance",
+    "event_date": "2026-06-24",
+    "sources": [
+      {
+        "url": "https://www.digitimes.com/news/a20260624PD208/taiwan-2026-ai-server-demand-production.html",
+        "title": "TSMC 3nm lead times top one year as Samsung faces Intel in foundry push",
+        "publisher": "DIGITIMES",
+        "source_type": "news",
+        "trust_level": "medium",
+        "published_at": "2026-06-24T00:00:00+08:00"
+      }
+    ],
+    "topics": [
+      "3nm",
+      "foundry",
+      "交期"
+    ],
+    "tickers": [
+      {
+        "ticker": "2330",
+        "company_name": "台積電",
+        "exposure_reason": "3nm 產能滿載、議價力強"
+      }
+    ]
+  },
+  {
+    "title": "南亞科 5 月營收 276.7 億元、YoY +730%，記憶體漲價循環確立",
+    "summary": "6/8 公布之 5 月營收：南亞科 276.70 億元、YoY +730.1%；旺宏 62.56 億元、YoY +175.8%（鉅亨網彙整 MOPS 申報數字）。DRAM/HBM 排擠效應與漲價循環在台系記憶體廠營收全面顯現。",
+    "trigger_type": "financial_inflection",
+    "event_date": "2026-06-08",
+    "sources": [
+      {
+        "url": "https://news.cnyes.com/news/id/6489906",
+        "title": "營收速報 - 2026年6月9日台股大型公司5月營收一覽",
+        "publisher": "鉅亨網",
+        "source_type": "news",
+        "trust_level": "medium",
+        "published_at": "2026-06-09T07:55:00+08:00"
+      }
+    ],
+    "topics": [
+      "月營收",
+      "DRAM",
+      "記憶體漲價",
+      "HBM 排擠"
+    ],
+    "tickers": [
+      {
+        "ticker": "2408",
+        "company_name": "南亞科",
+        "exposure_reason": "5 月營收 YoY +730%，漲價循環直接受惠"
+      },
+      {
+        "ticker": "2337",
+        "company_name": "旺宏",
+        "exposure_reason": "5 月營收 YoY +175.8%"
+      }
+    ]
+  },
+  {
+    "title": "金像電 5 月營收 87.73 億元、MoM +20.4%，AI PCB 動能延續",
+    "summary": "6/9 公布之 5 月營收：金像電 87.73 億元、MoM +20.4%，居當日大型公司月增率前三；AI server 用高層數 PCB 需求推升（鉅亨網彙整 MOPS 申報數字）。",
+    "trigger_type": "financial_inflection",
+    "event_date": "2026-06-09",
+    "sources": [
+      {
+        "url": "https://news.cnyes.com/news/id/6489906",
+        "title": "營收速報 - 2026年6月9日台股大型公司5月營收一覽",
+        "publisher": "鉅亨網",
+        "source_type": "news",
+        "trust_level": "medium",
+        "published_at": "2026-06-09T07:55:00+08:00"
+      }
+    ],
+    "topics": [
+      "月營收",
+      "PCB",
+      "AI server"
+    ],
+    "tickers": [
+      {
+        "ticker": "2368",
+        "company_name": "金像電",
+        "exposure_reason": "AI server PCB 主力供應商，營收月增 20.4%"
+      }
+    ]
+  },
+  {
+    "title": "外資 6 月賣超台股 1,774 億元創單月新高，新台幣重貶",
+    "summary": "新聞快訊稱外資 6 月下旬累計賣超台股達 1,774 億元、寫單月新高，同期新台幣重貶 1.26 角、爆史上第 7 大量。數字尚未經官源核對，須以 TWSE 三大法人統計（BFI82U/T86）驗證後才可引用。",
+    "trigger_type": "market_behavior_anomaly",
+    "event_date": "2026-06-25",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=KbnFJrGstkw",
+        "title": "News Brief 06/25/2026",
+        "publisher": "民視英語新聞",
+        "source_type": "news",
+        "trust_level": "low",
+        "published_at": "2026-06-25T00:00:00+08:00"
+      }
+    ],
+    "topics": [
+      "外資賣超",
+      "台股資金流",
+      "新台幣"
+    ],
+    "tickers": [
+      {
+        "ticker": "2330",
+        "company_name": "台積電",
+        "exposure_reason": "外資持股權重最高，賣超主要標的"
+      }
+    ]
+  },
+  {
+    "title": "CoWoS/SoIC 應用自 2026 年起擴散，SoIC 年底產能年增 122%、非台積電封裝體系崛起",
+    "summary": "DIGITIMES Research：2026 年起 CoWoS 與 SoIC 應用範圍從高階雲端 AI 加速器擴散至伺服器 CPU、交換器、路由器與邊緣 AI 晶片；台積電 SoIC 產能 2026 年底年增 122% 至 2 萬片。同時非台積電體系（日月光 FoCoS、Amkor S-SWIFT/亞利桑那廠、Intel EMIB/Foveros）在地緣分散需求下崛起，先進封裝走向多軌並行。",
+    "trigger_type": "supply_chain_reshuffling",
+    "event_date": "2026-06-09",
+    "sources": [
+      {
+        "url": "https://www.digitimes.com.tw/research/report/?cnlid=3&v=20260609-170&n=1",
+        "title": "CoWoS與SoIC共構台積電先進封裝護城河",
+        "publisher": "DIGITIMES Research",
+        "source_type": "report",
+        "trust_level": "medium",
+        "published_at": "2026-06-09T00:00:00+08:00"
+      }
+    ],
+    "topics": [
+      "SoIC",
+      "CoWoS",
+      "先進封裝",
+      "供應鏈多軌化"
+    ],
+    "tickers": [
+      {
+        "ticker": "2330",
+        "company_name": "台積電",
+        "exposure_reason": "SoIC+CoWoS 混合封裝鎖定 2nm 世代需求"
+      },
+      {
+        "ticker": "3711",
+        "company_name": "日月光投控",
+        "exposure_reason": "oS 委外核心夥伴 + 自有 FoCoS 技術"
+      }
+    ]
+  },
+  {
+    "title": "經濟部赴德招商鎖定半導體材料設備，促成 ZEISS、PVA TePla 對臺合作",
+    "summary": "經濟部政務次長江文若 6/24–26 率團赴德，拜會蔡司（ZEISS，高階光學檢測）與德芯科技（PVA TePla，SiC 長晶爐），促成半導體先進材料、在地研發與快速驗證合作對話，目標補強臺灣半導體生態系在關鍵材料與設備的缺口。",
+    "trigger_type": "policy_regulation",
+    "event_date": "2026-06-26",
+    "sources": [
+      {
+        "url": "https://www.moea.gov.tw/Mns/populace/news/News.aspx?kind=1&menu_id=40&news_id=123154",
+        "title": "經濟部赴德招商，鎖定國際供應鏈關鍵廠商",
+        "publisher": "經濟部",
+        "source_type": "government",
+        "trust_level": "high",
+        "published_at": "2026-06-27T00:00:00+08:00"
+      }
+    ],
+    "topics": [
+      "半導體設備",
+      "半導體材料",
+      "招商",
+      "SiC"
+    ],
+    "tickers": []
+  },
+  {
+    "title": "arXiv：Prefill/Decode 分相評測揭示新型 AI 加速器與 GPU 的分工優勢",
+    "summary": "IPDPS 2026 HPAI4S 錄取論文（arXiv 2606.17104）以 Llama2-7B 分相量測：GPU 在 Prefill 佔優，GroqRack 在 Decode TPOT 顯著更低，且 P/D 異質分離部署在特定負載/網路條件下有實質收益。指向 inference 基礎設施走向 prefill/decode 異質分工，影響加速器採購結構。",
+    "trigger_type": "tech_shift",
+    "event_date": "2026-06-20",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2606.17104",
+        "title": "Prefill/Decode-Aware Evaluation of LLM Inference on Emerging AI Accelerators",
+        "publisher": "arXiv",
+        "source_type": "paper",
+        "trust_level": "medium",
+        "published_at": "2026-06-20T00:00:00Z"
+      }
+    ],
+    "topics": [
+      "LLM inference",
+      "PD disaggregation",
+      "AI 加速器"
+    ],
+    "tickers": []
+  }
+]
