@@ -1,6 +1,6 @@
 # Follow-up Queue — 2026-07-02
 
-**Open items:** 32
+**Open items:** 29
 
 | ID | Type | Status | Due | Signal |
 |----|------|--------|-----|--------|
@@ -33,9 +33,6 @@
 | FU-20260702-027 | fact_check | open | 2026-07-09 | AI 排擠效應叠加代工減產，成熟製程漲價潮延續至 2027 |
 | FU-20260702-028 | exposure_check | open | 2026-07-09 | AI 排擠效應叠加代工減產，成熟製程漲價潮延續至 2027 |
 | FU-20260702-029 | financial_check | open | 2026-07-09 | AI 排擠效應叠加代工減產，成熟製程漲價潮延續至 2027 |
-| FU-20260702-030 | fact_check | open | 2026-07-09 | 台積電宣布 2026 年 Q2 月營收達 2,800 億台幣，年增 32%，3n |
-| FU-20260702-031 | financial_check | open | 2026-07-09 | 台積電宣布 2026 年 Q2 月營收達 2,800 億台幣，年增 32%，3n |
-| FU-20260702-032 | market_check | open | 2026-07-09 | 台積電宣布 2026 年 Q2 月營收達 2,800 億台幣，年增 32%，3n |
 
 ---
 
@@ -355,39 +352,6 @@
 - **Due:** 2026-07-09
 - **Question:** Do monthly revenue / margin / backlog reflect this?
 - **Signal:** AI 排擠效應叠加代工減產，成熟製程漲價潮延續至 2027
-
----
-
-## FU-20260702-030: 台積電宣布 2026 年 Q2 月營收達 2,800 億台幣，年增 32%，3nm 與 CoWoS  - fact_check
-
-- **Type:** fact_check
-- **Status:** open
-- **Priority:** medium
-- **Due:** 2026-07-09
-- **Question:** Does the source material support the claim?
-- **Signal:** 台積電宣布 2026 年 Q2 月營收達 2,800 億台幣，年增 32%，3nm 與 CoWoS 貢獻逾 40%
-
----
-
-## FU-20260702-031: 台積電宣布 2026 年 Q2 月營收達 2,800 億台幣，年增 32%，3nm 與 CoWoS  - financial_check
-
-- **Type:** financial_check
-- **Status:** open
-- **Priority:** medium
-- **Due:** 2026-07-09
-- **Question:** Do monthly revenue / margin / backlog reflect this?
-- **Signal:** 台積電宣布 2026 年 Q2 月營收達 2,800 億台幣，年增 32%，3nm 與 CoWoS 貢獻逾 40%
-
----
-
-## FU-20260702-032: 台積電宣布 2026 年 Q2 月營收達 2,800 億台幣，年增 32%，3nm 與 CoWoS  - market_check
-
-- **Type:** market_check
-- **Status:** open
-- **Priority:** medium
-- **Due:** 2026-07-09
-- **Question:** Has the market already priced this in?
-- **Signal:** 台積電宣布 2026 年 Q2 月營收達 2,800 億台幣，年增 32%，3nm 與 CoWoS 貢獻逾 40%
 
 ---
 
