@@ -1,0 +1,20 @@
+[
+  {
+    "source": "TWSE T187AP05",
+    "market": "上市",
+    "date": "2026-06-01",
+    "period": "2026-06",
+    "partial_failure": true,
+    "count": 0,
+    "records": []
+  },
+  {
+    "source": "TPEx T187AP05",
+    "market": "上櫃",
+    "date": "2026-06-01",
+    "period": "2026-06",
+    "partial_failure": true,
+    "count": 0,
+    "records": []
+  }
+]

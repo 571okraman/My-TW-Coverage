@@ -1,0 +1,45 @@
+[
+  {
+    "id": "CAND-bf1fa3c6",
+    "title": "台積電宣布 2026 年 Q2 月營收達 2,800 億台幣，年增 32%，3nm 與 CoWoS 貢獻逾 40%",
+    "summary": "台積電 2026-07-02 公布 2026 年 6 月營收 2,800 億台幣，年增 32%，創歷史新高。其中 3nm 先進製程佔比達 28%，CoWoS 先進封裝貢獻逾 40%。AI 伺服器訂單能見度達 18 個月。",
+    "trigger_type": "financial_inflection",
+    "event_date": "2026-07-02",
+    "sources": [
+      {
+        "url": "https://mops.twse.com.tw/news/2026070001",
+        "title": "台積電 6 月營收出爐，單月新高 2,800 億",
+        "publisher": "TWSE",
+        "source_type": "exchange",
+        "trust_level": "high",
+        "published_at": "2026-07-02T16:00:00+08:00"
+      },
+      {
+        "url": "https://ir.tsmc.com/news/2026-june-revenue",
+        "title": "TSMC June 2026 Revenue Report",
+        "publisher": "TSMC IR",
+        "source_type": "company_disclosure",
+        "trust_level": "high",
+        "published_at": "2026-07-02T09:00:00+08:00"
+      }
+    ],
+    "topics": [
+      "月營收",
+      "3nm",
+      "CoWoS",
+      "AI 伺服器"
+    ],
+    "tickers": [
+      {
+        "ticker": "2330",
+        "company_name": "台積電",
+        "exposure_reason": "直接關聯，3nm 與 CoWoS 營收創新高"
+      },
+      {
+        "ticker": "3711",
+        "company_name": "日月光",
+        "exposure_reason": "CoWoS 封裝測試受惠，先進封裝需求增加"
+      }
+    ]
+  }
+]
