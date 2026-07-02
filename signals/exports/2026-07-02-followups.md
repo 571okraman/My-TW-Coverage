@@ -1,6 +1,6 @@
 # Follow-up Queue — 2026-07-02
 
-**Open items:** 29
+**Open items:** 32
 
 | ID | Type | Status | Due | Signal |
 |----|------|--------|-----|--------|
@@ -33,6 +33,9 @@
 | FU-20260702-027 | fact_check | open | 2026-07-09 | AI 排擠效應叠加代工減產，成熟製程漲價潮延續至 2027 |
 | FU-20260702-028 | exposure_check | open | 2026-07-09 | AI 排擠效應叠加代工減產，成熟製程漲價潮延續至 2027 |
 | FU-20260702-029 | financial_check | open | 2026-07-09 | AI 排擠效應叠加代工減產，成熟製程漲價潮延續至 2027 |
+| FU-20260702-030 | fact_check | open | 2026-07-09 | 智崴（5263）董事會決議現金增資50,000千元，每股面額10元，資金用途償還 |
+| FU-20260702-031 | financial_check | open | 2026-07-09 | 智崴（5263）董事會決議現金增資50,000千元，每股面額10元，資金用途償還 |
+| FU-20260702-032 | market_check | open | 2026-07-09 | 智崴（5263）董事會決議現金增資50,000千元，每股面額10元，資金用途償還 |
 
 ---
 
@@ -352,6 +355,39 @@
 - **Due:** 2026-07-09
 - **Question:** Do monthly revenue / margin / backlog reflect this?
 - **Signal:** AI 排擠效應叠加代工減產，成熟製程漲價潮延續至 2027
+
+---
+
+## FU-20260702-030: 智崴（5263）董事會決議現金增資50,000千元，每股面額10元，資金用途償還金融借款 - fact_check
+
+- **Type:** fact_check
+- **Status:** open
+- **Priority:** medium
+- **Due:** 2026-07-09
+- **Question:** Does the source material support the claim?
+- **Signal:** 智崴（5263）董事會決議現金增資50,000千元，每股面額10元，資金用途償還金融借款
+
+---
+
+## FU-20260702-031: 智崴（5263）董事會決議現金增資50,000千元，每股面額10元，資金用途償還金融借款 - financial_check
+
+- **Type:** financial_check
+- **Status:** open
+- **Priority:** medium
+- **Due:** 2026-07-09
+- **Question:** Do monthly revenue / margin / backlog reflect this?
+- **Signal:** 智崴（5263）董事會決議現金增資50,000千元，每股面額10元，資金用途償還金融借款
+
+---
+
+## FU-20260702-032: 智崴（5263）董事會決議現金增資50,000千元，每股面額10元，資金用途償還金融借款 - market_check
+
+- **Type:** market_check
+- **Status:** open
+- **Priority:** medium
+- **Due:** 2026-07-09
+- **Question:** Has the market already priced this in?
+- **Signal:** 智崴（5263）董事會決議現金增資50,000千元，每股面額10元，資金用途償還金融借款
 
 ---
 
