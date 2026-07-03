@@ -16,3 +16,24 @@ enrichment*.json
 
 # SQLite runtime DB
 data/signals.sqlite
+
+
+# ── T86 institutional backfill raw data ────────────────────────────────────
+# Historical TWSE/TPEx institutional trading data fetched by
+# fetch_institutional.py --backfill N. These files are large (~1.4MB/day),
+# trivially regenerated, and should NOT be tracked in git.
+#
+# Current day's file (e.g. YYYY-MM-DD-institutional.json) IS tracked —
+# it's already committed and will continue to be committed with daily
+# pipeline runs for reproducibility. Only historical backfill (84+ files)
+# is excluded.
+#
+# Daily commit convention:
+#   重訊 (announcements) + 營收 (revenue) raw dumps → ALWAYS commit.
+#     These endpoints serve current-period snapshots only;
+#     if not archived same-day, the evidence is permanently lost.
+#   法人 (institutional T86) → current day's file committed,
+#     historical backfill ignored (regenerable via --backfill N).
+#   Normalized / flagged JSON → committed as pipeline output.
+#
+signals/candidates/*-institutional.json
