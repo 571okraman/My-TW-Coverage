@@ -23,6 +23,8 @@ REQUIRED_FEATURES = {
     "financials.updated_at_header": ("scripts/update_financials.py", "財務更新日期"),
     "financials.ticker_suffix_header": ("scripts/update_financials.py", "Ticker suffix"),
     "discover.generic_denylist": ("scripts/discover.py", "GENERIC_DENYLIST"),
+    "discover.readonly_guard": ("scripts/discover.py", "read-only path violation"),
+    "alias_map.validate_function": ("scripts/utils.py", "def validate_alias_map"),
     "update_enrichment.section_hard_fail": ("scripts/update_enrichment.py", "re.subn"),
 }
 

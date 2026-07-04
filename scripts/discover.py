@@ -203,8 +203,10 @@ def search_reports(buzzword, sectors_filter=None):
     return results
 
 
-def apply_wikilinks(results, buzzword):
+def apply_wikilinks(results, buzzword, do_apply=False):
     """Add [[buzzword]] wikilinks to files where it's mentioned but not linked."""
+    if not do_apply:
+        raise RuntimeError("discover.py read-only path violation: apply_wikilinks called without do_apply=True")
     applied = 0
     for r in results:
         if r["bare"] == 0:
@@ -329,7 +331,7 @@ def main():
                 sys.exit(2)
         bare_count = sum(r["bare"] for r in results)
         if bare_count > 0:
-            applied = apply_wikilinks(results, buzzword)
+            applied = apply_wikilinks(results, buzzword, do_apply=do_apply)
             print(f"\n已將 {applied} 處「{buzzword}」加上 [[wikilink]] 標記。")
         else:
             print(f"\n所有提及均已標記為 [[{buzzword}]]。")

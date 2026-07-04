@@ -117,6 +117,10 @@ def setup_stdout():
 
 # Canonical name mapping: alias -> canonical
 # Taiwan companies use Chinese, foreign companies use English
+# Contract: key=alias, value=canonical name. Invariants:
+#   1. No self-mapping (key != value)
+#   2. No duplicate keys (enforced by dict structure)
+#   3. No empty values (value must be non-empty string)
 WIKILINK_ALIASES = {
     # Taiwan companies: English -> Chinese
     "TSMC": "台積電", "MediaTek": "聯發科", "Foxconn": "鴻海",
@@ -335,3 +339,37 @@ def replace_section(content, section_header, new_body, next_section_header=None)
     else:
         pattern = rf"{re.escape(section_header)}.*"
         return re.sub(pattern, f"{section_header}\n{new_body}\n", content, flags=re.DOTALL)
+
+
+# =============================================================================
+# Wikilink Alias Map Validation
+# =============================================================================
+
+def validate_alias_map(m: dict) -> list:
+    """Validate WIKILINK_ALIASES dict against contract invariants.
+    
+    Checks:
+    - No self-mapping (key != value)
+    - No empty values
+    - No duplicate keys (caught by dict structure, but we verify explicitly)
+    
+    Returns list of violation strings (empty if valid).
+    """
+    violations = []
+    seen_keys = set()
+    
+    for key, value in m.items():
+        # Check for self-mapping
+        if key == value:
+            violations.append(f"self-map: '{key}' maps to itself")
+        
+        # Check for empty value
+        if not value or not value.strip():
+            violations.append(f"empty value for key: '{key}'")
+        
+        # Check for duplicate keys (shouldn't happen in dict literal, but verify)
+        if key in seen_keys:
+            violations.append(f"duplicate key: '{key}'")
+        seen_keys.add(key)
+    
+    return violations
