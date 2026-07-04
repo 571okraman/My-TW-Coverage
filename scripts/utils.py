@@ -11,6 +11,11 @@ import sys
 import glob
 from datetime import date, datetime
 
+try:
+    import yaml
+except ImportError:
+    yaml = None  # graceful fallback, YAML loading will be skipped
+
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REPORTS_DIR = os.path.join(PROJECT_ROOT, "Pilot_Reports")
 TASK_FILE = os.path.join(PROJECT_ROOT, "task.md")
@@ -112,56 +117,218 @@ def setup_stdout():
 
 
 # =============================================================================
-# Wikilink Normalization
+# Alias Map (YAML-backed)
 # =============================================================================
 
-# Canonical name mapping: alias -> canonical
-# Taiwan companies use Chinese, foreign companies use English
-# Contract: key=alias, value=canonical name. Invariants:
-#   1. No self-mapping (key != value)
-#   2. No duplicate keys (enforced by dict structure)
-#   3. No empty values (value must be non-empty string)
-WIKILINK_ALIASES = {
-    # Taiwan companies: English -> Chinese
-    "TSMC": "台積電", "MediaTek": "聯發科", "Foxconn": "鴻海",
-    "UMC": "聯電", "ASE": "日月光投控", "SPIL": "矽品",
-    "Pegatron": "和碩", "Compal": "仁寶", "Quanta": "廣達",
-    "Wistron": "緯創", "Inventec": "英業達",
-    "ASUS": "華碩", "Acer": "宏碁", "Realtek": "瑞昱",
-    "Novatek": "聯詠", "Himax": "奇景光電",
-    "AUO": "友達", "Innolux": "群創",
-    "Yageo": "國巨", "GlobalWafers": "環球晶",
-    "KYEC": "京元電子", "ChipMOS": "南茂",
-    "Unimicron": "欣興", "Delta": "台達電", "Lite-On": "光寶",
-    "Largan": "大立光", "CTCI": "中鼎", "PTI": "力成",
-    "WIN Semi": "穩懋", "Walsin": "華新科",
-    "日月光": "日月光投控",
-    # Foreign companies: Chinese -> English
-    "艾司摩爾": "ASML", "應用材料": "Applied Materials", "AMAT": "Applied Materials",
-    "東京威力": "Tokyo Electron", "TEL": "Tokyo Electron",
-    "科林研發": "Lam Research", "科磊": "KLA", "愛德萬": "Advantest",
-    "英特爾": "Intel", "高通": "Qualcomm", "博通": "Broadcom",
-    "輝達": "NVIDIA", "美光": "Micron", "海力士": "SK Hynix",
-    "英飛凌": "Infineon", "恩智浦": "NXP", "瑞薩": "Renesas",
-    "德州儀器": "Texas Instruments", "意法半導體": "STMicroelectronics",
-    "安森美": "ON Semiconductor",
-    "蘋果": "Apple", "三星": "Samsung", "索尼": "Sony",
-    "谷歌": "Google", "微軟": "Microsoft", "特斯拉": "Tesla",
-    "亞馬遜": "Amazon", "戴爾": "Dell", "惠普": "HP",
-    "聯想": "Lenovo", "思科": "Cisco",
-    "新思": "Synopsys", "益華": "Cadence", "安謀": "Arm", "ARM": "Arm",
-    "博世": "Bosch", "電裝": "Denso",
-    "信越": "Shin-Etsu", "信越化學": "Shin-Etsu",
-    "Sumco": "SUMCO", "味之素": "Ajinomoto",
-    "西門子": "Siemens", "霍尼韋爾": "Honeywell", "漢威": "Honeywell",
-    "勞斯萊斯": "Rolls-Royce", "奇異": "GE Aerospace",
-    "耐吉": "Nike", "耐克": "Nike", "愛迪達": "Adidas", "戴森": "Dyson",
-    # Tech terms: standardize
-    "SiC": "碳化矽", "GaN": "氮化鎵", "InP": "磷化銦", "GaAs": "砷化鎵",
-    "共封裝光學": "CPO", "Co-Packaged Optics": "CPO",
-    "IoT": "物聯網", "EV": "電動車", "印刷電路板": "PCB",
-}
+ALIAS_MAP_PATH = os.path.join(PROJECT_ROOT, "data", "alias_map.yaml")
 
+
+def _flatten_alias_map(data: dict) -> dict:
+    """Convert full YAML schema → flat {alias: canonical} dict (backward compat).
+
+    Schema has concept names as top-level keys. Each concept has:
+      aliases: list of {term, status, ...}
+      deprecated: list of {term, reason, date}
+
+    Maps alias.term → concept name (= canonical), skipping deprecated entries.
+    """
+    flat = {}
+    for concept_name, concept_data in data.items():
+        if concept_name.startswith("_"):
+            continue  # skip template/private entries
+        if not isinstance(concept_data, dict):
+            continue
+        aliases = concept_data.get("aliases", [])
+        if not isinstance(aliases, list):
+            continue
+        for entry in aliases:
+            term = entry.get("term") if isinstance(entry, dict) else None
+            status = entry.get("status", "draft") if isinstance(entry, dict) else "draft"
+            if term and term.strip() and status != "deprecated":
+                flat[term] = concept_name
+    return flat
+
+
+def load_raw_alias_map() -> dict:
+    """Load full YAML schema dict (not flattened).
+
+    Returns dict of {concept_name: {aliases: [...], deprecated: [...]}}.
+    Returns empty dict if YAML unavailable.
+    """
+    if yaml is None or not os.path.isfile(ALIAS_MAP_PATH):
+        return {}
+    try:
+        with open(ALIAS_MAP_PATH, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+        # Filter out _-prefixed internal entries
+        return {k: v for k, v in data.items() if not k.startswith("_")}
+    except Exception:
+        return {}
+
+
+_VALIDATED_CACHE = None  # cache: {concept_name: [validated_aliases]}
+
+
+def _build_alias_cache(raw: dict) -> dict:
+    """Build {concept_name: [term, ...]} from validated aliases."""
+    cache = {}
+    for concept, data in raw.items():
+        if not isinstance(data, dict):
+            continue
+        validated = []
+        for entry in data.get("aliases", []):
+            if isinstance(entry, dict) and entry.get("status") == "validated":
+                term = entry.get("term", "")
+                if term and term.strip():
+                    validated.append(term)
+        if validated:
+            cache[concept] = validated
+    return cache
+
+
+def _inverse_alias_lookup(raw: dict) -> dict:
+    """Build reverse map {alias_term: concept_name}."""
+    inv = {}
+    for concept, data in raw.items():
+        if not isinstance(data, dict):
+            continue
+        for entry in data.get("aliases", []):
+            if isinstance(entry, dict):
+                term = entry.get("term", "")
+                status = entry.get("status", "")
+                if term and term.strip() and status != "deprecated":
+                    inv[term] = concept
+    return inv
+
+
+_INVERSE_CACHE = None
+
+
+def expand_query(term: str, include_draft: bool = False) -> tuple:
+    """Expand a search query using the alias map.
+
+    Returns (concept_name: str|None, expanded_terms: list[str], warnings: list[str]).
+
+    Rules:
+    - If term matches a concept key -> expand to concept + all validated aliases
+    - If term matches an alias -> find parent concept, expand similarly
+    - If term not in map -> warn, return term as-is
+    """
+    global _VALIDATED_CACHE, _INVERSE_CACHE
+    raw = load_raw_alias_map()
+    if not raw:
+        return (None, [term], [])
+
+    if _VALIDATED_CACHE is None:
+        _VALIDATED_CACHE = _build_alias_cache(raw)
+        _INVERSE_CACHE = _inverse_alias_lookup(raw)
+    else:
+        _INVERSE_CACHE = _inverse_alias_lookup(raw)
+
+    # Check if term is a concept name
+    if term in raw:
+        aliases = _VALIDATED_CACHE.get(term, [])
+        expanded = list(set([term] + aliases))
+        return (term, expanded, [])
+
+    # Check if term is an alias -> find parent concept
+    parent = _INVERSE_CACHE.get(term)
+    if parent:
+        aliases = _VALIDATED_CACHE.get(parent, [])
+        expanded = list(set([term, parent] + aliases))
+        return (parent, expanded, [])
+
+    # Not in map -> warn and return as-is
+    warnings = [f"\u8b66\u544a\uff1a\u300c{term}\u300d\u4e0d\u5728 alias map \u4e2d\uff0c\u672a\u5c55\u958b\u67e5\u8a62"]
+    return (None, [term], warnings)
+
+
+def get_concept_aliases(concept_name: str, include_draft: bool = False) -> list:
+    """Get validated alias terms for a concept (excluding draft unless include_draft)."""
+    raw = load_raw_alias_map()
+    if not raw or concept_name not in raw:
+        return []
+    data = raw[concept_name]
+    if not isinstance(data, dict):
+        return []
+    results = []
+    for entry in data.get("aliases", []):
+        if not isinstance(entry, dict):
+            continue
+        status = entry.get("status", "")
+        term = entry.get("term", "")
+        if status == "validated" and term and term.strip():
+            results.append(term)
+        if include_draft and status == "draft" and term and term.strip():
+            results.append(term)
+    return results
+
+
+def load_alias_map() -> dict:
+    """Load alias_map.yaml and return flat {alias: canonical} dict.
+
+    Falls back to the static inline dict if YAML file doesn't exist
+    or YAML library is unavailable.
+    """
+    static_fallback = {
+        # Taiwan companies: English -> Chinese
+        "TSMC": "台積電", "MediaTek": "聯發科", "Foxconn": "鴻海",
+        "UMC": "聯電", "ASE": "日月光投控", "SPIL": "矽品",
+        "Pegatron": "和碩", "Compal": "仁寶", "Quanta": "廣達",
+        "Wistron": "緯創", "Inventec": "英業達",
+        "ASUS": "華碩", "Acer": "宏碁", "Realtek": "瑞昱",
+        "Novatek": "聯詠", "Himax": "奇景光電",
+        "AUO": "友達", "Innolux": "群創",
+        "Yageo": "國巨", "GlobalWafers": "環球晶",
+        "KYEC": "京元電子", "ChipMOS": "南茂",
+        "Unimicron": "欣興", "Delta": "台達電", "Lite-On": "光寶",
+        "Largan": "大立光", "CTCI": "中鼎", "PTI": "力成",
+        "WIN Semi": "穩懋", "Walsin": "華新科",
+        "日月光": "日月光投控",
+        # Foreign companies: Chinese -> English
+        "艾司摩爾": "ASML", "應用材料": "Applied Materials", "AMAT": "Applied Materials",
+        "東京威力": "Tokyo Electron", "TEL": "Tokyo Electron",
+        "科林研發": "Lam Research", "科磊": "KLA", "愛德萬": "Advantest",
+        "英特爾": "Intel", "高通": "Qualcomm", "博通": "Broadcom",
+        "輝達": "NVIDIA", "美光": "Micron", "海力士": "SK Hynix",
+        "英飛凌": "Infineon", "恩智浦": "NXP", "瑞薩": "Renesas",
+        "德州儀器": "Texas Instruments", "意法半導體": "STMicroelectronics",
+        "安森美": "ON Semiconductor",
+        "蘋果": "Apple", "三星": "Samsung", "索尼": "Sony",
+        "谷歌": "Google", "微軟": "Microsoft", "特斯拉": "Tesla",
+        "亞馬遜": "Amazon", "戴爾": "Dell", "惠普": "HP",
+        "聯想": "Lenovo", "思科": "Cisco",
+        "新思": "Synopsys", "益華": "Cadence", "安謀": "Arm", "ARM": "Arm",
+        "博世": "Bosch", "電裝": "Denso",
+        "信越": "Shin-Etsu", "信越化學": "Shin-Etsu",
+        "Sumco": "SUMCO", "味之素": "Ajinomoto",
+        "西門子": "Siemens", "霍尼韋爾": "Honeywell", "漢威": "Honeywell",
+        "勞斯萊斯": "Rolls-Royce", "奇異": "GE Aerospace",
+        "耐吉": "Nike", "耐克": "Nike", "愛迪達": "Adidas", "戴森": "Dyson",
+        # Tech terms: standardize
+        "SiC": "碳化矽", "GaN": "氮化鎵", "InP": "磷化銦", "GaAs": "砷化鎵",
+        "共封裝光學": "CPO", "Co-Packaged Optics": "CPO",
+        "IoT": "物聯網", "EV": "電動車", "印刷電路板": "PCB",
+    }
+    if yaml is None or not os.path.isfile(ALIAS_MAP_PATH):
+        return static_fallback
+    try:
+        with open(ALIAS_MAP_PATH, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+        flat = _flatten_alias_map(data)
+        if flat:
+            return flat
+        return static_fallback
+    except Exception:
+        return static_fallback
+
+
+# Load at module level (backward-compatible: from utils import WIKILINK_ALIASES)
+WIKILINK_ALIASES = load_alias_map()
+
+# =============================================================================
+# Wikilink Normalization
+# =============================================================================
 
 def normalize_wikilinks(content):
     """Normalize all wikilinks in content to canonical names.
@@ -346,30 +513,73 @@ def replace_section(content, section_header, new_body, next_section_header=None)
 # =============================================================================
 
 def validate_alias_map(m: dict) -> list:
-    """Validate WIKILINK_ALIASES dict against contract invariants.
-    
-    Checks:
-    - No self-mapping (key != value)
-    - No empty values
-    - No duplicate keys (caught by dict structure, but we verify explicitly)
-    
+    """Validate alias map against contract invariants.
+
+    Supports two input formats:
+    1. Flat dict {alias: canonical} — old-style checks (self-map, empty, dup)
+    2. YAML schema {concept: dict(aliases=[...], deprecated=[...])} — full checks
+
     Returns list of violation strings (empty if valid).
     """
     violations = []
-    seen_keys = set()
-    
-    for key, value in m.items():
-        # Check for self-mapping
-        if key == value:
-            violations.append(f"self-map: '{key}' maps to itself")
-        
-        # Check for empty value
-        if not value or not value.strip():
-            violations.append(f"empty value for key: '{key}'")
-        
-        # Check for duplicate keys (shouldn't happen in dict literal, but verify)
-        if key in seen_keys:
-            violations.append(f"duplicate key: '{key}'")
-        seen_keys.add(key)
-    
+
+    # Detect format: flat dict (all values are strings) vs schema (dicts with aliases)
+    is_flat = all(isinstance(v, str) for v in m.values()) if m else True
+
+    if is_flat:
+        # Old-style flat dict checks
+        seen_keys = set()
+        for key, value in m.items():
+            if key == value:
+                violations.append(f"self-map: '{key}' maps to itself")
+            if not value or not value.strip():
+                violations.append(f"empty value for key: '{key}'")
+            if key in seen_keys:
+                violations.append(f"duplicate key: '{key}'")
+            seen_keys.add(key)
+    else:
+        # New YAML schema checks
+        valid_statuses = {"draft", "validated", "deprecated"}
+        for concept_name, concept_data in m.items():
+            if concept_name.startswith("_"):
+                continue  # skip template/private entries
+            if not isinstance(concept_data, dict):
+                violations.append(f"'{concept_name}': expected dict, got {type(concept_data).__name__}")
+                continue
+
+            # Check aliases list
+            aliases = concept_data.get("aliases", [])
+            if not isinstance(aliases, list):
+                violations.append(f"'{concept_name}'.aliases: expected list, got {type(aliases).__name__}")
+            else:
+                for i, entry in enumerate(aliases):
+                    if not isinstance(entry, dict):
+                        violations.append(f"'{concept_name}'.aliases[{i}]: expected dict, got {type(entry).__name__}")
+                        continue
+                    term = entry.get("term", "")
+                    if not term or not term.strip():
+                        violations.append(f"'{concept_name}'.aliases[{i}]: missing or empty 'term'")
+                    status = entry.get("status", "")
+                    if status not in valid_statuses:
+                        violations.append(f"'{concept_name}'.aliases[{i}] ('{term}'): invalid status '{status}', must be one of {valid_statuses}")
+                    ctx_exclude = entry.get("context_exclude")
+                    if ctx_exclude is not None and not isinstance(ctx_exclude, list):
+                        violations.append(f"'{concept_name}'.aliases[{i}] ('{term}'): context_exclude must be a list")
+            # Check deprecated list
+            dep_entries = concept_data.get("deprecated", [])
+            if dep_entries and not isinstance(dep_entries, list):
+                violations.append(f"'{concept_name}'.deprecated: expected list")
+            elif dep_entries:
+                for i, entry in enumerate(dep_entries):
+                    if not isinstance(entry, dict):
+                        violations.append(f"'{concept_name}'.deprecated[{i}]: expected dict")
+                        continue
+                    term = entry.get("term", "")
+                    if not term or not term.strip():
+                        violations.append(f"'{concept_name}'.deprecated[{i}]: missing or empty 'term'")
+                    if not entry.get("reason"):
+                        violations.append(f"'{concept_name}'.deprecated[{i}] ('{term}'): missing 'reason'")
+                    if not entry.get("date"):
+                        violations.append(f"'{concept_name}'.deprecated[{i}] ('{term}'): missing 'date'")
+
     return violations
