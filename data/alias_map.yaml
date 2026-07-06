@@ -1,0 +1,116 @@
+# alias_map.yaml — Wikilink alias map, single source of truth
+# Schema: each top-level key is a concept/group name.
+#   aliases: list of {term, status, added?, evidence?, context_exclude?}
+#   deprecated: list of {term, reason, date}
+# Status: draft | validated | deprecated
+
+# ============================================================
+# D2: Seed entries from Seed 1/2/3 dry-runs
+# ============================================================
+
+液冷:
+  aliases:
+    - term: 水冷板
+      status: validated
+      added: 2026-07-03
+      evidence: seed1-dryrun
+    - term: CDU
+      status: validated
+      added: 2026-07-03
+      evidence: seed1-dryrun
+    - term: 均熱片
+      status: validated
+      added: 2026-07-03
+      evidence: seed1-dryrun
+    - term: 快接頭
+      status: validated
+      added: 2026-07-03
+      evidence: seed1-dryrun
+    - term: 分歧管
+      status: validated
+      added: 2026-07-03
+      evidence: seed1-dryrun
+    - term: 液冷散熱
+      status: validated
+      added: 2026-07-03
+      evidence: seed1-dryrun
+      context_exclude:
+        - 伺服器整機語境
+  deprecated:
+    - term: cold plate
+      reason: 英文單字全滅（Seed 1 實證 0 結果）
+      date: 2026-07-03
+
+先進封裝:
+  aliases:
+    - term: CoWoS
+      status: validated
+      added: 2026-07-03
+      evidence: seed2-dryrun
+    - term: 載板
+      status: validated
+      added: 2026-07-03
+      evidence: seed2-dryrun
+    - term: ABF
+      status: validated
+      added: 2026-07-03
+      evidence: seed2-dryrun
+    - term: 探針卡
+      status: validated
+      added: 2026-07-03
+      evidence: seed2-dryrun
+    - term: 測試座
+      status: validated
+      added: 2026-07-03
+      evidence: seed2-dryrun
+    - term: 凸塊
+      status: validated
+      added: 2026-07-03
+      evidence: seed2-dryrun
+    - term: 中介層
+      status: validated
+      added: 2026-07-03
+      evidence: seed2-dryrun
+    - term: 預燒
+      status: validated
+      added: 2026-07-03
+      evidence: seed2-dryrun
+  deprecated:
+    - term: interposer
+      reason: 英文單字全滅（Seed 3 實證 0 結果）
+      date: 2026-07-03
+
+重電:
+  aliases:
+    - term: 變壓器
+      status: validated
+      added: 2026-07-03
+      evidence: seed3-dryrun
+      context_exclude:
+        - 電源供應器語境
+    - term: 配電盤
+      status: validated
+      added: 2026-07-03
+      evidence: seed3-dryrun
+    - term: GIS
+      status: validated
+      added: 2026-07-03
+      evidence: seed3-dryrun
+      context_exclude:
+        - GIS-KY
+        - 地理資訊系統
+    - term: 電線電纜
+      status: validated
+      added: 2026-07-03
+      evidence: seed3-dryrun
+    - term: 統包工程
+      status: validated
+      added: 2026-07-03
+      evidence: seed3-dryrun
+  deprecated:
+    - term: transformer
+      reason: 英文單字全滅（Seed 3 實證 0 結果）
+      date: 2026-07-03
+
+儲能:
+  aliases: []

@@ -29,7 +29,10 @@ import subprocess
 from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from utils import REPORTS_DIR, PROJECT_ROOT, setup_stdout
+from utils import (
+    REPORTS_DIR, PROJECT_ROOT, setup_stdout,
+    expand_query, load_raw_alias_map,
+)
 
 # Sector groups for smart filtering
 TECH_SECTORS = {
@@ -127,7 +130,31 @@ def detect_profile(buzzword):
     return "all"
 
 
-def search_reports(buzzword, sectors_filter=None):
+def search_reports(terms, sectors_filter=None):
+    """Search all reports for one or more terms (union, deduplicated).
+
+    terms can be a string (single term, backward compat) or a list of strings.
+    Returns list of {ticker, company, sector, filepath, linked, context}.
+    Results are deduplicated by (ticker, company).
+    """
+    if isinstance(terms, str):
+        terms = [terms]
+
+    seen = set()
+    all_results = []
+
+    for buzzword in terms:
+        results = _search_single(buzzword, sectors_filter)
+        for r in results:
+            key = (r["ticker"], r["company"])
+            if key not in seen:
+                seen.add(key)
+                all_results.append(r)
+
+    return all_results
+
+
+def _search_single(buzzword, sectors_filter=None):
     """Search all reports for mentions of the buzzword.
     Returns list of {ticker, company, sector, filepath, linked, context}.
     """
@@ -203,8 +230,10 @@ def search_reports(buzzword, sectors_filter=None):
     return results
 
 
-def apply_wikilinks(results, buzzword):
+def apply_wikilinks(results, buzzword, do_apply=False):
     """Add [[buzzword]] wikilinks to files where it's mentioned but not linked."""
+    if not do_apply:
+        raise RuntimeError("discover.py read-only path violation: apply_wikilinks called without do_apply=True")
     applied = 0
     for r in results:
         if r["bare"] == 0:
@@ -288,7 +317,8 @@ def main():
     do_rebuild = "--rebuild" in args
     smart = "--smart" in args
     force = "--force" in args
-    args = [a for a in args if a != "--force"]
+    include_draft = "--include-draft" in args
+    args = [a for a in args if a not in ("--force", "--include-draft")]
 
     # Parse sector filter
     sectors_filter = None
@@ -307,9 +337,18 @@ def main():
             print(f"Smart mode: detected profile '{profile}', searching {len(sectors_filter)} sectors")
             print(f"  ⚠ May miss cross-sector results. Use without --smart for full coverage.")
 
+    # Concept alias expansion
+    concept_name, expanded_terms, warnings = expand_query(buzzword)
+    for w in warnings:
+        print("⚠", w)
+
+    if concept_name and len(expanded_terms) > 1:
+        print(f"🔍 概念詞「{concept_name}」展開為 {len(expanded_terms)} 個查詢字詞")
+        print(f"   合併搜尋: {'、'.join(expanded_terms)}")
+
     # Search
     print(f"搜尋「{buzzword}」...")
-    results = search_reports(buzzword, sectors_filter)
+    results = search_reports(expanded_terms, sectors_filter)
 
     # Report
     print_report(results, buzzword)
@@ -329,7 +368,7 @@ def main():
                 sys.exit(2)
         bare_count = sum(r["bare"] for r in results)
         if bare_count > 0:
-            applied = apply_wikilinks(results, buzzword)
+            applied = apply_wikilinks(results, buzzword, do_apply=do_apply)
             print(f"\n已將 {applied} 處「{buzzword}」加上 [[wikilink]] 標記。")
         else:
             print(f"\n所有提及均已標記為 [[{buzzword}]]。")

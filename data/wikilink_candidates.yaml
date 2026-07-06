@@ -1,0 +1,73 @@
+# wikilink_candidates.yaml — Candidate queue for wikilink expansion
+# Two types of candidates:
+#   1. company — new companies to add as ticker reports
+#   2. alias — new alias terms for existing concepts
+# Status: pending | approved | rejected
+
+candidates:
+  # Seed 1 companies (pending)
+  - type: company
+    company: 高力
+    ticker: ~
+    suggested_term: 高力
+    evidence: seed1-dryrun — 液冷散熱供應鏈
+    date: 2026-07-03
+    status: pending
+  - type: company
+    company: 富世達
+    ticker: ~
+    suggested_term: 富世達
+    evidence: seed1-dryrun — 液冷散熱供應鏈
+    date: 2026-07-03
+    status: pending
+  - type: company
+    company: 台達電
+    ticker: ~
+    suggested_term: 台達電
+    evidence: seed1-dryrun — 液冷散熱供應鏈
+    date: 2026-07-03
+    status: pending
+  - type: company
+    company: 勤誠
+    ticker: ~
+    suggested_term: 勤誠
+    evidence: seed1-dryrun — 液冷散熱供應鏈
+    date: 2026-07-03
+    status: pending
+
+  # Seed 2 companies (pending)
+  - type: company
+    company: 上品
+    ticker: ~
+    suggested_term: 上品
+    evidence: seed2-dryrun — CoWoS/先進封裝供應鏈
+    date: 2026-07-03
+    status: pending
+  - type: company
+    company: 台特化
+    ticker: ~
+    suggested_term: 台特化
+    evidence: seed2-dryrun — CoWoS/先進封裝供應鏈
+    date: 2026-07-03
+    status: pending
+  - type: company
+    company: 新應材
+    ticker: ~
+    suggested_term: 新應材
+    evidence: seed2-dryrun — CoWoS/先進封裝供應鏈
+    date: 2026-07-03
+    status: pending
+
+  # Seed 3 new alias terms (pending)
+  - type: alias
+    term: 矽鋼片
+    concept: 重電
+    evidence: seed3-dryrun — 重電供應鏈（變壓器核心材料）
+    date: 2026-07-03
+    status: pending
+  - type: alias
+    term: 非晶質
+    concept: 重電
+    evidence: seed3-dryrun — 重電供應鏈（變壓器核心材料）
+    date: 2026-07-03
+    status: pending
