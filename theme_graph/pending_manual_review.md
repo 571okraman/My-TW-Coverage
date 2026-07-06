@@ -6,7 +6,7 @@
 
 ---
 
-## 1. 台達電 2308 — 詞義漂移
+## 1. 台達電 2308 — 詞義漂移（resolved）
 
 | Field | Value |
 |---|---|
@@ -14,8 +14,11 @@
 | Company | 台達電 |
 | Node | NODE-transformer（大型電力變壓器） |
 | Theme | THEME-heavy-electric |
-| Reason | 「變壓器」命中語境待查：重電 vs 電源供應器（台達電主力為電源供應器，非電力變壓器） |
-| Action | 不灌庫，等 571 確認語境後決定 |
+| Reason | 「變壓器」命中語境待查：重電 vs 電源供應器 |
+| **裁決** | **resolved（2026-07-07，571）**：「變壓器」命中 = 電源供應器／SST 固態變壓器語境（磁性元件＋Grid-to-Chip SST，均非油浸式大型電力變壓器） |
+| Action | **不灌 NODE-transformer↔2308**；node_companies 24 列不動 |
+
+> 附註：「AIDC 電力架構（HVDC／SST）」登記為未來 node 候選（台達電 2308／光寶科 2301／漢磊 3707 同鏈；屬新 node/theme 評估，非重電 theme 擴列）。
 
 ## 2. GIS 縮寫撞名（已剔除，不灌庫）
 
@@ -37,4 +40,4 @@
 
 ---
 
-*總計：3 項 pending（1 待核可 + 2 已剔除/候選池）*
+*總計：3 項 pending → 1 resolved（不灌）+ 2 已剔除/候選池；無待核可項*
