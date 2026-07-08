@@ -6,7 +6,7 @@ Closes the followup lifecycle per migrations/001 schema:
 Writes result_summary / decision / resolved_at. Can also postpone due_date.
 
 Usage:
-  # 驗證完成，销單
+  # 驗證完成，銷單
   python scripts/resolve_followup.py FU-20260702-003 --status resolved \
       --result "MOPS 6月營收 YoY +42%，支持 thesis" --decision keep
 
