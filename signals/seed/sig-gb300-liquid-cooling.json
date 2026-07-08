@@ -1,0 +1,23 @@
+[
+  {
+      "title": "GB300 NVL72 放量：機櫃液冷選配轉標配＋NVIDIA 液冷供應鏈開放",
+      "event_date": "2026-03-31",
+      "trigger_type": "supply_chain_reshuffling",
+      "topics": ["液冷", "AI Server", "GB300"],
+      "summary": "GB300 起機櫃 100% 液冷；NVIDIA 自 GB300 起僅提供設計規範＋合格供應商名單，CDU 採購決策下放 ODM（⚠️ 供應鏈開放為單一陸系研報來源）。詳見分析卡 001：https://www.notion.so/7d4a4b203561434088fc03d0481ef8ea",
+      "sources": [
+        {"url": "https://www.trendforce.com/research/download/RP260226BR3", "title": "TrendForce: 2026 NVIDIA Outlook — GB300 & Liquid Cooling", "publisher": "TrendForce", "source_type": "report", "trust_level": "medium", "published_at": "2026-02-26"},
+        {"url": "https://pdf.dfcfw.com/pdf/H3_AP202603311820914794_1.pdf", "title": "東莞證券：液冷需求加速釋放", "publisher": "東莞證券", "source_type": "report", "trust_level": "low", "published_at": "2026-03-31"},
+        {"url": "https://www.tmtpost.com/7806363.html", "title": "GB300 液冷組件價值 ~US$49,860／櫃", "publisher": "鈦媒體", "source_type": "news", "trust_level": "low", "published_at": "2026-03-31"},
+        {"url": "https://tw.stock.yahoo.com/news/ai%E6%B6%B2%E5%86%B7%E6%99%82%E4%BB%A3%E4%BE%86%E4%BA%86-%E9%AB%98%E7%9B%9B%E9%BB%9E%E5%90%8D%E5%A5%87%E9%8B%90-%E9%9B%99%E9%B4%BB-%E5%AF%8C%E4%B8%96%E9%81%94%E5%96%8A%E8%B2%B7-%E7%9B%B4%E6%8C%872026%E7%88%86%E7%99%BC-005500054.html", "title": "高盛點名奇鋐、雙鴻、富世達喊買", "publisher": "Yahoo 股市", "source_type": "news", "trust_level": "low", "published_at": "2026-07-01"}
+      ],
+      "tickers": [
+        {"ticker": "6982", "company_name": "大井泵浦", "exposure_reason": "液冷 pump 唯一命中台廠"},
+        {"ticker": "5284", "company_name": "jpp-KY", "exposure_reason": "分歧管唯一命中"},
+        {"ticker": "3338", "company_name": "泰碩", "exposure_reason": "冷板／熱模組，非共識第一層"},
+        {"ticker": "3483", "company_name": "力致", "exposure_reason": "水冷模組，非共識第一層"},
+        {"ticker": "1587", "company_name": "吉茂", "exposure_reason": "車用熱交換跨界液冷"},
+        {"ticker": "3533", "company_name": "嘉澤", "exposure_reason": "UQD 第二供應商邏輯"}
+      ]
+  }
+]
