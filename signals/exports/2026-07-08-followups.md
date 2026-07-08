@@ -1,6 +1,6 @@
 # Follow-up Queue — 2026-07-08
 
-**Open items:** 36
+**Open items:** 35
 
 | ID | Type | Status | Due | Signal |
 |----|------|--------|-----|--------|
@@ -37,7 +37,6 @@
 | FU-20260702-031 | financial_check | open | 2026-07-09 | 智崴（5263）董事會決議現金增資50,000千元，每股面額10元，資金用途償還 |
 | FU-20260702-032 | market_check | open | 2026-07-09 | 智崴（5263）董事會決議現金增資50,000千元，每股面額10元，資金用途償還 |
 | FU-20260708-003 | financial_check | open | 2026-07-15 | GB300 NVL72 放量：機櫃液冷選配轉標配＋NVIDIA 液冷供應鏈開放 |
-| FU-20260708-005 | fact_check | open | 2026-07-22 | GB300 NVL72 放量：機櫃液冷選配轉標配＋NVIDIA 液冷供應鏈開放 |
 | FU-20260708-004 | exposure_check | open | 2026-08-07 | GB300 NVL72 放量：機櫃液冷選配轉標配＋NVIDIA 液冷供應鏈開放 |
 | FU-20260708-006 | market_check | open | 2026-09-30 | GB300 NVL72 放量：機櫃液冷選配轉標配＋NVIDIA 液冷供應鏈開放 |
 
@@ -402,17 +401,6 @@
 - **Priority:** high
 - **Due:** 2026-07-15
 - **Question:** 非共識第一層 6 家（6982／5284／3338／3483／1587／3533）月營收 YoY 官源驗證（MOPS）。卡回連：https://www.notion.so/7d4a4b203561434088fc03d0481ef8ea
-- **Signal:** GB300 NVL72 放量：機櫃液冷選配轉標配＋NVIDIA 液冷供應鏈開放
-
----
-
-## FU-20260708-005: GB300 NVL72 放量：機櫃液冷選配轉標配＋NVIDIA 液冷供應鏈開放 - fact_check
-
-- **Type:** fact_check
-- **Status:** open
-- **Priority:** high
-- **Due:** 2026-07-22
-- **Question:** 「NVIDIA 液冷供應鏈開放」第二來源查證（現僅單一陸系研報）。卡回連：https://www.notion.so/7d4a4b203561434088fc03d0481ef8ea
 - **Signal:** GB300 NVL72 放量：機櫃液冷選配轉標配＋NVIDIA 液冷供應鏈開放
 
 ---
