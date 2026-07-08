@@ -178,3 +178,63 @@ sources:
     cadence: daily
     access: free
     notes: 解讀層；數字須 cross-check 官源
+  # ── 錨定客戶 IR（白名單制：只收反覆出現的 anchor，季級檢視，不逐 signal 增補）──
+  - name: NVIDIA Newsroom / IR
+    category: company_disclosure
+    tier: company_disclosure
+    url: https://nvidianews.nvidia.com
+    cadence: event_driven
+    access: free
+    notes: 錨定客戶白名單；fact_check 二源優先序第一層；⚠️ 開工時驗
+
+  - name: Micron IR
+    category: company_disclosure
+    tier: company_disclosure
+    url: https://investors.micron.com
+    cadence: event_driven
+    access: free
+    notes: 錨定客戶白名單；驗財報/長約類 signal 用；⚠️ 開工時驗
+
+  # ── 總經 / 產業統計（缺口 #5）─────────────
+  - name: 經濟部統計處 — 經濟統計數據分析系統 EE521
+    category: macro_statistics
+    tier: government
+    url: https://service.moea.gov.tw/EE521/
+    cadence: monthly
+    access: free
+    notes: 外銷訂單（約每月 20 日）、工業產銷存；產業分類碼對個股需自建 mapping；⚠️ 開工時驗
+
+  # ── 產業鏈對應（mapping_check 官方源）──────
+  - name: TPEx 產業價值鏈資訊平台
+    category: industry_mapping
+    tier: exchange
+    url: https://ic.tpex.org.tw/
+    cadence: low_freq
+    access: free
+    notes: 官方「產業鏈→公司」對應；補 EE521 分類碼對不到個股的缺陷；⚠️ 開工時驗
+
+  # ── 法說（缺口 #6：日曆＋簡報取得）─────────
+  - name: TDCC IR Platform — 法說會及活動
+    category: company_disclosure
+    tier: exchange
+    url: https://irplatform.tdcc.com.tw/ir/zh/event/list
+    cadence: daily
+    access: free
+    notes: 法說行事曆＋部分簡報 PDF 下載；搭配 OCR lane（Patch C）；⚠️ 開工時驗
+
+  - name: MOPS 電子書 — 財報/年報/股東會年報 PDF
+    category: company_disclosure
+    tier: company_disclosure
+    url: https://mops.twse.com.tw
+    cadence: quarterly
+    access: free
+    notes: 法定時限 Q1 5/15、Q2 8/14、Q3 11/14、年報 3/31（資本額≥100億 3/15）；PDF 有文字層，pymupdf 抽字即可
+
+  # ── 產業研究（缺口 #4 半解：free 層只有區間/方向）──
+  - name: TrendForce 價格頁（DRAM spot / contract）
+    category: industry_research
+    tier: report
+    url: https://www.trendforce.com.tw/price/dram/dram_spot
+    cadence: daily
+    access: free
+    notes: free 層僅 summary 與部分數字；深度供需/產能 paid，暫不訂；⚠️ 開工時驗
