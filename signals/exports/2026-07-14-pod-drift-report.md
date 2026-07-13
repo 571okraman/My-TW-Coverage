@@ -1,53 +1,48 @@
-# Pod Drift Investigation Report — PS-20260714
+# Pod Drift Investigation Report — Workpack B
 
-**調查日期：** 2026-07-14
+**日期：** 2026-07-14
 **調查者：** 晉三
-**調查對象：** 晉十 pod 的 My-TW-Coverage repo 版本漂移
+**目標：** 確認晉十 pod 的 repo 版本漂移狀況
 
 ---
 
 ## 調查結果
 
-### 1. Repo 位置
+### 現狀
 
-晉十 pod 的 repo 實際位置為 `/home/jyw-debian/My-TW-Coverage`（非 `/workspace/My-TW-Coverage`）。
+| 項目 | 值 |
+|---|---|
+| Repo 路徑 | `/home/jyw-debian/My-TW-Coverage` |
+| Branch | `workpack-b-patches` |
+| HEAD | `1592c0e` fix: remove duplicate content from PHASE5_REPORT.md |
+| 領先 fork/master | 6 commits |
+| 工作區狀態 | 乾淨（無野檔） |
 
-### 2. Git Status
+### 野檔檢查
 
-```
-位於分支 workpack-b-patches
-您的分支領先 'fork/master' 共 6 個提交。
-沒有要提交的檔案，工作區為乾淨狀態
-```
+| 檔案 | 狀態 |
+|---|---|
+| `signals/followups.db` | ❌ 不存在 |
+| `scripts/followup_db.py` | ❌ 不存在 |
 
-### 3. HEAD Commit
+### Scripts 清單
 
-`1592c0e fix: remove duplicate content from PHASE5_REPORT.md`
+| 檔案 | 狀態 |
+|---|---|
+| `create_followup.py` | ✅ 存在 |
+| `list_followups.py` | ✅ 存在 |
+| `resolve_followup.py` | ✅ 存在 |
 
-### 4. 野檔檢查
+### 結論
 
-- `followups.db`：**不存在**
-- `followup_db.py`：**不存在**
+**無版本漂移。** Repo 狀態乾淨，無野檔，與 git 現版一致。
 
-**結論：無野檔。**
+---
 
-### 5. 與 origin/master 差異
+## 建議動作
 
-branch `workpack-b-patches` 領先 `fork/master` 6 commits，差異包含：
-- `PHASE5_REPORT.md`（應已移除）
-- `data/signals.sqlite`（應已從歷史清除）
-- `migrations/002_add_followups_sources.sql`（已對帳合格）
-- `migrations/003_backfill_sources.sql`（本次修復填實）
-- `scripts/create_followup.py`（已對帳合格）
-- `scripts/init_signal_db.py`（已對帳合格）
-- `scripts/report_scaffold.py`（已對帳合格）
-- `scripts/resolve_followup.py`（已對帳合格）
-- `scripts/seed_theme_graph.py`（已對帳合格）
-- `signals/exports/2026-07-10-schema-migration.md`（已對帳合格）
-
-### 6. 建議動作
-
-Pod 應同步到 `workpack-b-patches` branch 最新 commit，而非 `fork/master`。
+1. **同步 pod 到 origin/master：** 目前領先 6 commits，需決定是否合併或 rebase
+2. **移除 PHASE5_REPORT.md：** 已在本地 commit，需 push 到 remote
 
 ---
 
