@@ -40,6 +40,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--db-path")
+    ap.add_argument("--force", action="store_true", help="Overwrite existing DB")
     args = ap.parse_args()
     root = get_project_root()
     sql = read_migration(os.path.join(root, "migrations"))
@@ -47,6 +48,9 @@ def main():
         print(sql)
         return
     db = args.db_path or os.path.join(root, "data", "signals.sqlite")
+    if not args.force and os.path.exists(db):
+        print(f"FATAL: DB exists at {db}, use --force to overwrite", file=sys.stderr)
+        sys.exit(1)
     init_db(db, sql)
 
 if __name__ == "__main__":
