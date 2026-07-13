@@ -47,7 +47,7 @@
 - ticker: TEXT
 - role: TEXT
 - market_position: TEXT
-- crowdedness: INTEGER
+- crowdedness: TEXT
 - repo_hit: INTEGER
 - confidence: TEXT
 - sources: TEXT (JSON array)
