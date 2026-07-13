@@ -15,7 +15,7 @@ enrichment*.json
 *.sqlite-shm
 
 # SQLite runtime DB
-data/signals.sqlite
+data/*.sqlite
 
 
 # ── T86 institutional backfill raw data ────────────────────────────────────
