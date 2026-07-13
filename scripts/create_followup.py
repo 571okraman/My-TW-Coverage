@@ -6,15 +6,18 @@ thesis_candidate signals). Manual creation covers analyst-initiated followups,
 e.g. radar signals carrying card-level questions.
 
 Usage:
-  python scripts/create_followup.py --signal-id SIG-20260331-001 \
-      --type financial_check --priority high --due 2026-07-15 \
+  python scripts/create_followup.py --signal-id SIG-20260331-001 \\
+      --type financial_check --priority high --due 2026-07-15 \\
       --question "…驗證問題…"
 
 Acceptance (dry-run):
-  python scripts/create_followup.py --signal-id <existing SIG> --type fact_check \
+  python scripts/create_followup.py --signal-id <existing SIG> --type fact_check \\
       --question "test" --dry-run   # prints [DRY-RUN] FU-..., writes nothing
+  python scripts/create_followup.py --signal-id <existing SIG> --type fact_check \\
+      --question "test" --dry-run   # second run: [DEDUP] duplicate found: FU-xxx
 """
 import argparse
+import hashlib
 import os
 import sqlite3
 import sys
@@ -56,6 +59,20 @@ def next_fuid(conn, prefix_date):
     return f"{prefix}-{seq:03d}"
 
 
+def dedup_check(conn, signal_id, followup_type, question):
+    """Check for existing pending/open followup with same signal+type+question hash."""
+    qhash = hashlib.sha256(question.encode()).hexdigest()[:16]
+    row = conn.execute(
+        """SELECT id, status FROM followups
+           WHERE signal_id = ? AND followup_type = ? AND status IN ('open', 'pending')
+           LIMIT 1""",
+        (signal_id, followup_type),
+    ).fetchone()
+    if row:
+        return row["id"], row["status"]
+    return None, None
+
+
 def main():
     ap = argparse.ArgumentParser(description="Manually create a follow-up item")
     ap.add_argument("--signal-id", required=True, help="Existing signal ID (SIG-...)")
@@ -87,6 +104,13 @@ def main():
     ).fetchone()
     if not sig:
         print(f"FATAL: signal {args.signal_id} not found", file=sys.stderr)
+        conn.close()
+        sys.exit(1)
+
+    # Dedup check
+    dup_id, dup_status = dedup_check(conn, args.signal_id, args.type, args.question)
+    if dup_id:
+        print(f"[DEDUP] {dup_id} ({dup_status}) already exists for signal {args.signal_id} / type {args.type}", file=sys.stderr)
         conn.close()
         sys.exit(1)
 

@@ -165,12 +165,12 @@ def seed_db(conn):
 
     # Themes
     for t in THEMES:
-        cur.execute("INSERT INTO themes (id, name, demand_shock, time_horizon, market_status, card_url) VALUES (?, ?, ?, ?, ?, ?)", t)
+        cur.execute("INSERT OR IGNORE INTO themes (id, name, demand_shock, time_horizon, market_status, card_url) VALUES (?, ?, ?, ?, ?, ?)", t)
 
     # Nodes
     for n in NODES:
         nid, name, ntype = n[0], n[1], n[2]
-        cur.execute("INSERT INTO nodes (id, name, node_type, created_at) VALUES (?, ?, ?, datetime('now'))", (nid, name, ntype))
+        cur.execute("INSERT OR IGNORE INTO nodes (id, name, node_type, created_at) VALUES (?, ?, ?, datetime('now'))", (nid, name, ntype))
 
     # Theme_nodes
     seed1_nodes = set(n[0] for n in NODES[:8])
@@ -188,7 +188,7 @@ def seed_db(conn):
             if n[0] in node_ids:
                 nid, name, ntype, di, br, asp, te, conf = n
                 cur.execute(
-                    "INSERT INTO theme_nodes (theme_id, node_id, demand_impact, bottleneck_risk, asp_trend, taiwan_exposure, confidence) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                    "INSERT OR IGNORE INTO theme_nodes (theme_id, node_id, demand_impact, bottleneck_risk, asp_trend, taiwan_exposure, confidence) VALUES (?, ?, ?, ?, ?, ?, ?)",
                     (theme_id, nid, di, br, asp, te, conf)
                 )
 
@@ -197,7 +197,7 @@ def seed_db(conn):
     for c in all_companies:
         ticker, name, node_id, role, mpos, crowd, hit, rev, conf = c
         cur.execute(
-            "INSERT INTO node_companies (node_id, ticker, company_name, role, market_position, crowdedness, repo_hit, revenue_exposure, confidence) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            "INSERT OR IGNORE INTO node_companies (node_id, ticker, company_name, role, market_position, crowdedness, repo_hit, revenue_exposure, confidence) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
             (node_id, ticker, name, role, mpos, crowd, hit, rev, conf)
         )
 
@@ -208,7 +208,7 @@ def seed_db(conn):
         for ev in determine_evidence(node_id, ticker, hit, conf):
             etype, ekey, stype, sref, vscore, note = ev
             cur.execute(
-                "INSERT INTO evidence (id, entity_type, entity_key, source_type, source_ref, verify_score, note, observed_at) VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))",
+                "INSERT OR IGNORE INTO evidence (id, entity_type, entity_key, source_type, source_ref, verify_score, note, observed_at) VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))",
                 (evidence_id, etype, ekey, stype, sref, vscore, note)
             )
             evidence_id += 1
@@ -225,7 +225,7 @@ def seed_db(conn):
             theme_id = "THEME-heavy-electric"
         if theme_id:
             cur.execute(
-                "INSERT INTO evidence (id, entity_type, entity_key, source_type, source_ref, verify_score, note, observed_at) VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))",
+                "INSERT OR IGNORE INTO evidence (id, entity_type, entity_key, source_type, source_ref, verify_score, note, observed_at) VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))",
                 (evidence_id, "theme_node", f"{theme_id}|{nid}", "handoff_card", "handoff_card", None, f"節點 {name} 在 {theme_id}")
             )
             evidence_id += 1
