@@ -184,7 +184,7 @@ def main():
     ap.add_argument("--db-path")
     args = ap.parse_args()
     root = get_project_root()
-    db_path = args.db_path or os.path.join(root, "data", "signals.sqlite")
+    db_path = args.db_path or os.environ.get("TW_SIGNALS_DB") or os.path.join(root, "data", "signals.sqlite")
     conn = get_db(db_path)
     if args.all or args.signals:
         export_signals(conn, root)
