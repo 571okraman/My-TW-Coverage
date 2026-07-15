@@ -374,6 +374,11 @@ def verify_q5(conn):
     return row[0] > 0 and row[1] > 0
 
 def main():
+    import sys
+    print("WARNING: seed_theme_graph.py is DEPRECATED. "
+          "Theme graph now lives in signals.sqlite (theme_nodes etc.). "
+          "theme_graph.sqlite file is abolished.", file=sys.stderr)
+    sys.exit(1)
     print("=" * 60)
     print("Theme Graph Seeding — Handoff v3.1")
     print("=" * 60)
