@@ -28,7 +28,7 @@ from datetime import date
 
 STATUSES = ["open", "in_progress", "resolved", "promoted", "rejected", "expired"]
 TERMINAL = {"resolved", "promoted", "rejected", "expired"}
-DECISIONS = ["keep", "drop", "promote"]
+DECISIONS = ["keep", "drop", "keep-unverified", "promote"]
 SOURCE_RE = re.compile(r"^(https?://|Pilot_Reports/|signals/)")
 
 
@@ -63,7 +63,7 @@ def main():
     ap.add_argument("id", help="Follow-up ID (FU-...)")
     ap.add_argument("--status", required=True, choices=STATUSES)
     ap.add_argument("--result", help="result_summary text (required for terminal statuses)")
-    ap.add_argument("--decision", help="decision text (choices: keep / drop / promote)", choices=DECISIONS)
+    ap.add_argument("--decision", help="decision text (choices: keep / drop / keep-unverified / promote)", choices=DECISIONS)
     ap.add_argument("--due", help="New due date YYYY-MM-DD (postpone an open item)")
     ap.add_argument("--source", action="append", help="Source URL or repo relative path (repeatable, required for terminal statuses)")
     ap.add_argument("--dry-run", action="store_true")
