@@ -70,48 +70,5 @@
     "flags": [
       "announcement"
     ]
-  },
-  {
-    "ticker": "1617",
-    "event_date": "2026-07-02",
-    "source_url": "",
-    "source_type": "institutional",
-    "clause_number": "",
-    "summary": "外資買賣超 696,270 股，超過 20 日均值+4σ (681,898)，Z=4.1",
-    "raw_data": {
-      "ticker": "1617",
-      "flag": "B",
-      "flags": [
-        "B"
-      ],
-      "start_date": "2026-07-02",
-      "end_date": "2026-07-02",
-      "direction": "buy",
-      "detail": "外資買賣超 696,270 股，超過 20 日均值+4σ (681,898)，Z=4.1",
-      "metadata": {
-        "foreign_net": 696270,
-        "threshold": 681898.42,
-        "z_score": 4.09,
-        "flags": [
-          "B"
-        ]
-      }
-    },
-    "market": "twse",
-    "flag": "B",
-    "flags": [
-      "B"
-    ],
-    "direction": "buy",
-    "start_date": "2026-07-02",
-    "end_date": "2026-07-02",
-    "metadata": {
-      "foreign_net": 696270,
-      "threshold": 681898.42,
-      "z_score": 4.09,
-      "flags": [
-        "B"
-      ]
-    }
   }
 ]

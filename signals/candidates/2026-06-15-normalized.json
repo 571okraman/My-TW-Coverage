@@ -1,0 +1,5082 @@
+[
+  {
+    "ticker": "1303",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1303 月營收 YoY 31.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1303",
+      "month": "2026-06",
+      "yoy_pct": 31.352602342197276,
+      "revenue": 28830982.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1316",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1316 月營收 YoY 153.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1316",
+      "month": "2026-06",
+      "yoy_pct": 152.96178992534956,
+      "revenue": 720420.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1342",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1342 月營收 YoY 37.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1342",
+      "month": "2026-06",
+      "yoy_pct": 37.20016912494105,
+      "revenue": 337474.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1409",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1409 月營收 YoY 35.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1409",
+      "month": "2026-06",
+      "yoy_pct": 35.13216838957235,
+      "revenue": 4373931.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1410",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1410 月營收 YoY 37.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1410",
+      "month": "2026-06",
+      "yoy_pct": 37.075283144570285,
+      "revenue": 20575.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1416",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1416 月營收 YoY 61.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1416",
+      "month": "2026-06",
+      "yoy_pct": 61.12127236580517,
+      "revenue": 40522.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1418",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1418 月營收 YoY 206.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1418",
+      "month": "2026-06",
+      "yoy_pct": 206.4139941690962,
+      "revenue": 1051.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1436",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1436 月營收 YoY 44.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1436",
+      "month": "2026-06",
+      "yoy_pct": 44.62130602126688,
+      "revenue": 110845.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1444",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1444 月營收 YoY 81.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1444",
+      "month": "2026-06",
+      "yoy_pct": 81.0245545323328,
+      "revenue": 1072308.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1449",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1449 月營收 YoY 98.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1449",
+      "month": "2026-06",
+      "yoy_pct": 98.71730241416009,
+      "revenue": 283816.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1472",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1472 月營收 YoY 35.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1472",
+      "month": "2026-06",
+      "yoy_pct": 35.049781313036945,
+      "revenue": 354164.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1517",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1517 月營收 YoY 32.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1517",
+      "month": "2026-06",
+      "yoy_pct": 32.52422460413452,
+      "revenue": 190652.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1522",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1522 月營收 YoY 39.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1522",
+      "month": "2026-06",
+      "yoy_pct": 39.56097003684228,
+      "revenue": 2113362.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1529",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1529 月營收 YoY 158.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1529",
+      "month": "2026-06",
+      "yoy_pct": 158.34377836365994,
+      "revenue": 119546.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1533",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1533 月營收 YoY 54.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1533",
+      "month": "2026-06",
+      "yoy_pct": 54.893890056303235,
+      "revenue": 482812.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1590",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1590 月營收 YoY 40.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1590",
+      "month": "2026-06",
+      "yoy_pct": 40.38875400710227,
+      "revenue": 3909466.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1597",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1597 月營收 YoY 51.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1597",
+      "month": "2026-06",
+      "yoy_pct": 51.38068037992098,
+      "revenue": 137546.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1617",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1617 月營收 YoY 37.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1617",
+      "month": "2026-06",
+      "yoy_pct": 37.88056861428252,
+      "revenue": 344911.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1618",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1618 月營收 YoY 153.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1618",
+      "month": "2026-06",
+      "yoy_pct": 153.16268341919277,
+      "revenue": 615760.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1714",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1714 月營收 YoY 84.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1714",
+      "month": "2026-06",
+      "yoy_pct": 84.84705467169664,
+      "revenue": 3477938.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1723",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1723 月營收 YoY 58.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1723",
+      "month": "2026-06",
+      "yoy_pct": 58.440530673495445,
+      "revenue": 636660.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1727",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1727 月營收 YoY 39.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1727",
+      "month": "2026-06",
+      "yoy_pct": 39.0722356195909,
+      "revenue": 227219.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "1808",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "1808 月營收 YoY 87447.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "1808",
+      "month": "2026-06",
+      "yoy_pct": 87447.70459081836,
+      "revenue": 1754456.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2025",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2025 月營收 YoY 562.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2025",
+      "month": "2026-06",
+      "yoy_pct": 562.3794928949568,
+      "revenue": 237728.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2027",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2027 月營收 YoY 42.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2027",
+      "month": "2026-06",
+      "yoy_pct": 42.52832192783732,
+      "revenue": 11666070.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2030",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2030 月營收 YoY 37.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2030",
+      "month": "2026-06",
+      "yoy_pct": 37.913644350007694,
+      "revenue": 1192320.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2059",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2059 月營收 YoY 172.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2059",
+      "month": "2026-06",
+      "yoy_pct": 172.0525806692346,
+      "revenue": 3791303.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2072",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2072 月營收 YoY 81.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2072",
+      "month": "2026-06",
+      "yoy_pct": 81.08636484255565,
+      "revenue": 1542251.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2101",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2101 月營收 YoY 158.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2101",
+      "month": "2026-06",
+      "yoy_pct": 158.74753164663522,
+      "revenue": 2151553.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2103",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2103 月營收 YoY 33.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2103",
+      "month": "2026-06",
+      "yoy_pct": 32.962123645536494,
+      "revenue": 4060755.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2115",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2115 月營收 YoY 32.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2115",
+      "month": "2026-06",
+      "yoy_pct": 32.46675396231549,
+      "revenue": 311583.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2241",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2241 月營收 YoY 40.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2241",
+      "month": "2026-06",
+      "yoy_pct": 40.21609185031466,
+      "revenue": 62162.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2248",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2248 月營收 YoY 32.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2248",
+      "month": "2026-06",
+      "yoy_pct": 32.13927889175361,
+      "revenue": 197831.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2258",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2258 月營收 YoY 58.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2258",
+      "month": "2026-06",
+      "yoy_pct": 58.025080566064176,
+      "revenue": 541356.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2305",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2305 月營收 YoY 97.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2305",
+      "month": "2026-06",
+      "yoy_pct": 97.83153907836146,
+      "revenue": 115955.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2308",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2308 月營收 YoY 43.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2308",
+      "month": "2026-06",
+      "yoy_pct": 43.65246228958888,
+      "revenue": 58961817.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2316",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2316 月營收 YoY 39.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2316",
+      "month": "2026-06",
+      "yoy_pct": 39.076208435568304,
+      "revenue": 382034.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2317",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2317 月營收 YoY 39.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2317",
+      "month": "2026-06",
+      "yoy_pct": 39.572294783301125,
+      "revenue": 859409333.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2327",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2327 月營收 YoY 47.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2327",
+      "month": "2026-06",
+      "yoy_pct": 47.46348011274749,
+      "revenue": 15058220.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2330",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2330 月營收 YoY 30.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2330",
+      "month": "2026-06",
+      "yoy_pct": 30.09498020271696,
+      "revenue": 416975163.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2337",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2337 月營收 YoY 175.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2337",
+      "month": "2026-06",
+      "yoy_pct": 175.7952036483169,
+      "revenue": 6255653.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2344",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2344 月營收 YoY 182.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2344",
+      "month": "2026-06",
+      "yoy_pct": 181.967983155321,
+      "revenue": 20001444.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2345",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2345 月營收 YoY 56.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2345",
+      "month": "2026-06",
+      "yoy_pct": 56.57862562229947,
+      "revenue": 28622864.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2347",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2347 月營收 YoY 129.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2347",
+      "month": "2026-06",
+      "yoy_pct": 129.27243852167018,
+      "revenue": 67818918.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2351",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2351 月營收 YoY 36.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2351",
+      "month": "2026-06",
+      "yoy_pct": 36.80243254595039,
+      "revenue": 1156261.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2353",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2353 月營收 YoY 36.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2353",
+      "month": "2026-06",
+      "yoy_pct": 36.50411149686908,
+      "revenue": 26165549.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2356",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2356 月營收 YoY 35.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2356",
+      "month": "2026-06",
+      "yoy_pct": 35.30032995276392,
+      "revenue": 82807865.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2359",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2359 月營收 YoY 66.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2359",
+      "month": "2026-06",
+      "yoy_pct": 66.80044416243655,
+      "revenue": 525755.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2360",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2360 月營收 YoY 133.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2360",
+      "month": "2026-06",
+      "yoy_pct": 133.09060784010344,
+      "revenue": 4549607.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2363",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2363 月營收 YoY 88.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2363",
+      "month": "2026-06",
+      "yoy_pct": 88.80451818624007,
+      "revenue": 349345.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2368",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2368 月營收 YoY 87.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2368",
+      "month": "2026-06",
+      "yoy_pct": 87.29863200632951,
+      "revenue": 8773229.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2369",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2369 月營收 YoY 38.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2369",
+      "month": "2026-06",
+      "yoy_pct": 38.72767737149369,
+      "revenue": 645160.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2380",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2380 月營收 YoY 32.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2380",
+      "month": "2026-06",
+      "yoy_pct": 32.56222534754625,
+      "revenue": 302564.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2382",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2382 月營收 YoY 94.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2382",
+      "month": "2026-06",
+      "yoy_pct": 94.38123673778152,
+      "revenue": 311481017.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2383",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2383 月營收 YoY 114.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2383",
+      "month": "2026-06",
+      "yoy_pct": 114.62781738634055,
+      "revenue": 15618565.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2388",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2388 月營收 YoY 88.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2388",
+      "month": "2026-06",
+      "yoy_pct": 88.0613471994038,
+      "revenue": 1110333.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2395",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2395 月營收 YoY 32.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2395",
+      "month": "2026-06",
+      "yoy_pct": 32.10034657042178,
+      "revenue": 7733828.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2399",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2399 月營收 YoY 48.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2399",
+      "month": "2026-06",
+      "yoy_pct": 48.24145074516109,
+      "revenue": 191777.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2404",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2404 月營收 YoY 85.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2404",
+      "month": "2026-06",
+      "yoy_pct": 85.01370770897306,
+      "revenue": 9217814.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2406",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2406 月營收 YoY 121.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2406",
+      "month": "2026-06",
+      "yoy_pct": 121.1993165447746,
+      "revenue": 960589.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2408",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2408 月營收 YoY 730.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2408",
+      "month": "2026-06",
+      "yoy_pct": 730.1397699033429,
+      "revenue": 27669563.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2413",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2413 月營收 YoY 41.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2413",
+      "month": "2026-06",
+      "yoy_pct": 40.951853422535336,
+      "revenue": 325720.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2414",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2414 月營收 YoY 73.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2414",
+      "month": "2026-06",
+      "yoy_pct": 73.47528640006362,
+      "revenue": 4100503.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2425",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2425 月營收 YoY 95.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2425",
+      "month": "2026-06",
+      "yoy_pct": 95.17088148345744,
+      "revenue": 1777915.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2432",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2432 月營收 YoY 94.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2432",
+      "month": "2026-06",
+      "yoy_pct": 94.03136606450563,
+      "revenue": 452941.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2440",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2440 月營收 YoY 44.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2440",
+      "month": "2026-06",
+      "yoy_pct": 44.929904059959775,
+      "revenue": 395634.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2449",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2449 月營收 YoY 36.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2449",
+      "month": "2026-06",
+      "yoy_pct": 36.61229679115855,
+      "revenue": 3776927.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2451",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2451 月營收 YoY 469.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2451",
+      "month": "2026-06",
+      "yoy_pct": 469.8305876051363,
+      "revenue": 6297950.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2455",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2455 月營收 YoY 46.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2455",
+      "month": "2026-06",
+      "yoy_pct": 46.511957177046604,
+      "revenue": 320785.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2460",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2460 月營收 YoY 71.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2460",
+      "month": "2026-06",
+      "yoy_pct": 71.83340834565679,
+      "revenue": 427604.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2464",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2464 月營收 YoY 30.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2464",
+      "month": "2026-06",
+      "yoy_pct": 30.831835504873847,
+      "revenue": 701693.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2465",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2465 月營收 YoY 135.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2465",
+      "month": "2026-06",
+      "yoy_pct": 135.34394044691544,
+      "revenue": 704375.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2467",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2467 月營收 YoY 74.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2467",
+      "month": "2026-06",
+      "yoy_pct": 74.55363851208284,
+      "revenue": 1022228.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2476",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2476 月營收 YoY 48.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2476",
+      "month": "2026-06",
+      "yoy_pct": 48.67494611152079,
+      "revenue": 838717.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2486",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2486 月營收 YoY 31.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2486",
+      "month": "2026-06",
+      "yoy_pct": 31.37477765212005,
+      "revenue": 693513.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2495",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2495 月營收 YoY 87.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2495",
+      "month": "2026-06",
+      "yoy_pct": 87.19923905471303,
+      "revenue": 139733.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2497",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2497 月營收 YoY 36.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2497",
+      "month": "2026-06",
+      "yoy_pct": 36.17963390155487,
+      "revenue": 454554.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2506",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2506 月營收 YoY 131.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2506",
+      "month": "2026-06",
+      "yoy_pct": 131.02269543289438,
+      "revenue": 164904.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2515",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2515 月營收 YoY 57.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2515",
+      "month": "2026-06",
+      "yoy_pct": 57.09899455038421,
+      "revenue": 2270745.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2520",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2520 月營收 YoY 52.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2520",
+      "month": "2026-06",
+      "yoy_pct": 52.32956422871683,
+      "revenue": 2341933.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2528",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2528 月營收 YoY 506.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2528",
+      "month": "2026-06",
+      "yoy_pct": 506.23023287940146,
+      "revenue": 833803.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2536",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2536 月營收 YoY 367.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2536",
+      "month": "2026-06",
+      "yoy_pct": 367.43058025712213,
+      "revenue": 4047444.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2537",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2537 月營收 YoY 128.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2537",
+      "month": "2026-06",
+      "yoy_pct": 128.48525684217282,
+      "revenue": 71212.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2539",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2539 月營收 YoY 418.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2539",
+      "month": "2026-06",
+      "yoy_pct": 418.92924119579374,
+      "revenue": 2952505.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2542",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2542 月營收 YoY 2114.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2542",
+      "month": "2026-06",
+      "yoy_pct": 2114.205326762877,
+      "revenue": 4717918.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2543",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2543 月營收 YoY 86.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2543",
+      "month": "2026-06",
+      "yoy_pct": 86.14284031322353,
+      "revenue": 1548459.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2547",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2547 月營收 YoY 69.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2547",
+      "month": "2026-06",
+      "yoy_pct": 69.90066780612314,
+      "revenue": 749510.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2548",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2548 月營收 YoY 9203.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2548",
+      "month": "2026-06",
+      "yoy_pct": 9203.558823529413,
+      "revenue": 316321.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2603",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2603 月營收 YoY 31.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2603",
+      "month": "2026-06",
+      "yoy_pct": 31.4120575991778,
+      "revenue": 34656227.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2606",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2606 月營收 YoY 41.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2606",
+      "month": "2026-06",
+      "yoy_pct": 41.77669734206346,
+      "revenue": 1607321.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2607",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2607 月營收 YoY 33.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2607",
+      "month": "2026-06",
+      "yoy_pct": 33.32034523716214,
+      "revenue": 1768969.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2617",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2617 月營收 YoY 33.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2617",
+      "month": "2026-06",
+      "yoy_pct": 33.30718869130774,
+      "revenue": 450397.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2637",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2637 月營收 YoY 45.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2637",
+      "month": "2026-06",
+      "yoy_pct": 45.86522415148015,
+      "revenue": 1817170.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2646",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2646 月營收 YoY 41.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2646",
+      "month": "2026-06",
+      "yoy_pct": 41.18648431214803,
+      "revenue": 4826107.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2820",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2820 月營收 YoY 89.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2820",
+      "month": "2026-06",
+      "yoy_pct": 89.3969564329939,
+      "revenue": 417554.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2832",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2832 月營收 YoY 31.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2832",
+      "month": "2026-06",
+      "yoy_pct": 30.977283473355953,
+      "revenue": 944599.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2838",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2838 月營收 YoY 61.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2838",
+      "month": "2026-06",
+      "yoy_pct": 61.12684035593818,
+      "revenue": 2349239.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2851",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2851 月營收 YoY 1113.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2851",
+      "month": "2026-06",
+      "yoy_pct": 1113.1485058158516,
+      "revenue": 3084054.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2855",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2855 月營收 YoY 428.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2855",
+      "month": "2026-06",
+      "yoy_pct": 428.43428527421696,
+      "revenue": 4391495.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2867",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2867 月營收 YoY 154.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2867",
+      "month": "2026-06",
+      "yoy_pct": 154.9374858432906,
+      "revenue": 13499873.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2880",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2880 月營收 YoY 72.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2880",
+      "month": "2026-06",
+      "yoy_pct": 72.52927583818101,
+      "revenue": 7272247.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2881",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2881 月營收 YoY 155.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2881",
+      "month": "2026-06",
+      "yoy_pct": 155.02666088498714,
+      "revenue": 30407516.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2882",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2882 月營收 YoY 130.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2882",
+      "month": "2026-06",
+      "yoy_pct": 130.63810203221996,
+      "revenue": 25059074.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2883",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2883 月營收 YoY 126.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2883",
+      "month": "2026-06",
+      "yoy_pct": 126.09044237541613,
+      "revenue": 11583656.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2885",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2885 月營收 YoY 928.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2885",
+      "month": "2026-06",
+      "yoy_pct": 928.42236221935,
+      "revenue": 21261028.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2887",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2887 月營收 YoY 317.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2887",
+      "month": "2026-06",
+      "yoy_pct": 317.18131813619806,
+      "revenue": 14843474.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2889",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2889 月營收 YoY 147.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2889",
+      "month": "2026-06",
+      "yoy_pct": 147.9431466313739,
+      "revenue": 1588661.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2890",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2890 月營收 YoY 82.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2890",
+      "month": "2026-06",
+      "yoy_pct": 82.69197880820118,
+      "revenue": 9977463.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2891",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2891 月營收 YoY 341.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2891",
+      "month": "2026-06",
+      "yoy_pct": 341.3211844301598,
+      "revenue": 19217919.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2892",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2892 月營收 YoY 36.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2892",
+      "month": "2026-06",
+      "yoy_pct": 36.70270168109134,
+      "revenue": 7305350.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2897",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2897 月營收 YoY 39.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2897",
+      "month": "2026-06",
+      "yoy_pct": 39.8639724686473,
+      "revenue": 1047328.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "2923",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "2923 月營收 YoY 133.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "2923",
+      "month": "2026-06",
+      "yoy_pct": 133.58068386512642,
+      "revenue": 737837.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3002",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3002 月營收 YoY 49.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3002",
+      "month": "2026-06",
+      "yoy_pct": 49.16815490177648,
+      "revenue": 79350.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3003",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3003 月營收 YoY 52.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3003",
+      "month": "2026-06",
+      "yoy_pct": 52.800068734427356,
+      "revenue": 533532.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3004",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3004 月營收 YoY 56.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3004",
+      "month": "2026-06",
+      "yoy_pct": 56.16201695665634,
+      "revenue": 469131.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3006",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3006 月營收 YoY 296.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3006",
+      "month": "2026-06",
+      "yoy_pct": 296.8056658653291,
+      "revenue": 4466516.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3008",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3008 月營收 YoY 42.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3008",
+      "month": "2026-06",
+      "yoy_pct": 42.67433115160191,
+      "revenue": 4592691.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3016",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3016 月營收 YoY 37.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3016",
+      "month": "2026-06",
+      "yoy_pct": 37.28272841209758,
+      "revenue": 433764.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3017",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3017 月營收 YoY 60.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3017",
+      "month": "2026-06",
+      "yoy_pct": 60.64003400775296,
+      "revenue": 15871396.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3022",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3022 月營收 YoY 92.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3022",
+      "month": "2026-06",
+      "yoy_pct": 92.4008479108611,
+      "revenue": 888586.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3025",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3025 月營收 YoY 134.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3025",
+      "month": "2026-06",
+      "yoy_pct": 134.58787189074948,
+      "revenue": 57718.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3028",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3028 月營收 YoY 102.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3028",
+      "month": "2026-06",
+      "yoy_pct": 102.54268456763282,
+      "revenue": 6525822.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3031",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3031 月營收 YoY 32.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3031",
+      "month": "2026-06",
+      "yoy_pct": 32.23035811509017,
+      "revenue": 119006.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3036",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3036 月營收 YoY 152.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3036",
+      "month": "2026-06",
+      "yoy_pct": 152.69225498874076,
+      "revenue": 197924567.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3037",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3037 月營收 YoY 32.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3037",
+      "month": "2026-06",
+      "yoy_pct": 32.37498119348985,
+      "revenue": 14059973.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3041",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3041 月營收 YoY 97.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3041",
+      "month": "2026-06",
+      "yoy_pct": 97.9444020544591,
+      "revenue": 173813.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3044",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3044 月營收 YoY 46.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3044",
+      "month": "2026-06",
+      "yoy_pct": 46.5691978844015,
+      "revenue": 8654212.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3048",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3048 月營收 YoY 61.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3048",
+      "month": "2026-06",
+      "yoy_pct": 61.74280101762106,
+      "revenue": 13850848.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3051",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3051 月營收 YoY 36.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3051",
+      "month": "2026-06",
+      "yoy_pct": 36.60483970028252,
+      "revenue": 200178.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3135",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3135 月營收 YoY 234.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3135",
+      "month": "2026-06",
+      "yoy_pct": 234.46859359450252,
+      "revenue": 1841758.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3167",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3167 月營收 YoY 120.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3167",
+      "month": "2026-06",
+      "yoy_pct": 120.27058178079602,
+      "revenue": 955547.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3189",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3189 月營收 YoY 33.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3189",
+      "month": "2026-06",
+      "yoy_pct": 33.02062993597388,
+      "revenue": 4199867.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3209",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3209 月營收 YoY 32.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3209",
+      "month": "2026-06",
+      "yoy_pct": 32.0901111738293,
+      "revenue": 4710620.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3229",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3229 月營收 YoY 59.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3229",
+      "month": "2026-06",
+      "yoy_pct": 59.79938659560561,
+      "revenue": 127130.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3231",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3231 月營收 YoY 39.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3231",
+      "month": "2026-06",
+      "yoy_pct": 39.239764585408004,
+      "revenue": 290183471.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3305",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3305 月營收 YoY 71.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3305",
+      "month": "2026-06",
+      "yoy_pct": 71.36506452239956,
+      "revenue": 1348799.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3321",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3321 月營收 YoY 36.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3321",
+      "month": "2026-06",
+      "yoy_pct": 36.449782539819694,
+      "revenue": 236870.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3406",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3406 月營收 YoY 30.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3406",
+      "month": "2026-06",
+      "yoy_pct": 30.240049764171875,
+      "revenue": 1628911.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3416",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3416 月營收 YoY 52.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3416",
+      "month": "2026-06",
+      "yoy_pct": 52.42017987518027,
+      "revenue": 370977.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3432",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3432 月營收 YoY 218.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3432",
+      "month": "2026-06",
+      "yoy_pct": 217.9663937957777,
+      "revenue": 29520.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3443",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3443 月營收 YoY 132.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3443",
+      "month": "2026-06",
+      "yoy_pct": 132.1328905238472,
+      "revenue": 4674012.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3447",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3447 月營收 YoY 34.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3447",
+      "month": "2026-06",
+      "yoy_pct": 34.19997413012547,
+      "revenue": 290500.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3450",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3450 月營收 YoY 49.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3450",
+      "month": "2026-06",
+      "yoy_pct": 49.91272715918316,
+      "revenue": 960221.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3528",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3528 月營收 YoY 66.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3528",
+      "month": "2026-06",
+      "yoy_pct": 66.83049346499516,
+      "revenue": 1000344.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3535",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3535 月營收 YoY 2229.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3535",
+      "month": "2026-06",
+      "yoy_pct": 2229.0254683224584,
+      "revenue": 110652.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3550",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3550 月營收 YoY 36.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3550",
+      "month": "2026-06",
+      "yoy_pct": 36.57033870529083,
+      "revenue": 391681.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3557",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3557 月營收 YoY 78.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3557",
+      "month": "2026-06",
+      "yoy_pct": 78.61048517146,
+      "revenue": 334491.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3652",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3652 月營收 YoY 42.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3652",
+      "month": "2026-06",
+      "yoy_pct": 42.38547820875075,
+      "revenue": 249438.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3653",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3653 月營收 YoY 37.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3653",
+      "month": "2026-06",
+      "yoy_pct": 37.748425995281856,
+      "revenue": 2313449.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3665",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3665 月營收 YoY 41.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3665",
+      "month": "2026-06",
+      "yoy_pct": 41.348642262125516,
+      "revenue": 7352121.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3702",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3702 月營收 YoY 82.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3702",
+      "month": "2026-06",
+      "yoy_pct": 82.90674676519687,
+      "revenue": 138023979.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3704",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3704 月營收 YoY 31.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3704",
+      "month": "2026-06",
+      "yoy_pct": 31.130697842698783,
+      "revenue": 2406584.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3706",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3706 月營收 YoY 49.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3706",
+      "month": "2026-06",
+      "yoy_pct": 49.30087981162376,
+      "revenue": 13638501.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3708",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3708 月營收 YoY 70.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3708",
+      "month": "2026-06",
+      "yoy_pct": 70.6022421582382,
+      "revenue": 132546.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "3715",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "3715 月營收 YoY 69.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "3715",
+      "month": "2026-06",
+      "yoy_pct": 69.11391792521879,
+      "revenue": 2516224.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "4306",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "4306 月營收 YoY 40.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "4306",
+      "month": "2026-06",
+      "yoy_pct": 40.04059179513059,
+      "revenue": 1398619.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "4526",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "4526 月營收 YoY 50.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "4526",
+      "month": "2026-06",
+      "yoy_pct": 49.954595638313634,
+      "revenue": 627503.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "4576",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "4576 月營收 YoY 48.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "4576",
+      "month": "2026-06",
+      "yoy_pct": 48.040185034782304,
+      "revenue": 335388.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "4582",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "4582 月營收 YoY 117.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "4582",
+      "month": "2026-06",
+      "yoy_pct": 117.07702184512345,
+      "revenue": 250216.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "4588",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "4588 月營收 YoY 33.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "4588",
+      "month": "2026-06",
+      "yoy_pct": 33.36567093792527,
+      "revenue": 98980.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "4739",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "4739 月營收 YoY 141.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "4739",
+      "month": "2026-06",
+      "yoy_pct": 140.95338036510228,
+      "revenue": 1159552.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "4764",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "4764 月營收 YoY 42.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "4764",
+      "month": "2026-06",
+      "yoy_pct": 42.494498370056526,
+      "revenue": 312100.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "4912",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "4912 月營收 YoY 31.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "4912",
+      "month": "2026-06",
+      "yoy_pct": 30.9592021992313,
+      "revenue": 610245.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "4916",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "4916 月營收 YoY 104.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "4916",
+      "month": "2026-06",
+      "yoy_pct": 104.34962097326625,
+      "revenue": 450454.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "4934",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "4934 月營收 YoY 281.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "4934",
+      "month": "2026-06",
+      "yoy_pct": 281.10296953335904,
+      "revenue": 19764.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "4943",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "4943 月營收 YoY 56.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "4943",
+      "month": "2026-06",
+      "yoy_pct": 56.132933831142346,
+      "revenue": 199057.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "4958",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "4958 月營收 YoY 37.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "4958",
+      "month": "2026-06",
+      "yoy_pct": 37.39933169500997,
+      "revenue": 16201199.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "4967",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "4967 月營收 YoY 112.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "4967",
+      "month": "2026-06",
+      "yoy_pct": 112.58579427342201,
+      "revenue": 2555598.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "4989",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "4989 月營收 YoY 33.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "4989",
+      "month": "2026-06",
+      "yoy_pct": 33.87208955718213,
+      "revenue": 323360.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5215",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5215 月營收 YoY 30.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5215",
+      "month": "2026-06",
+      "yoy_pct": 30.813059920321948,
+      "revenue": 258743.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5258",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5258 月營收 YoY 35.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5258",
+      "month": "2026-06",
+      "yoy_pct": 35.651414304998106,
+      "revenue": 754698.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5284",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5284 月營收 YoY 43.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5284",
+      "month": "2026-06",
+      "yoy_pct": 43.319547280839934,
+      "revenue": 413067.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5288",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5288 月營收 YoY 68.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5288",
+      "month": "2026-06",
+      "yoy_pct": 68.50112005035051,
+      "revenue": 813884.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5292",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5292 月營收 YoY 45.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5292",
+      "month": "2026-06",
+      "yoy_pct": 45.036380041851444,
+      "revenue": 226644.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5388",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5388 月營收 YoY 70.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5388",
+      "month": "2026-06",
+      "yoy_pct": 69.95652184172461,
+      "revenue": 6482310.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5484",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5484 月營收 YoY 152.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5484",
+      "month": "2026-06",
+      "yoy_pct": 152.31709598952162,
+      "revenue": 80908.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5519",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5519 月營收 YoY 88.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5519",
+      "month": "2026-06",
+      "yoy_pct": 88.65151498619764,
+      "revenue": 172901.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5522",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5522 月營收 YoY 191.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5522",
+      "month": "2026-06",
+      "yoy_pct": 191.64415257562706,
+      "revenue": 646613.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5525",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5525 月營收 YoY 406.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5525",
+      "month": "2026-06",
+      "yoy_pct": 406.8044054988343,
+      "revenue": 315207.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5531",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5531 月營收 YoY 55.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5531",
+      "month": "2026-06",
+      "yoy_pct": 55.16237222099492,
+      "revenue": 77260.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5533",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5533 月營收 YoY 144.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5533",
+      "month": "2026-06",
+      "yoy_pct": 144.78729359082004,
+      "revenue": 139940.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5534",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5534 月營收 YoY 452.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5534",
+      "month": "2026-06",
+      "yoy_pct": 452.5877921790185,
+      "revenue": 498821.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5607",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5607 月營收 YoY 39.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5607",
+      "month": "2026-06",
+      "yoy_pct": 38.95764667602629,
+      "revenue": 461231.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "5880",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "5880 月營收 YoY 37.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "5880",
+      "month": "2026-06",
+      "yoy_pct": 37.424632406229016,
+      "revenue": 6305060.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6005",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6005 月營收 YoY 155.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6005",
+      "month": "2026-06",
+      "yoy_pct": 155.54062108558796,
+      "revenue": 3798596.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6139",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6139 月營收 YoY 103.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6139",
+      "month": "2026-06",
+      "yoy_pct": 103.26334632527379,
+      "revenue": 8587728.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6141",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6141 月營收 YoY 32.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6141",
+      "month": "2026-06",
+      "yoy_pct": 32.10873074741481,
+      "revenue": 181668.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6152",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6152 月營收 YoY 78.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6152",
+      "month": "2026-06",
+      "yoy_pct": 78.63452035793752,
+      "revenue": 185453.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6155",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6155 月營收 YoY 43.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6155",
+      "month": "2026-06",
+      "yoy_pct": 43.29256820319849,
+      "revenue": 68544.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6166",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6166 月營收 YoY 79.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6166",
+      "month": "2026-06",
+      "yoy_pct": 79.45933891237368,
+      "revenue": 1440425.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6177",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6177 月營收 YoY 149.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6177",
+      "month": "2026-06",
+      "yoy_pct": 149.18224366317995,
+      "revenue": 432847.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6196",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6196 月營收 YoY 64.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6196",
+      "month": "2026-06",
+      "yoy_pct": 64.89222551092452,
+      "revenue": 6973777.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6197",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6197 月營收 YoY 41.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6197",
+      "month": "2026-06",
+      "yoy_pct": 41.776437546815984,
+      "revenue": 808198.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6206",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6206 月營收 YoY 45.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6206",
+      "month": "2026-06",
+      "yoy_pct": 45.24213086212773,
+      "revenue": 630682.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6209",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6209 月營收 YoY 70.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6209",
+      "month": "2026-06",
+      "yoy_pct": 70.65666417439758,
+      "revenue": 408564.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6214",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6214 月營收 YoY 45.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6214",
+      "month": "2026-06",
+      "yoy_pct": 45.79751218839444,
+      "revenue": 4461226.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6215",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6215 月營收 YoY 37.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6215",
+      "month": "2026-06",
+      "yoy_pct": 37.908326176999466,
+      "revenue": 290668.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6225",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6225 月營收 YoY 87.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6225",
+      "month": "2026-06",
+      "yoy_pct": 87.32134624250807,
+      "revenue": 4063.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6239",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6239 月營收 YoY 30.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6239",
+      "month": "2026-06",
+      "yoy_pct": 30.234448209551132,
+      "revenue": 7917615.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6285",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6285 月營收 YoY 34.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6285",
+      "month": "2026-06",
+      "yoy_pct": 34.82240255362084,
+      "revenue": 12167707.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6405",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6405 月營收 YoY 230.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6405",
+      "month": "2026-06",
+      "yoy_pct": 230.0,
+      "revenue": 165.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6414",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6414 月營收 YoY 35.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6414",
+      "month": "2026-06",
+      "yoy_pct": 35.27093824462834,
+      "revenue": 15579250.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6415",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6415 月營收 YoY 31.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6415",
+      "month": "2026-06",
+      "yoy_pct": 31.59125446617003,
+      "revenue": 1911109.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6426",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6426 月營收 YoY 70.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6426",
+      "month": "2026-06",
+      "yoy_pct": 70.173840431185,
+      "revenue": 67251.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6442",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6442 月營收 YoY 116.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6442",
+      "month": "2026-06",
+      "yoy_pct": 116.02033931403635,
+      "revenue": 1725672.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6515",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6515 月營收 YoY 119.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6515",
+      "month": "2026-06",
+      "yoy_pct": 119.79410445881783,
+      "revenue": 1073481.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6531",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6531 月營收 YoY 89.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6531",
+      "month": "2026-06",
+      "yoy_pct": 89.34296229779807,
+      "revenue": 748539.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6579",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6579 月營收 YoY 48.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6579",
+      "month": "2026-06",
+      "yoy_pct": 48.84883964935982,
+      "revenue": 971779.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6585",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6585 月營收 YoY 58.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6585",
+      "month": "2026-06",
+      "yoy_pct": 58.06783261026754,
+      "revenue": 279818.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6606",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6606 月營收 YoY 37.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6606",
+      "month": "2026-06",
+      "yoy_pct": 37.22261318320432,
+      "revenue": 87747.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6614",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6614 月營收 YoY 83.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6614",
+      "month": "2026-06",
+      "yoy_pct": 83.31453463498114,
+      "revenue": 518452.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6670",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6670 月營收 YoY 32.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6670",
+      "month": "2026-06",
+      "yoy_pct": 32.031221010321644,
+      "revenue": 2882095.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6672",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6672 月營收 YoY 35.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6672",
+      "month": "2026-06",
+      "yoy_pct": 34.98597700330342,
+      "revenue": 530395.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6691",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6691 月營收 YoY 82.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6691",
+      "month": "2026-06",
+      "yoy_pct": 82.35699071961052,
+      "revenue": 3835624.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6770",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6770 月營收 YoY 58.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6770",
+      "month": "2026-06",
+      "yoy_pct": 58.86220189113607,
+      "revenue": 5770374.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6776",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6776 月營收 YoY 52.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6776",
+      "month": "2026-06",
+      "yoy_pct": 52.059623862982896,
+      "revenue": 3077924.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6805",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6805 月營收 YoY 37.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6805",
+      "month": "2026-06",
+      "yoy_pct": 37.2169831061758,
+      "revenue": 1180335.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6834",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6834 月營收 YoY 58.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6834",
+      "month": "2026-06",
+      "yoy_pct": 58.66754639450782,
+      "revenue": 189979.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6863",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6863 月營收 YoY 73.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6863",
+      "month": "2026-06",
+      "yoy_pct": 73.79305305207775,
+      "revenue": 428094.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6901",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6901 月營收 YoY 407.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6901",
+      "month": "2026-06",
+      "yoy_pct": 407.46017585207477,
+      "revenue": 692717.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6909",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6909 月營收 YoY 51.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6909",
+      "month": "2026-06",
+      "yoy_pct": 51.31807594187895,
+      "revenue": 40927.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6916",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6916 月營收 YoY 44.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6916",
+      "month": "2026-06",
+      "yoy_pct": 44.11789771796065,
+      "revenue": 219836.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6933",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6933 月營收 YoY 72.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6933",
+      "month": "2026-06",
+      "yoy_pct": 72.60818382177219,
+      "revenue": 585033.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "6944",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "6944 月營收 YoY 48.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "6944",
+      "month": "2026-06",
+      "yoy_pct": 48.22914791405978,
+      "revenue": 1671463.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "7610",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "7610 月營收 YoY 462.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "7610",
+      "month": "2026-06",
+      "yoy_pct": 462.17814001937097,
+      "revenue": 615259.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "7721",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "7721 月營收 YoY 72.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "7721",
+      "month": "2026-06",
+      "yoy_pct": 72.32514177693761,
+      "revenue": 63812.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "7740",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "7740 月營收 YoY 1254.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "7740",
+      "month": "2026-06",
+      "yoy_pct": 1254.6047846317865,
+      "revenue": 1359522.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "7749",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "7749 月營收 YoY 73.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "7749",
+      "month": "2026-06",
+      "yoy_pct": 73.6849472054308,
+      "revenue": 198541.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "7750",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "7750 月營收 YoY 88.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "7750",
+      "month": "2026-06",
+      "yoy_pct": 88.25510096241669,
+      "revenue": 2689787.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "7769",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "7769 月營收 YoY 83.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "7769",
+      "month": "2026-06",
+      "yoy_pct": 83.64462145795709,
+      "revenue": 4129556.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "7786",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "7786 月營收 YoY 37.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "7786",
+      "month": "2026-06",
+      "yoy_pct": 37.694024659720625,
+      "revenue": 1478692.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "7788",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "7788 月營收 YoY 43.1% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "7788",
+      "month": "2026-06",
+      "yoy_pct": 43.08459601398903,
+      "revenue": 730713.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8016",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8016 月營收 YoY 39.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8016",
+      "month": "2026-06",
+      "yoy_pct": 39.84375254415016,
+      "revenue": 2147140.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8021",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8021 月營收 YoY 86.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8021",
+      "month": "2026-06",
+      "yoy_pct": 86.29485062302957,
+      "revenue": 620455.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8028",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8028 月營收 YoY 46.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8028",
+      "month": "2026-06",
+      "yoy_pct": 46.03375977798448,
+      "revenue": 478852.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8046",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8046 月營收 YoY 35.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8046",
+      "month": "2026-06",
+      "yoy_pct": 35.82115712146276,
+      "revenue": 4440287.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8072",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8072 月營收 YoY 31.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8072",
+      "month": "2026-06",
+      "yoy_pct": 31.37287745231465,
+      "revenue": 125490.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8112",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8112 月營收 YoY 253.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8112",
+      "month": "2026-06",
+      "yoy_pct": 253.17875062011288,
+      "revenue": 53921149.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8131",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8131 月營收 YoY 49.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8131",
+      "month": "2026-06",
+      "yoy_pct": 49.61290001634533,
+      "revenue": 1052624.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8210",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8210 月營收 YoY 37.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8210",
+      "month": "2026-06",
+      "yoy_pct": 37.30562656079703,
+      "revenue": 2517084.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8271",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8271 月營收 YoY 224.4% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8271",
+      "month": "2026-06",
+      "yoy_pct": 224.4323115280713,
+      "revenue": 3022791.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8341",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8341 月營收 YoY 35.3% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8341",
+      "month": "2026-06",
+      "yoy_pct": 35.33614560489447,
+      "revenue": 387554.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8374",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8374 月營收 YoY 42.5% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8374",
+      "month": "2026-06",
+      "yoy_pct": 42.47823030194512,
+      "revenue": 541091.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8422",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8422 月營收 YoY 199.6% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8422",
+      "month": "2026-06",
+      "yoy_pct": 199.60552268244575,
+      "revenue": 1272922.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8438",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8438 月營收 YoY 49.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8438",
+      "month": "2026-06",
+      "yoy_pct": 49.77227536543422,
+      "revenue": 445914.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8482",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8482 月營收 YoY 30.8% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8482",
+      "month": "2026-06",
+      "yoy_pct": 30.790922964634067,
+      "revenue": 315384.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8488",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8488 月營收 YoY 74.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8488",
+      "month": "2026-06",
+      "yoy_pct": 74.87241514201824,
+      "revenue": 388918.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8499",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8499 月營收 YoY 85.7% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8499",
+      "month": "2026-06",
+      "yoy_pct": 85.65278647463995,
+      "revenue": 332066.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8926",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8926 月營收 YoY 768.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8926",
+      "month": "2026-06",
+      "yoy_pct": 768.1692744359109,
+      "revenue": 7279773.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "8996",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "8996 月營收 YoY 40.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "8996",
+      "month": "2026-06",
+      "yoy_pct": 40.025403665576036,
+      "revenue": 631677.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "9906",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "9906 月營收 YoY 75.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "9906",
+      "month": "2026-06",
+      "yoy_pct": 75.87513061650992,
+      "revenue": 134650.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "9940",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "9940 月營收 YoY 36.9% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "9940",
+      "month": "2026-06",
+      "yoy_pct": 36.90410239962679,
+      "revenue": 1032988.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "9945",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "9945 月營收 YoY 72.0% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "9945",
+      "month": "2026-06",
+      "yoy_pct": 72.00284315533695,
+      "revenue": 5231795.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  },
+  {
+    "ticker": "9946",
+    "event_date": "2026-06-01",
+    "source_url": "",
+    "source_type": "revenue",
+    "clause_number": "",
+    "summary": "9946 月營收 YoY 312.2% (≥+30%) — partial (no prior month snapshot)",
+    "raw_data": {
+      "ticker": "9946",
+      "month": "2026-06",
+      "yoy_pct": 312.15893521237035,
+      "revenue": 105286.0
+    },
+    "market": "twse",
+    "flag": "revenue",
+    "flags": [
+      "revenue"
+    ],
+    "partial": true
+  }
+]
