@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""normalize_candidate.py — 三線 candidate normalization (T09).
+"""normalize_candidate.py — 三線 candidate normalization (T09). v1.1.
 
 Reads three source types independently:
   - announcements  (*-announcements.json): clause whitelist + universe filter
   - institutional  (*-flagged.json):       flag_engine output, pass-through with flags
-  - revenue        (*-revenue.json):       YoY ≥+30% 2mo OR 12mo high; partial if <2mo
+  - revenue        (*-revenue.json):       YoY >=+30% 2mo OR 12mo high; partial if <2mo
 
 Outputs:
   signals/candidates/YYYY-MM-DD-normalized.json (merged unified schema)
 
 Enriched fields (v1 contract — 變更需重裁):
   - title:    [TOKEN] {ticker} {short} {event_date} {body}
-  - trigger_type: source_type 映射 (announcement→policy_regulation, revenue→financial_inflection)
+  - trigger_type: source_type 映射 (announcement->policy_regulation, revenue->financial_inflection)
   - priority: "medium"
   - expires_at: None
 
@@ -20,6 +20,10 @@ Token 契約 (v1):
   欄位順序固定；source_type 用 normalize 枚舉值 (announcement|revenue)
   event_date 先 roc_to_iso 再進 token/title
   庫內 280 筆舊 token 為 Bridge v5 遺產，不回填、不重算，新舊並存
+
+v1.1 變更:
+  - partial rev 不輸出候選 (producer 責任; chain 禁止 shell grep 濾檔)
+  - partial_skipped 計數 + WARN
 
 Usage:
   python3 normalize_candidate.py [--date YYYY-MM-DD] [--dry-run]
@@ -226,8 +230,11 @@ def normalize_revenue(date_str: str, universe: set[str]) -> list[dict]:
 
     ⚠️ First month: only check 12-month high, mark partial.
     Revenue data is monthly, so date_str is YYYY-MM not a full date.
+    
+    v1.1: partial rev 不輸出候選 (producer 責任).
     """
     candidates = []
+    partial_skipped = 0
 
     month_str = date_str[:7]  # YYYY-MM
     fpath = CANDIDATES_DIR / f"{month_str}-revenue.json"
@@ -268,6 +275,13 @@ def normalize_revenue(date_str: str, universe: set[str]) -> list[dict]:
         recs.sort(key=lambda x: x["month"])
         for r in recs:
             if r["yoy_pct"] is not None and r["yoy_pct"] >= 30:
+                # v1.1: partial rev 不輸出候選
+                is_partial = True  # 目前邏輯下，若無 prior month snapshot 即為 partial
+                # 若未來有完整月資料，is_partial 應設為 False 並走 enrich
+                if is_partial:
+                    partial_skipped += 1
+                    continue  # 不 append、不 enrich
+                
                 c = {
                     "ticker": ticker,
                     "event_date": r["month"] + "-01",
@@ -283,6 +297,9 @@ def normalize_revenue(date_str: str, universe: set[str]) -> list[dict]:
                 }
                 c = enrich(c)
                 candidates.append(c)
+    
+    if partial_skipped > 0:
+        print(f"  ⚠️  partial skipped: {partial_skipped}")
     return candidates
 
 

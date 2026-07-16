@@ -1,42 +1,37 @@
-__pycache__/
-*.pyc
+
+#
+.claude/settings.local.json
+# Current day's file (e.g. YYYY-MM-DD-institutional.json) IS tracked —
+# Daily commit convention:
+data/.last_revenue_*
+data/*.sqlite
+.DS_Store
 *.egg-info/
+enrichment*.json
+# fetch_institutional.py --backfill N. These files are large (~1.4MB/day),
+#     historical backfill ignored (regenerable via --backfill N).
+# Historical TWSE/TPEx institutional trading data fetched by
+#     if not archived same-day, the evidence is permanently lost.
+# is excluded.
+# it's already committed and will continue to be committed with daily
+.l1-chain.lock
+# L1 chain revenue markers (local state, not committed)
+*.log
+#   Normalized / flagged JSON → committed as pipeline output.
+# pipeline runs for reproducibility. Only historical backfill (84+ files)
+*.pyc
+__pycache__/
+# Signal layer runtime artifacts
+signals/candidates/*-institutional.json
+# SQLite runtime DB
+*.sqlite-shm
+*.sqlite-wal
+# ── T86 institutional backfill raw data ────────────────────────────────────
+_temp_fix_*.py
+#     These endpoints serve current-period snapshots only;
+*.tmp
+# trivially regenerated, and should NOT be tracked in git.
 .venv/
 venv/
-.DS_Store
-*.tmp
-*.log
-_temp_fix_*.py
-enrichment*.json
-.claude/settings.local.json
-
-# Signal layer runtime artifacts
-*.sqlite-wal
-*.sqlite-shm
-
-# SQLite runtime DB
-data/*.sqlite
-
-
-# ── T86 institutional backfill raw data ────────────────────────────────────
-# Historical TWSE/TPEx institutional trading data fetched by
-# fetch_institutional.py --backfill N. These files are large (~1.4MB/day),
-# trivially regenerated, and should NOT be tracked in git.
-#
-# Current day's file (e.g. YYYY-MM-DD-institutional.json) IS tracked —
-# it's already committed and will continue to be committed with daily
-# pipeline runs for reproducibility. Only historical backfill (84+ files)
-# is excluded.
-#
-# Daily commit convention:
-#   重訊 (announcements) + 營收 (revenue) raw dumps → ALWAYS commit.
-#     These endpoints serve current-period snapshots only;
-#     if not archived same-day, the evidence is permanently lost.
 #   法人 (institutional T86) → current day's file committed,
-#     historical backfill ignored (regenerable via --backfill N).
-#   Normalized / flagged JSON → committed as pipeline output.
-#
-signals/candidates/*-institutional.json
-
-# L1 chain revenue markers (local state, not committed)
-data/.last_revenue_*
+#   重訊 (announcements) + 營收 (revenue) raw dumps → ALWAYS commit.

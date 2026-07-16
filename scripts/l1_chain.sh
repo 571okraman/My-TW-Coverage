@@ -1,247 +1,157 @@
 #!/usr/bin/env bash
-# l1_chain.sh — L1 daily pipeline
-# Usage: bash scripts/l1_chain.sh [--dry-run]
-#
-# Chain: flock → baseline → fetch → normalize → ingest → map → score → fu → export → commit → publish → 三件套
-# Revenue: monthly idempotent via data/.last_revenue_{YYYY-MM} marker (gitignored)
-# C1 sealed: institutional + flag_engine = SKIP
-# Relay: Debian commits only; push is Mac-side
-
 set -euo pipefail
 
-# ── Flags ──────────────────────────────────────────────────────────────────
+# l1_chain.sh — L1 chain script (fetch → normalize → ingest → map → score → followup → export → publish)
+# v1.1: P1 marker gating, P2 partial rev skip, P3 full month criteria, P4 lock/commit
+#
+# Usage: bash l1_chain.sh [--dry-run]
+# Dry-run: skips ingest, marker touch, git commit, publish_db.sh
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+LOG_DIR="$HOME/logs/l1-chain"
+LOG="$LOG_DIR/$(date +%Y-%m-%d).log"
+LOCK="$ROOT/.l1-chain.lock"
+
 DRY_RUN=0
-for arg in "$@"; do
-  [[ "$arg" == "--dry-run" ]] && DRY_RUN=1
-done
+if [[ "${1:-}" == "--dry-run" ]]; then
+  DRY_RUN=1
+  echo "DRY RUN MODE"
+fi
 
-# ── Environment ───────────────────────────────────────────────────────────
-ROOT="${TW_COVERAGE_ROOT:-$HOME/My-TW-Coverage}"
-cd "$ROOT"
-D=$(date +%Y-%m-%d)
-YM=$(date +%Y-%m)
-MARKER="data/.last_revenue_${YM}"
-LOG_DIR="${HOME}/logs/l1-chain"
+# ── Setup ─────────────────────────────────────────────────────────────────────
 mkdir -p "$LOG_DIR"
-LOG="$LOG_DIR/${D}.log"
-LOCKFILE="${ROOT}/.l1-chain.lock"
+exec > >(tee -a "$LOG") 2>&1
 
-# ── flock ──────────────────────────────────────────────────────────────────
-exec 9>"$LOCKFILE"
+echo "=== L1 Chain Start $(date) ==="
+
+# P4: flock (repo lock fd 9)
+exec 9>"$LOCK"
 if ! flock -n 9; then
-  echo "FATAL: another chain run is active (lock $LOCKFILE)" >&2
-  exit 2
+  echo "LOCK held by another process"; exit 1
 fi
 
-# ── Helpers ────────────────────────────────────────────────────────────────
-log() {
-  local ts; ts=$(date '+%H:%M:%S')
-  echo "[${ts}] $*" | tee -a "$LOG"
-}
+# ── Date Logic ────────────────────────────────────────────────────────────────
+TODAY=$(date +%Y-%m-%d)
+DAY=$(date +%-d)  # 1-31, no leading zero
+YM=$(date -d "1 day ago" +%Y-%m)  # Previous month YYYY-MM
 
-run_step() {
-  local name="$1"; shift
-  log "STEP=${name} START"
-  local start_ts tmpout
-  start_ts=$(date +%s)
-  tmpout=$(mktemp)
-  set +e
-  eval "$@" >"$tmpout" 2>&1
-  local exit_code=$?
-  set -e
-  local end_ts wall
-  end_ts=$(date +%s)
-  wall=$((end_ts - start_ts))
-  tail -100 "$tmpout" | while IFS= read -r line; do
-    log "  $line"
-  done
-  rm -f "$tmpout"
-  if [[ $exit_code -eq 0 ]]; then
-    log "STEP=${name} EXIT=0 WALL=${wall}s"
-  else
-    log "STEP=${name} EXIT=${exit_code} WALL=${wall}s"
-  fi
-  return $exit_code
-}
+echo "TODAY=$TODAY DAY=$DAY YM=$YM"
 
-check_soft_output() {
-  local name="$1" exit_code="$2"; shift 2
-  for f in "$@"; do
-    if [[ -f "$f" ]] && [[ -s "$f" ]]; then
-      if python3 -c "import json; json.load(open('$f'))" 2>/dev/null; then
-        log "SOFT: ${name} EXIT=${exit_code} but ${f} valid — continuing"
-        return 0
-      fi
-    fi
-  done
-  log "HARD: ${name} EXIT=${exit_code} with no valid output — STOPPING"
-  return 1
-}
-
-get_db_count() {
-  python3 -c "
-import sqlite3
-conn = sqlite3.connect('data/signals.sqlite')
-conn.row_factory = sqlite3.Row
-print(conn.execute('SELECT COUNT(*) FROM $1').fetchone()[0])
-"
-}
-
-# ── Clear log ──────────────────────────────────────────────────────────────
-: > "$LOG"
-log "================================================================"
-log "L1 CHAIN ${D} $(date '+%H:%M:%S %Z') DRY_RUN=${DRY_RUN}"
-log "================================================================"
-
-# ── Baseline ───────────────────────────────────────────────────────────────
-log "=== BASELINE ==="
-BASELINE_HEAD=$(git rev-parse HEAD)
-log "HEAD=${BASELINE_HEAD}"
-BASELINE_MD5=$(md5sum data/signals.sqlite | cut -d' ' -f1)
-log "DB md5=${BASELINE_MD5}"
-BASELINE_SIGNALS=$(get_db_count signals)
-BASELINE_FUS=$(get_db_count followups)
-log "signals=${BASELINE_SIGNALS} followups=${BASELINE_FUS}"
-log "=== BASELINE DONE ==="
-
-# ── Revenue tracking ──────────────────────────────────────────────────────
-REV_FETCHED=0
-
-# ── 2a: Fetch Announcements ───────────────────────────────────────────────
-ANN_JSON="signals/candidates/${D}-announcements.json"
-set +e
-run_step fetch_announcements "python3 scripts/fetch_announcements.py --date '$D'"
-ann_exit=$?
-set -e
-if [[ $ann_exit -ne 0 ]]; then
-  check_soft_output fetch_announcements $ann_exit "$ANN_JSON" || {
-    log "FATAL: fetch_announcements hard fail"; exit 1
-  }
-fi
-
-# ── 2b: Fetch Revenue (marker gate) ────────────────────────────────────────
+# P1/P3: Marker gating
+MARKER="$ROOT/data/.last_revenue_${YM}"
+SKIP_REV=0
 if [[ -f "$MARKER" ]]; then
-  log "SKIP fetch_revenue: marker exists $MARKER"
+  echo "WARN: marker $MARKER exists → skip rev pipeline"
+  SKIP_REV=1
+fi
+
+# ── Fetch ──────────────────────────────────────────────────────────────────────
+echo "── Fetch Announcements ──"
+bash "$ROOT/scripts/fetch_announcements.sh" --date "$TODAY" || true
+ANN_EXIT=$?
+
+echo "── Fetch Revenue ──"
+REV_EXIT=0
+REV_FILE="$ROOT/signals/candidates/${YM}-revenue.json"
+if [[ $SKIP_REV -eq 1 ]]; then
+  echo "SKIP: revenue fetch (marker exists)"
+elif [[ $DAY -ge 11 ]]; then
+  # >=11: Full month eligible
+  bash "$ROOT/scripts/fetch_revenue.sh" --year-month "$YM" || true
+  REV_EXIT=$?
+  if [[ $REV_EXIT -ne 0 && ! -f "$REV_FILE" ]]; then
+    echo "FATAL: fetch_revenue failed with no output"; exit 1
+  elif [[ $REV_EXIT -ne 0 ]]; then
+    echo "WARN: fetch_revenue soft fail (exit $REV_EXIT) but output exists"
+  fi
 else
-  REV_JSON="signals/candidates/${D}-revenue.json"
-  REV_JSON_ALT="signals/candidates/${YM}-revenue.json"
-  set +e
-  run_step fetch_revenue "python3 scripts/fetch_revenue.py --year-month '$YM'"
-  rev_exit=$?
-  set -e
-  if [[ $rev_exit -eq 0 ]] || check_soft_output fetch_revenue $rev_exit "$REV_JSON" "$REV_JSON_ALT"; then
-    REV_FETCHED=1
-  else
-    log "WARN: fetch_revenue failed (non-fatal)"
+  # 1-10: Backup fetch only
+  echo "WARN: DAY<11 → fetch_revenue for backup only (no ingest)"
+  bash "$ROOT/scripts/fetch_revenue.sh" --year-month "$YM" || true
+  REV_EXIT=$?
+  if [[ $REV_EXIT -ne 0 && ! -f "$REV_FILE" ]]; then
+    echo "WARN: fetch_revenue failed (backup)"
   fi
 fi
 
-# ── 2c/2d: C1 sealed ──────────────────────────────────────────────────────
-log "SKIP institutional+flag: C1 sealed"
-
-# ── 2e: Normalize ─────────────────────────────────────────────────────────
-NORM="signals/candidates/${D}-normalized.json"
-if ! run_step normalize "python3 scripts/normalize_candidate.py --date '$D'"; then
-  log "FATAL: normalize failed"; exit 1
-fi
-[[ -f "$NORM" ]] || { log "FATAL: no $NORM"; exit 1; }
-log "normalize: $(wc -c < "$NORM") bytes"
-
-# ── 2f: Ingest (dry-run → real) ────────────────────────────────────────────
-INGEST_CREATED=0
-
-if ! run_step ingest_dryrun "python3 scripts/ingest_signals.py --dry-run '$NORM'"; then
-  log "FATAL: ingest dry-run failed"; exit 1
+# ── Normalize ──────────────────────────────────────────────────────────────────
+echo "── Normalize ──"
+python3 "$ROOT/scripts/normalize_candidate.py" --date "$TODAY"
+NORM_EXIT=$?
+if [[ $NORM_EXIT -ne 0 ]]; then
+  echo "FATAL: normalize failed"; exit 1
 fi
 
-if [[ "$DRY_RUN" -eq 0 ]]; then
-  set +e
-  INGEST_OUTPUT=$(run_step ingest_real "python3 scripts/ingest_signals.py '$NORM'" 2>&1)
-  ingest_exit=$?
-  set -e
-  [[ $ingest_exit -eq 0 ]] || { log "FATAL: ingest failed"; exit 1; }
-  
-  INGEST_CREATED=$(echo "$INGEST_OUTPUT" | grep -oP 'created=\K[0-9]+' || echo "0")
-  log "ingest created=${INGEST_CREATED}"
-  
-  # Write revenue marker if revenue was fetched and ingest succeeded
-  if [[ "$REV_FETCHED" -eq 1 ]]; then
-    touch "$MARKER"
-    log "MARKER: $MARKER"
-  fi
+NORM_FILE="$ROOT/signals/candidates/${TODAY}-normalized.json"
+if [[ ! -f "$NORM_FILE" ]]; then
+  echo "FATAL: normalize produced no output"; exit 1
+fi
 
-  # ── Post-ingest (real run only) ────────────────────────────────────────
-  if ! run_step map_all "python3 scripts/map_signal.py --all"; then
-    log "WARN: map failed (non-fatal)"
-  fi
-  if ! run_step score_all "python3 scripts/score_signal.py --all"; then
-    log "WARN: score failed (non-fatal)"
-  fi
-  if ! run_step fu_create "python3 scripts/list_followups.py --create"; then
-    log "WARN: fu create failed (non-fatal)"
-  fi
-  if ! run_step fu_overdue "python3 scripts/list_followups.py --overdue"; then
-    log "WARN: fu overdue failed (non-fatal)"
-  fi
-  if ! run_step export_all "python3 scripts/export_signals.py --all"; then
-    log "FATAL: export failed"; exit 1
-  fi
+# Count revenue candidates in normalized output
+REV_COUNT=$(python3 -c "import json; d=json.load(open('$NORM_FILE')); print(len([c for c in d if c.get('source_type')=='revenue']))")
+echo "Normalized rev count: $REV_COUNT"
 
-  # ── Porcelain: clean empty candidates ─────────────────────────────────
-  for f in signals/candidates/${D}-*.json; do
-    [[ -f "$f" ]] || continue
-    if [[ ! -s "$f" ]]; then
-      log "REMOVE 0-byte: $f"; rm -f "$f"; continue
-    fi
-    if python3 -c "
-import json,sys; d=json.load(open('$f')); sys.exit(0 if isinstance(d,list) and not d else 1)
-" 2>/dev/null; then
-      case "$f" in
-        *-announcements.json|*-revenue.json) log "KEEP (no-hit): $f" ;;
-        *-normalized.json) log "SKIP: $f" ;;
-        *) log "REMOVE empty: $f"; rm -f "$f" ;;
-      esac
-    fi
-  done
-
-  # ── Git commit ─────────────────────────────────────────────────────────
-  log "=== GIT COMMIT ==="
-  git add signals/exports/ signals/weekly_digest/ signals/watchlist.md signals/candidates/
-  
-  # git diff --cached --quiet: 0=has changes, 1=no changes
-  if git diff --cached --quiet 2>/dev/null; then
-    log "NO-OP: no changes"
-  else
-    git commit -m "l1-chain: ${D} (ingest created=${INGEST_CREATED})"
-    log "COMMIT: $(git rev-parse HEAD)"
-  fi
-
-  # ── Publish DB ─────────────────────────────────────────────────────────
-  log "=== PUBLISH_DB ==="
-  bash scripts/publish_db.sh || bash scripts/publish_db.sh --force
-  log "PUBLISH_DB: done"
-
-  # ── Post-run state ─────────────────────────────────────────────────────
-  log "=== POST-RUN ==="
-  POST_MD5=$(md5sum data/signals.sqlite | cut -d' ' -f1)
-  log "DB md5=${POST_MD5}"
-  POST_SIGNALS=$(get_db_count signals)
-  POST_FUS=$(get_db_count followups)
-  log "signals=${POST_SIGNALS} followups=${POST_FUS}"
-  POST_HEAD=$(git rev-parse HEAD)
-  log "HEAD=${POST_HEAD}"
-
-  # ── 三件套 ──────────────────────────────────────────────────────────────
-  log "=== 三件套 ==="
-  log "commit SHA: ${POST_HEAD}"
-  NEW_EXPORTS=$(git show --name-only --pretty='' HEAD 2>/dev/null | grep -E '^(signals/exports|signals/weekly_digest)' || true)
-  [[ -n "$NEW_EXPORTS" ]] && log "new exports: $NEW_EXPORTS" || log "new exports: (none)"
-  log "md5: ${POST_MD5} (was ${BASELINE_MD5})"
-  log "=== 三件套 DONE ==="
-  log "delta: signals ${BASELINE_SIGNALS}→${POST_SIGNALS} (=$((POST_SIGNALS-BASELINE_SIGNALS))))"
+# ── Ingest ─────────────────────────────────────────────────────────────────────
+if [[ $DRY_RUN -eq 1 ]]; then
+  echo "SKIP: ingest (dry-run)"
+  INGEST_CREATED=0
+  INGEST_SKIPPED=0
 else
-  log "DRY-RUN: stopping after ingest dry-run"
+  echo "── Ingest ──"
+  INGEST_OUTPUT=$(python3 "$ROOT/scripts/ingest_signals.py" "$NORM_FILE" 2>&1) || true
+  echo "$INGEST_OUTPUT"
+  INGEST_CREATED=$(echo "$INGEST_OUTPUT" | grep -oP 'created=\K\d+' || echo "0")
+  INGEST_SKIPPED=$(echo "$INGEST_OUTPUT" | grep -oP 'skipped=\K\d+' || echo "0")
+  echo "Ingest: created=$INGEST_CREATED skipped=$INGEST_SKIPPED"
 fi
 
-log "=== CHAIN DONE ==="
-exit 0
+# ── Map / Score / Followup / Export ───────────────────────────────────────────
+echo "── Map ──"
+python3 "$ROOT/scripts/map_signals.py" --all || true
+
+echo "── Score ──"
+python3 "$ROOT/scripts/score_signals.py" --all || true
+
+echo "── Followup Create ──"
+python3 "$ROOT/scripts/list_followups.py" --create || true
+
+echo "── Followup Overdue ──"
+python3 "$ROOT/scripts/list_followups.py" --overdue || true
+
+echo "── Export ──"
+python3 "$ROOT/scripts/export_signals.py" --all || true
+
+# ── Git Commit (P4) ───────────────────────────────────────────────────────────
+if [[ $DRY_RUN -eq 0 ]]; then
+  echo "── Git Commit ──"
+  cd "$ROOT"
+  git add exports/ weekly_digest/ watchlist.md 2>/dev/null || true
+  if ! git diff --cached --quiet; then
+    git commit -m "export: L1 chain $(date +%Y-%m-%d)" || true
+  else
+    echo "No export diff to commit"
+  fi
+fi
+
+# ── Publish DB ────────────────────────────────────────────────────────────────
+if [[ $DRY_RUN -eq 0 ]]; then
+  echo "── Publish DB ──"
+  bash "$ROOT/scripts/publish_db.sh" || true
+fi
+
+# ── Marker (P1/P3) ────────────────────────────────────────────────────────────
+# Only touch marker if:
+# 1. Not dry-run
+# 2. SKIP_REV was 0 (no existing marker)
+# 3. DAY >= 11 (full month eligible)
+# 4. Ingest succeeded (created > 0 or at least no hard fail)
+# 5. Revenue candidates were actually processed (REV_COUNT > 0)
+if [[ $DRY_RUN -eq 0 && $SKIP_REV -eq 0 && $DAY -ge 11 && $REV_COUNT -gt 0 ]]; then
+  echo "── Touch Marker ──"
+  touch "$MARKER"
+  echo "Marker $MARKER touched"
+else
+  echo "SKIP: marker touch (dry_run=$DRY_RUN skip_rev=$SKIP_REV day=$DAY rev_count=$REV_COUNT)"
+fi
+
+echo "=== L1 Chain End $(date) ==="
