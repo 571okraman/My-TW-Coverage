@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from ssl_util import make_session
+_SESSION = make_session()
 """fetch_institutional.py — 三大法人每日買賣超
 
 Sources:
@@ -53,7 +55,7 @@ def fetch_twse_institutional(api_date: str) -> list[dict]:
         "selectType": "ALLBUT0999",
         "response": "json",
     }
-    resp = requests.get(T86_L, params=params, timeout=30)
+    resp = _SESSION.get(T86_L, params=params, timeout=30)
     resp.raise_for_status()
     data = resp.json()
     rows = data.get("data", [])
@@ -104,7 +106,7 @@ def fetch_tpex_institutional(api_date: str) -> list[dict]:
     month = api_date[4:6]
     day = api_date[6:8]
     params = {"ymd": f"{taiwan_year}{month}{day}"}
-    resp = requests.get(T86_O, params=params, timeout=30)
+    resp = _SESSION.get(T86_O, params=params, timeout=30)
     resp.raise_for_status()
     rows = resp.json()  # list[dict] directly
     results = []

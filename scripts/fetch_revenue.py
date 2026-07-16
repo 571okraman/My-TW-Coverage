@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from ssl_util import make_session
+_SESSION = make_session()
 """fetch_revenue.py — 每月營收 (T187AP05)
 
 Sources:
@@ -59,7 +61,7 @@ def fetch_twse_revenue(year: int, month: int) -> list[dict]:
     """
     year_str = twse_year(year)
     url = f"{T187AP05_L}?year={year_str}&month={month:02d}"
-    resp = requests.get(url, timeout=30)
+    resp = _SESSION.get(url, timeout=30)
     resp.raise_for_status()
     data = resp.json()
     if not isinstance(data, list):
@@ -97,7 +99,7 @@ def fetch_tpex_revenue(year: int, month: int) -> list[dict]:
     """
     ym = tpex_year_month(year, month)
     url = f"{T187AP05_O}?ym={ym}"
-    resp = requests.get(url, timeout=30)
+    resp = _SESSION.get(url, timeout=30)
     resp.raise_for_status()
     data = resp.json()
     if not isinstance(data, list):

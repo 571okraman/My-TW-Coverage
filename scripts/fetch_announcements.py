@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from ssl_util import make_session
+_SESSION = make_session()
 """fetch_announcements.py — 每日重訊公告 (T187AP04)
 
 Sources:
@@ -36,7 +38,7 @@ def fetch_twse_announcements(api_date: str) -> list[dict]:
     API returns list[dict] directly. Each item has:
       公司代號, 公司名稱, 主旨, 事實發生日, 說明, 符合條款, ...
     """
-    resp = requests.get(T187AP04_L, params={"date": api_date}, timeout=30)
+    resp = _SESSION.get(T187AP04_L, params={"date": api_date}, timeout=30)
     resp.raise_for_status()
     rows = resp.json()  # list[dict] directly
     results = []
@@ -62,7 +64,7 @@ def fetch_tpex_announcements(api_date: str) -> list[dict]:
     API returns list[dict] directly. Each item has:
       SecuritiesCompanyCode, CompanyName, 主旨, 事實發生日, 說明, 符合條款, ...
     """
-    resp = requests.get(T187AP04_O, params={"date": api_date}, timeout=30)
+    resp = _SESSION.get(T187AP04_O, params={"date": api_date}, timeout=30)
     resp.raise_for_status()
     rows = resp.json()  # list[dict] directly
     results = []
