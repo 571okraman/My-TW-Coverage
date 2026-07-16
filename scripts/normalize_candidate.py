@@ -9,11 +9,24 @@ Reads three source types independently:
 Outputs:
   signals/candidates/YYYY-MM-DD-normalized.json (merged unified schema)
 
+Enriched fields (v1 contract — 變更需重裁):
+  - title:    [TOKEN] {ticker} {short} {event_date} {body}
+  - trigger_type: source_type 映射 (announcement→policy_regulation, revenue→financial_inflection)
+  - priority: "medium"
+  - expires_at: None
+
+Token 契約 (v1):
+  token = md5(f"{ticker}|{source_type}|{event_date}|{summary}").hexdigest()[:6]
+  欄位順序固定；source_type 用 normalize 枚舉值 (announcement|revenue)
+  event_date 先 roc_to_iso 再進 token/title
+  庫內 280 筆舊 token 為 Bridge v5 遺產，不回填、不重算，新舊並存
+
 Usage:
   python3 normalize_candidate.py [--date YYYY-MM-DD] [--dry-run]
 """
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -42,6 +55,13 @@ CLAUSE_WHITELIST = {
     "capex", "資本支出", "處分資產", "法說會", "法人說明會",
 }
 
+# trigger_type 映射 (v1 — 照 C0 golden 復刻；語意勘誤列 Phase 2)
+TRIGGER_MAP = {
+    "announcement": "policy_regulation",
+    "revenue": "financial_inflection",
+}
+
+
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
 def load_universe() -> set[str]:
@@ -65,6 +85,60 @@ def check_clause(entry: dict, whitelist: set[str]) -> bool:
     return False
 
 
+def roc_to_iso(s: str) -> str:
+    """民國日期 → ISO: 1150715 → 2026-07-15；已是 ISO 則原樣返回。"""
+    s = (s or "").strip()
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", s):
+        return s
+    if re.fullmatch(r"\d{7}", s):  # YYYMMDD 民國
+        y = int(s[:3]) + 1911
+        return f"{y:04d}-{s[3:5]}-{s[5:7]}"
+    raise ValueError(f"bad event_date: {s!r}")
+
+
+def make_token(ticker: str, source_type: str, event_date: str, summary: str) -> str:
+    """Token 契約 v1: md5(ticker|source_type|event_date|summary)[:6]"""
+    canonical = f"{ticker}|{source_type}|{event_date}|{summary}"
+    return hashlib.md5(canonical.encode("utf-8")).hexdigest()[:6]
+
+
+def enrich(c: dict) -> dict:
+    """補齊 ingest 契約欄位。未知 source_type → 報錯拒出。"""
+    st = c.get("source_type")
+    if st not in TRIGGER_MAP:
+        raise ValueError(f"unknown source_type: {st!r}")
+
+    # event_date 先轉 ISO
+    ed = roc_to_iso(c["event_date"])
+    c["event_date"] = ed
+
+    summary = c["summary"]
+    ticker = c["ticker"]
+    tok = make_token(ticker, st, ed, summary)
+    short = "ann" if st == "announcement" else "rev"
+
+    # title 模板 (照 C0 golden 復刻)
+    if st == "announcement":
+        # golden: [tok] {ticker} ann {date} {主旨不含 ticker 前綴}
+        body = summary
+        if body.startswith(ticker):
+            body = body[len(ticker):].lstrip()
+        c["title"] = f"[{tok}] {ticker} {short} {ed} {body}"
+    else:
+        # golden: [tok] {ticker} rev {date} YoY+X.X% r={revenue}
+        raw = c.get("raw_data") or {}
+        yoy = raw.get("yoy_pct")
+        rev = raw.get("revenue")
+        yoy_s = f"YoY+{yoy:.1f}%" if isinstance(yoy, (int, float)) else "YoY+?"
+        r_s = f"r={int(rev)}" if isinstance(rev, (int, float)) else "r=?"
+        c["title"] = f"[{tok}] {ticker} {short} {ed} {yoy_s} {r_s}"
+
+    c["trigger_type"] = TRIGGER_MAP[st]
+    c["priority"] = "medium"
+    c["expires_at"] = None
+    return c
+
+
 # ── Pipeline 1: 重訊 (announcements) ────────────────────────────────────────
 
 def normalize_announcements(date_str: str, universe: set[str]) -> list[dict]:
@@ -85,7 +159,7 @@ def normalize_announcements(date_str: str, universe: set[str]) -> list[dict]:
                 continue
             if not check_clause(ann, CLAUSE_WHITELIST):
                 continue
-            candidates.append({
+            c = {
                 "ticker": ticker,
                 "event_date": ann.get("event_date", date_str),
                 "source_url": "",
@@ -96,7 +170,9 @@ def normalize_announcements(date_str: str, universe: set[str]) -> list[dict]:
                 "market": "twse" if "TWSE" in item.get("source", "") else "tpex",
                 "flag": "announcement",
                 "flags": ["announcement"],
-            })
+            }
+            c = enrich(c)
+            candidates.append(c)
     return candidates
 
 
@@ -121,12 +197,9 @@ def normalize_institutional(date_str: str, universe: set[str]) -> list[dict]:
         ticker = str(entry.get("ticker", "")).strip()
         if ticker not in universe:
             continue
-        # Filter to candidates whose start_date matches the target date
         start = str(entry.get("start_date", ""))[:10]
         if start != date_str:
             continue
-        # Dedup key is ticker+flag+start_date (native to flag_engine),
-        # no source_url needed — market flag candidates don't have URLs by design.
         candidates.append({
             "ticker": ticker,
             "event_date": str(entry.get("start_date", date_str))[:10],
@@ -156,8 +229,6 @@ def normalize_revenue(date_str: str, universe: set[str]) -> list[dict]:
     """
     candidates = []
 
-    # date_str is the run date; revenue data lives under the month it covers
-    # e.g. 2026-06-revenue.json for June 2026 data
     month_str = date_str[:7]  # YYYY-MM
     fpath = CANDIDATES_DIR / f"{month_str}-revenue.json"
     if not fpath.exists():
@@ -188,7 +259,6 @@ def normalize_revenue(date_str: str, universe: set[str]) -> list[dict]:
     if not records:
         return candidates
 
-    # Group by ticker
     from collections import defaultdict
     by_ticker = defaultdict(list)
     for r in records:
@@ -196,11 +266,9 @@ def normalize_revenue(date_str: str, universe: set[str]) -> list[dict]:
 
     for ticker, recs in by_ticker.items():
         recs.sort(key=lambda x: x["month"])
-        # With only 1 month of data: can't check 2-month consecutive
-        # Mark all YoY ≥+30% entries with partial=true
         for r in recs:
             if r["yoy_pct"] is not None and r["yoy_pct"] >= 30:
-                candidates.append({
+                c = {
                     "ticker": ticker,
                     "event_date": r["month"] + "-01",
                     "source_url": "",
@@ -212,7 +280,9 @@ def normalize_revenue(date_str: str, universe: set[str]) -> list[dict]:
                     "flag": "revenue",
                     "flags": ["revenue"],
                     "partial": True,
-                })
+                }
+                c = enrich(c)
+                candidates.append(c)
     return candidates
 
 

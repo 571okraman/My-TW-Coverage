@@ -37,3 +37,6 @@ data/*.sqlite
 #   Normalized / flagged JSON → committed as pipeline output.
 #
 signals/candidates/*-institutional.json
+
+# L1 chain revenue markers (local state, not committed)
+data/.last_revenue_*
