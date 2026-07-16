@@ -9,7 +9,7 @@ set -eu
 
 TW_COVERAGE_ROOT="${TW_COVERAGE_ROOT:-$HOME/My-TW-Coverage}"
 CANONICAL="$TW_COVERAGE_ROOT/data/signals.sqlite"
-DIST_DIR="$HOME/db-dist"
+DIST_DIR="/home/jyw-debian/db-dist"
 DIST_DB="$DIST_DIR/signals.sqlite"
 LOG="$DIST_DIR/PUBLISH_LOG"
 FORCE="${1:-}"
@@ -31,6 +31,7 @@ if [ "$FORCE" != "--force" ]; then
 fi
 
 # Ensure dist dir
+[[ "$DIST_DIR" != /home/jyw-debian/db-dist ]] && { echo "FATAL: DIST_DIR not /home/jyw-debian/db-dist"; exit 1; }
 mkdir -p "$DIST_DIR"
 
 # If target exists with 444, temporarily unlock for overwrite
