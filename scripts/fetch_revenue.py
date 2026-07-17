@@ -18,14 +18,24 @@ Each dict has fields like:
 Outputs:
   signals/candidates/YYYY-MM-DD-revenue.json  (獨立檔名，避免三支 fetcher 互相覆蓋)
   signals/candidates/YYYY-MM-DD-revenue.md
+  signals/candidates/YYYY-MM-DD-revenue-summary.json  (per-source count summary)
+    Format: {"date": str, "type": "revenue", "sources": [{"source","market","count","retries","timestamp"}]}
+
+Summary file naming convention (commit message + header comment):
+  revenue:   signals/candidates/YYYY-MM-DD-revenue-summary.json
+  announce:  signals/candidates/YYYY-MM-DD-announcements-summary.json
+  Both follow: {date}-{type}-summary.json
 
 Note: Revenue data is typically released around the 10th-12th of each month.
 """
+
 import argparse
 import json
 import os
 import sys
-from datetime import date, timedelta
+import time
+from datetime import date, timedelta, datetime
+from typing import Optional
 
 import requests
 
@@ -37,8 +47,16 @@ T187AP05_L = "https://openapi.twse.com.tw/v1/opendata/t187ap05_L"
 T187AP05_O = "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O"
 
 # ---------------------------------------------------------------------------
+# Retry config (env-overridable)
+# ---------------------------------------------------------------------------
+
+TPEX_RETRIES = int(os.environ.get("TPEX_REV_RETRIES", "3"))
+TPEX_RETRY_INTERVAL = int(os.environ.get("TPEX_REV_RETRY_INTERVAL", "30"))
+
+# ---------------------------------------------------------------------------
 # Date helpers
 # ---------------------------------------------------------------------------
+
 
 def twse_year(year: int) -> str:
     """Convert Gregorian year to TWSE fiscal year string (e.g. 2026 -> 115)."""
@@ -53,6 +71,7 @@ def tpex_year_month(year: int, month: int) -> str:
 # ---------------------------------------------------------------------------
 # Fetch helpers
 # ---------------------------------------------------------------------------
+
 
 def fetch_twse_revenue(year: int, month: int) -> list[dict]:
     """Fetch 上市營收 from TWSE.
@@ -92,47 +111,97 @@ def fetch_twse_revenue(year: int, month: int) -> list[dict]:
     return results
 
 
-def fetch_tpex_revenue(year: int, month: int) -> list[dict]:
-    """Fetch 上櫃營收 from TPEx.
+def fetch_tpex_revenue_with_retry(year: int, month: int) -> tuple[list[dict], int]:
+    """Fetch 上櫃營收 from TPEx, with transport-layer retry on empty response.
 
-    API returns list[dict] directly.
+    HTTP 200 + empty list → retry up to TPEX_RETRIES times (default 3),
+    each spaced by TPEX_RETRY_INTERVAL seconds (default 30).
+    If all retries return empty, returns empty list with retries=TPEX_RETRIES
+    (legitimate empty — EXIT 0).
+
+    Returns (data, retries_used).
     """
     ym = tpex_year_month(year, month)
     url = f"{T187AP05_O}?ym={ym}"
-    resp = _SESSION.get(url, timeout=30)
-    resp.raise_for_status()
-    data = resp.json()
-    if not isinstance(data, list):
-        raise ValueError("Expected list response")
-    results = []
-    for r in data:
-        if not isinstance(r, dict):
+
+    retries_used = 0
+    for attempt in range(TPEX_RETRIES + 1):  # 1 initial + up to N retries
+        if attempt > 0:
+            retries_used += 1
+            print(f"  TPEx empty, retry {retries_used}/{TPEX_RETRIES} after {TPEX_RETRY_INTERVAL}s ...")
+            time.sleep(TPEX_RETRY_INTERVAL)
+
+        resp = _SESSION.get(url, timeout=30)
+        resp.raise_for_status()
+        data = resp.json()
+        if not isinstance(data, list):
+            raise ValueError("Expected list response")
+
+        results = []
+        for r in data:
+            if not isinstance(r, dict):
+                continue
+            ticker = r.get("SecuritiesCompanyCode", "").strip()
+            name = r.get("CompanyName", "").strip()
+            if not ticker or ticker == "-":
+                continue
+            results.append({
+                "ticker": ticker,
+                "name": name,
+                "revenue_current": r.get("當月營收", ""),
+                "revenue_last_month": r.get("上月營收", ""),
+                "revenue_last_year": r.get("去年當月營收", ""),
+                "mom_pct": r.get("上月比較增減(%)", ""),
+                "yoy_pct": r.get("去年同月增減(%)", ""),
+                "cumulative_current": r.get("當月累計營收", ""),
+                "cumulative_last_year": r.get("去年累計營收", ""),
+                "cumulative_pct": r.get("前期比較增減(%)", ""),
+                "industry": r.get("產業別", ""),
+                "month": f"{year}-{month:02d}",
+                "raw": r,
+            })
+
+        if results:
+            return results, retries_used
+        # Empty list → retry (unless last attempt)
+        if attempt < TPEX_RETRIES:
             continue
-        ticker = r.get("SecuritiesCompanyCode", "").strip()
-        name = r.get("CompanyName", "").strip()
-        if not ticker or ticker == "-":
-            continue
-        results.append({
-            "ticker": ticker,
-            "name": name,
-            "revenue_current": r.get("當月營收", ""),
-            "revenue_last_month": r.get("上月營收", ""),
-            "revenue_last_year": r.get("去年當月營收", ""),
-            "mom_pct": r.get("上月比較增減(%)", ""),
-            "yoy_pct": r.get("去年同月增減(%)", ""),
-            "cumulative_current": r.get("當月累計營收", ""),
-            "cumulative_last_year": r.get("去年累計營收", ""),
-            "cumulative_pct": r.get("前期比較增減(%)", ""),
-            "industry": r.get("產業別", ""),
-            "month": f"{year}-{month:02d}",
-            "raw": r,
-        })
-    return results
+        # All retries exhausted — legitimate empty
+        print(f"  TPEx empty after {TPEX_RETRIES} retries — legitimate empty")
+        return [], retries_used
+
+    return [], retries_used  # unreachable, but for type safety
+
+
+# ---------------------------------------------------------------------------
+# Summary helpers
+# ---------------------------------------------------------------------------
+
+
+def build_summary(date_str: str, fetch_type: str, sources: list[dict]) -> dict:
+    """Build per-source count summary JSON."""
+    return {
+        "date": date_str,
+        "type": fetch_type,
+        "sources": sources,
+    }
+
+
+def write_summary(summary: dict, date_str: str, output_dir: str):
+    """Write summary file alongside JSON/MD outputs."""
+    os.makedirs(output_dir, exist_ok=True)
+    # Summary file naming: {date}-{type}-summary.json
+    # See commit message and header comment for naming convention.
+    path = os.path.join(output_dir, f"{date_str}-revenue-summary.json")
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(summary, f, ensure_ascii=False, indent=2)
+    print(f"[SUMMARY] {path}  ({len(summary['sources'])} sources)")
 
 
 # ---------------------------------------------------------------------------
 # Output helpers
 # ---------------------------------------------------------------------------
+
 
 def build_candidate(data: list[dict], market: str, source: str,
                     partial: bool, date_str: str) -> dict:
@@ -186,6 +255,7 @@ def write_markdown(candidates: list[dict], date_str: str, output_dir: str):
 # Main
 # ---------------------------------------------------------------------------
 
+
 def main():
     ap = argparse.ArgumentParser(description="Fetch monthly 營收 revenue data")
     ap.add_argument("--year-month", help="YYYY-MM (default: previous month)")
@@ -210,6 +280,9 @@ def main():
 
     candidates = []
     errors = []
+    summary_sources = []
+
+    now_iso = datetime.utcnow().isoformat()
 
     # --- 上市 ---
     print("[1/2] Fetching TWSE (上市) ...")
@@ -217,25 +290,59 @@ def main():
         data = fetch_twse_revenue(year, month)
         candidates.append(build_candidate(data, "上市", "TWSE T187AP05", False, date_str))
         print(f"  → {len(data)} items")
+        summary_sources.append({
+            "source": "TWSE T187AP05",
+            "market": "上市",
+            "count": len(data),
+            "retries": 0,
+            "timestamp": now_iso,
+        })
     except Exception as e:
         errors.append(f"TWSE error: {e}")
         candidates.append(build_candidate([], "上市", "TWSE T187AP05", True, date_str))
         print(f"  → FAILED: {e}")
+        summary_sources.append({
+            "source": "TWSE T187AP05",
+            "market": "上市",
+            "count": 0,
+            "retries": 0,
+            "timestamp": now_iso,
+        })
 
-    # --- 上櫃 ---
+    # --- 上櫃 (with retry) ---
     print("[2/2] Fetching TPEx (上櫃) ...")
     try:
-        data = fetch_tpex_revenue(year, month)
-        candidates.append(build_candidate(data, "上櫃", "TPEx T187AP05", False, date_str))
-        print(f"  → {len(data)} items")
+        data, retries_used = fetch_tpex_revenue_with_retry(year, month)
+        partial = retries_used > 0 and len(data) == 0
+        # Note: empty after retries is legitimate — not partial_failure (HTTP 200 + legit empty)
+        candidates.append(build_candidate(data, "上櫃", "TPEx T187AP05", partial, date_str))
+        print(f"  → {len(data)} items (retries={retries_used})")
+        summary_sources.append({
+            "source": "TPEx T187AP05",
+            "market": "上櫃",
+            "count": len(data),
+            "retries": retries_used,
+            "timestamp": now_iso,
+        })
     except Exception as e:
         errors.append(f"TPEx error: {e}")
         candidates.append(build_candidate([], "上櫃", "TPEx T187AP05", True, date_str))
         print(f"  → FAILED: {e}")
+        summary_sources.append({
+            "source": "TPEx T187AP05",
+            "market": "上櫃",
+            "count": 0,
+            "retries": 0,
+            "timestamp": now_iso,
+        })
 
     # Write outputs
     write_json(candidates, date_str, args.output_dir)
     write_markdown(candidates, date_str, args.output_dir)
+
+    # Write per-source count summary
+    summary = build_summary(date_str, "revenue", summary_sources)
+    write_summary(summary, date_str, args.output_dir)
 
     if errors:
         print(f"\n⚠️  {len(errors)} source(s) failed (partial results written):")

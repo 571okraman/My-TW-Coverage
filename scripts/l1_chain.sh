@@ -3,7 +3,10 @@ set -euo pipefail
 
 # l1_chain.sh — L1 chain script
 # Name mapping: fetch_announcements.sh->fetch_announcements.py, fetch_revenue.sh->fetch_revenue.py, map_signals.py->map_signal.py, score_signals.py->score_signal.py (fetch → normalize → ingest → map → score → followup → export → publish)
-# v1.2: 正名修正 + 裁①硬失敗 + 裁②candidates commit
+# v1.3: per-source count summary gating (PS-20260701-002-T10)
+#   - Fetchers now write *-summary.json with per-source count/retries/timestamp
+#   - Marker gating reads summary file for per-source counts (not total REV_COUNT)
+#   - Day>=11 + any source count=0 → WARN + skip marker + continue chain
 #
 # Usage: bash l1_chain.sh [--dry-run]
 
@@ -106,7 +109,7 @@ if [[ ! -f "$NORM_FILE" ]]; then
   echo "HARD FAIL: normalize produced no output"; exit 1
 fi
 
-# Count revenue candidates
+# Count revenue candidates (kept for backward compat, marker gating now uses summary file)
 REV_COUNT=$(python3 -c "import json; d=json.load(open('$NORM_FILE')); print(len([c for c in d if c.get('source_type')=='revenue']))")
 echo "Normalized rev count: $REV_COUNT"
 
@@ -157,7 +160,7 @@ python3 "$ROOT/scripts/export_signals.py" --all || true
 if [[ $DRY_RUN -eq 0 ]]; then
   echo "── Git Commit ──"
   cd "$ROOT"
-  
+
   # 空殼刪除（0-byte 或 [] JSON）
   for f in signals/candidates/*.json; do
     [[ -f "$f" ]] || continue
@@ -167,7 +170,7 @@ if [[ $DRY_RUN -eq 0 ]]; then
       rm -f "$f"
     fi
   done
-  
+
   git add signals/exports/ signals/weekly_digest/ signals/watchlist.md 2>/dev/null || true
   git add signals/candidates/*.json signals/candidates/*.md 2>/dev/null || true
   if ! git diff --cached --quiet; then
@@ -183,15 +186,35 @@ if [[ $DRY_RUN -eq 0 ]]; then
   bash "$ROOT/scripts/publish_db.sh" || true
 fi
 
-# ── Marker (P1/P3) ────────────────────────────────────────────────────────────
-# P3: dual-market integrity check
+# ── Marker (P1/P3) — per-source count gating ──────────────────────────────
+# P3: dual-market integrity check via summary file
+# Reads revenue summary for per-source counts.
+# Day>=11 + any source count=0 → WARN + skip marker + continue chain.
+# Day>=11 + both sources >0 → stamp marker (same as old behaviour).
 if [[ $DRY_RUN -eq 0 && $SKIP_REV -eq 0 && $DAY -ge 11 ]]; then
-  if [[ $REV_COUNT -eq 0 ]]; then
-    echo "WARN: day>=$DAY but rev_count=0 — dual-market incomplete, skipping marker"
+  REV_SUMMARY="$ROOT/signals/candidates/${YM}-revenue-summary.json"
+  if [[ ! -f "$REV_SUMMARY" ]]; then
+    echo "WARN: revenue summary not found ($REV_SUMMARY) — cannot validate per-source, skipping marker"
   else
-  echo "── Touch Marker ──"
-  touch "$MARKER"
-  echo "Marker $MARKER touched"
+    # Read per-source counts from summary file
+    # Use python3 to parse JSON safely
+    ZERO_SOURCES=$(python3 -c "
+import json
+s = json.load(open('$REV_SUMMARY'))
+zero = [src['source'] for src in s['sources'] if src['count'] == 0]
+print('\n'.join(zero) if zero else '')
+")
+    if [[ -n "$ZERO_SOURCES" ]]; then
+      echo "WARN: per-source integrity — source(s) with 0 items:"
+      while IFS= read -r src; do
+        echo "  → $src: 0 items"
+      done <<< "$ZERO_SOURCES"
+      echo "WARN: marker NOT stamped — $YM has incomplete source coverage"
+    else
+      echo "── Touch Marker ──"
+      touch "$MARKER"
+      echo "Marker $MARKER touched"
+    fi
   fi
 fi
 
