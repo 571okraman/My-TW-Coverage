@@ -32,7 +32,7 @@ fi
 # ── Date Logic ────────────────────────────────────────────────────────────────
 TODAY=$(date +%Y-%m-%d)
 DAY=$(date +%-d)
-YM=$(date -d "1 day ago" +%Y-%m)
+YM=$(date -d "$(date +%Y-%m-01) -1 month" +%Y-%m)
 
 echo "TODAY=$TODAY DAY=$DAY YM=$YM"
 
