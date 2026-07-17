@@ -65,7 +65,7 @@ def fetch_twse_revenue(year: int, month: int) -> list[dict]:
     resp.raise_for_status()
     data = resp.json()
     if not isinstance(data, list):
-        data = data.get("data", [])
+        raise ValueError("Expected list response")
     results = []
     for r in data:
         if not isinstance(r, dict):
@@ -103,7 +103,7 @@ def fetch_tpex_revenue(year: int, month: int) -> list[dict]:
     resp.raise_for_status()
     data = resp.json()
     if not isinstance(data, list):
-        data = data.get("data", [])
+        raise ValueError("Expected list response")
     results = []
     for r in data:
         if not isinstance(r, dict):

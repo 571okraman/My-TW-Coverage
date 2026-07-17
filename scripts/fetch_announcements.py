@@ -40,7 +40,9 @@ def fetch_twse_announcements(api_date: str) -> list[dict]:
     """
     resp = _SESSION.get(T187AP04_L, params={"date": api_date}, timeout=30)
     resp.raise_for_status()
-    rows = resp.json()  # list[dict] directly
+    rows = resp.json()
+    if not isinstance(rows, list):
+        raise ValueError("Expected list response")
     results = []
     for r in rows:
         title = r.get("主旨", "").strip()
@@ -66,7 +68,9 @@ def fetch_tpex_announcements(api_date: str) -> list[dict]:
     """
     resp = _SESSION.get(T187AP04_O, params={"date": api_date}, timeout=30)
     resp.raise_for_status()
-    rows = resp.json()  # list[dict] directly
+    rows = resp.json()
+    if not isinstance(rows, list):
+        raise ValueError("Expected list response")
     results = []
     for r in rows:
         title = r.get("主旨", "").strip()

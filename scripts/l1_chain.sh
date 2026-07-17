@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# l1_chain.sh — L1 chain script (fetch → normalize → ingest → map → score → followup → export → publish)
+# l1_chain.sh — L1 chain script
+# Name mapping: fetch_announcements.sh->fetch_announcements.py, fetch_revenue.sh->fetch_revenue.py, map_signals.py->map_signal.py, score_signals.py->score_signal.py (fetch → normalize → ingest → map → score → followup → export → publish)
 # v1.2: 正名修正 + 裁①硬失敗 + 裁②candidates commit
 #
 # Usage: bash l1_chain.sh [--dry-run]
@@ -183,12 +184,15 @@ if [[ $DRY_RUN -eq 0 ]]; then
 fi
 
 # ── Marker (P1/P3) ────────────────────────────────────────────────────────────
-if [[ $DRY_RUN -eq 0 && $SKIP_REV -eq 0 && $DAY -ge 11 && $REV_COUNT -gt 0 ]]; then
+# P3: dual-market integrity check
+if [[ $DRY_RUN -eq 0 && $SKIP_REV -eq 0 && $DAY -ge 11 ]]; then
+  if [[ $REV_COUNT -eq 0 ]]; then
+    echo "WARN: day>=$DAY but rev_count=0 — dual-market incomplete, skipping marker"
+  else
   echo "── Touch Marker ──"
   touch "$MARKER"
   echo "Marker $MARKER touched"
-else
-  echo "SKIP: marker touch (dry_run=$DRY_RUN skip_rev=$SKIP_REV day=$DAY rev_count=$REV_COUNT)"
+  fi
 fi
 
 echo "=== L1 Chain End $(date) ==="
