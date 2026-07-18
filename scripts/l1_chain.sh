@@ -3,10 +3,9 @@ set -euo pipefail
 
 # l1_chain.sh — L1 chain script
 # Name mapping: fetch_announcements.sh->fetch_announcements.py, fetch_revenue.sh->fetch_revenue.py, map_signals.py->map_signal.py, score_signals.py->score_signal.py (fetch → normalize → ingest → map → score → followup → export → publish)
-# v1.3: per-source count summary gating (PS-20260701-002-T10)
-#   - Fetchers now write *-summary.json with per-source count/retries/timestamp
-#   - Marker gating reads summary file for per-source counts (not total REV_COUNT)
-#   - Day>=11 + any source count=0 → WARN + skip marker + continue chain
+# v1.4: set -e compatible exit code capture (PS-20260701-002-T10)
+#   - All fetcher calls use `python3 ... || EXIT=$?' to survive set -euo pipefail
+#   - DAY<11 backup block no longer uses `|| true` (which masked exit code as 0)
 #
 # Usage: bash l1_chain.sh [--dry-run]
 
@@ -54,8 +53,8 @@ ANN_SCRIPT="$ROOT/scripts/fetch_announcements.py"
 if [[ ! -f "$ANN_SCRIPT" ]]; then
   echo "HARD FAIL: missing $ANN_SCRIPT"; exit 1
 fi
-python3 "$ANN_SCRIPT" --date "$TODAY"
-ANN_EXIT=$?
+ANN_EXIT=0
+python3 "$ANN_SCRIPT" --date "$TODAY" || ANN_EXIT=$?
 if [[ $ANN_EXIT -ne 0 ]]; then
   ANN_FILE="$ROOT/signals/candidates/${TODAY}-announcements.json"
   if [[ ! -f "$ANN_FILE" ]]; then
@@ -76,8 +75,7 @@ REV_FILE="$ROOT/signals/candidates/${YM}-revenue.json"
 if [[ $SKIP_REV -eq 1 ]]; then
   echo "SKIP: revenue fetch (marker exists)"
 elif [[ $DAY -ge 11 ]]; then
-  python3 "$REV_SCRIPT" --year-month "$YM"
-  REV_EXIT=$?
+  python3 "$REV_SCRIPT" --year-month "$YM" || REV_EXIT=$?
   if [[ $REV_EXIT -ne 0 && ! -f "$REV_FILE" ]]; then
     echo "HARD FAIL: fetch_revenue exit $REV_EXIT with no output"; exit 1
   elif [[ $REV_EXIT -ne 0 ]]; then
@@ -85,8 +83,7 @@ elif [[ $DAY -ge 11 ]]; then
   fi
 else
   echo "WARN: DAY<11 → fetch_revenue for backup only (no ingest)"
-  python3 "$REV_SCRIPT" --year-month "$YM" || true
-  REV_EXIT=$?
+  python3 "$REV_SCRIPT" --year-month "$YM" || REV_EXIT=$?
   if [[ $REV_EXIT -ne 0 && ! -f "$REV_FILE" ]]; then
     echo "WARN: fetch_revenue failed (backup)"
   fi
@@ -98,8 +95,8 @@ NORM_SCRIPT="$ROOT/scripts/normalize_candidate.py"
 if [[ ! -f "$NORM_SCRIPT" ]]; then
   echo "HARD FAIL: missing $NORM_SCRIPT"; exit 1
 fi
-python3 "$NORM_SCRIPT" --date "$TODAY"
-NORM_EXIT=$?
+NORM_EXIT=0
+python3 "$NORM_SCRIPT" --date "$TODAY" || NORM_EXIT=$?
 if [[ $NORM_EXIT -ne 0 ]]; then
   echo "HARD FAIL: normalize failed"; exit 1
 fi
@@ -202,7 +199,7 @@ if [[ $DRY_RUN -eq 0 && $SKIP_REV -eq 0 && $DAY -ge 11 ]]; then
 import json
 s = json.load(open('$REV_SUMMARY'))
 zero = [src['source'] for src in s['sources'] if src['count'] == 0]
-print('\n'.join(zero) if zero else '')
+print('\\n'.join(zero) if zero else '')
 ")
     if [[ -n "$ZERO_SOURCES" ]]; then
       echo "WARN: per-source integrity — source(s) with 0 items:"
