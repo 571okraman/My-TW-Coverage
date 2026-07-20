@@ -54,7 +54,7 @@
 - **Status:** open
 - **Priority:** high
 - **Due:** 2026-07-31
-- **Question:** 8271 宇瞻：同 D1 範圍（品牌儲存／工控佔比＋庫存水位）；來源 SIG-20260629-001
+- **Question:** 8271 宇瞻：核實品牌儲存／工控 DDR2／DDR3 產品營收佔比＋低價 legacy 顆粒庫存水位；來源 SIG-20260629-001
 - **Signal:** 消費型 DRAM 缺貨蔓延至 DDR2/DDR3 legacy 產品，3Q26 合約價續漲
 
 ---

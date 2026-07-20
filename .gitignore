@@ -5,6 +5,8 @@
 # Daily commit convention:
 data/.last_revenue_*
 data/*.sqlite
+# Root-level DB artifact (empty, git rm'd per T14)
+/signals.sqlite
 .DS_Store
 *.egg-info/
 enrichment*.json
