@@ -238,3 +238,50 @@ sources:
     cadence: daily
     access: free
     notes: free 層僅 summary 與部分數字；深度供需/產能 paid，暫不訂；⚠️ 開工時驗
+
+
+source_tier:
+  # 源分層定義（PS-20260701-002-T17）
+  # 連動 F4 source trust hierarchy runtime 化，第一消費者 = T17
+  tiers:
+    T1:
+      label: 官源
+      desc: "政府 / 交易所 / MOPS / 公司 IR・法說 direct"
+    T2:
+      label: 半官方
+      desc: "TDCC / EE521 / TPEx 產業價值鏈 / TrendForce free 等結構化平台"
+    T3:
+      label: 財經媒體
+      desc: "產業新聞 / 研究報告 free 層；v1 不作證據只進 gaps"
+    T4-hook:
+      label: 具名研究者
+      desc: "571 curated 外部個別研究者；confidence_cap: low"
+  T4-hook:
+    curated_by: 571
+    changes_require: 571 點名
+    accounts:
+      - handle: dnystedt
+        name: Dan Nystedt
+        url: https://x.com/dnystedt
+        confidence_cap: low
+        notes: ''
+      - handle: tculpan
+        name: Tim Culpan
+        url: https://x.com/tculpan
+        confidence_cap: low
+        notes: ''
+      - handle: mingchikuo
+        name: 郭明錤
+        url: https://x.com/mingchikuo
+        confidence_cap: low
+        notes: ''
+      - handle: dylan522p
+        name: Dylan Patel / SemiAnalysis
+        url: https://x.com/dylan522p
+        confidence_cap: low
+        notes: "訴訟爭議、引用須註記"
+      - handle: Jukanlosreve
+        name: Jukan Choi
+        url: https://x.com/Jukanlosreve
+        confidence_cap: low
+        notes: ''
