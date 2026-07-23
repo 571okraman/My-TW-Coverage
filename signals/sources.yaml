@@ -280,8 +280,13 @@ source_tier:
         url: https://x.com/dylan522p
         confidence_cap: low
         notes: "訴訟爭議、引用須註記"
-      - handle: Jukanlosreve
-        name: Jukan Choi
-        url: https://x.com/Jukanlosreve
+      - handle: aleabitoreddit
+        name: Serenity
+        url: https://x.com/aleabitoreddit
         confidence_cap: low
-        notes: ''
+        notes: "匿名帳號；身分/績效/持倉未驗證；只准T4-hook/confidence:low，不得引用報酬宣稱支撐結論，須回T1/T2查證"
+      - handle: kakashiii111
+        name: Kakashii
+        url: https://x.com/kakashiii111
+        confidence_cap: low
+        notes: "公司/法律/治理/財務指控須回原始文件查證；只准T4-hook/confidence:low，不得單獨支撐結論"
