@@ -1,6 +1,6 @@
 # Follow-up Queue — 2026-07-29
 
-**Open items:** 8
+**Open items:** 9
 
 | ID | Type | Status | Due | Signal |
 |----|------|--------|-----|--------|
@@ -8,6 +8,7 @@
 | FU-20260702-022 | mapping_check | open | 2026-07-30 | 經濟部赴德招商鎖定半導體材料設備，促成 ZEISS、PVA TePla 對臺合作 |
 | FU-20260720-004 | exposure_check | open | 2026-07-31 | 消費型 DRAM 缺貨蔓延至 DDR2/DDR3 legacy 產品，3Q26  |
 | FU-20260720-005 | exposure_check | open | 2026-07-31 | 消費型 DRAM 缺貨蔓延至 DDR2/DDR3 legacy 產品，3Q26  |
+| FU-20260729-001 | fact_check | open | 2026-08-05 | 2026-07-28 X 貼文：Nvidia 台灣經理涉協助 SMCI 偽造 B |
 | FU-20260708-004 | exposure_check | open | 2026-08-07 | GB300 NVL72 放量：機櫃液冷選配轉標配＋NVIDIA 液冷供應鏈開放 |
 | FU-20260720-006 | financial_check | open | 2026-08-14 | 消費型 DRAM 缺貨蔓延至 DDR2/DDR3 legacy 產品，3Q26  |
 | FU-20260708-006 | market_check | open | 2026-09-30 | GB300 NVL72 放量：機櫃液冷選配轉標配＋NVIDIA 液冷供應鏈開放 |
@@ -56,6 +57,17 @@
 - **Due:** 2026-07-31
 - **Question:** 8271 宇瞻：核實品牌儲存／工控 DDR2／DDR3 產品營收佔比＋低價 legacy 顆粒庫存水位；來源 SIG-20260629-001
 - **Signal:** 消費型 DRAM 缺貨蔓延至 DDR2/DDR3 legacy 產品，3Q26 合約價續漲
+
+---
+
+## FU-20260729-001: 2026-07-28 X 貼文：Nvidia 台灣經理涉協助 SMCI 偽造 B300 出口文件遭拘 - fact_check
+
+- **Type:** fact_check
+- **Status:** open
+- **Priority:** high
+- **Due:** 2026-08-05
+- **Question:** 核實 2026-07-28 X 貼文所指：Nvidia 台灣經理因涉協助 Supermicro（SMCI）偽造 B300 晶片出口文件遭拘留、屬首次正式司法升級——以檢調／法院公開紀錄與 Nvidia／SMCI 官方揭露（8-K／10-K／新聞稿）為準；Mirror Media 等媒體屬 T3 只作線索不作證據；來源＝T17 hook radar 2026-07-29 輪；SIG＝SIG-20260728-002
+- **Signal:** 2026-07-28 X 貼文：Nvidia 台灣經理涉協助 SMCI 偽造 B300 出口文件遭拘留，首次正式司法升級
 
 ---
 
