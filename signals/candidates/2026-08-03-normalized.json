@@ -1,0 +1,30 @@
+[
+  {
+    "ticker": "3689",
+    "event_date": "2026-07-28",
+    "source_url": "",
+    "source_type": "announcement",
+    "clause_number": "第31款",
+    "summary": "3689 公告本公司115年第二季合併財務報告董事會召開日期",
+    "raw_data": {
+      "Date": "1150802",
+      "發言日期": "1150801",
+      "發言時間": "85954",
+      "SecuritiesCompanyCode": "3689",
+      "CompanyName": "湧德",
+      "主旨": "公告本公司115年第二季合併財務報告董事會召開日期",
+      "符合條款": "第31款",
+      "事實發生日": "1150728",
+      "說明": "1.董事會召集通知日:115/07/28\n2.董事會預計召開日期:115/08/05\n3.預計提報董事會或經董事會決議之財務報告或年度自結財務資訊年季:\n115年第二季合併財務報告\n4.其他應敘明事項:無"
+    },
+    "market": "tpex",
+    "flag": "announcement",
+    "flags": [
+      "announcement"
+    ],
+    "title": "[ac2728] 3689 ann 2026-07-28 公告本公司115年第二季合併財務報告董事會召開日期",
+    "trigger_type": "policy_regulation",
+    "priority": "medium",
+    "expires_at": null
+  }
+]
