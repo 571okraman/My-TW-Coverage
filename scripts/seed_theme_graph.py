@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Seed theme_graph.sqlite from handoff v3.1 spec (附錄 A/B/C)."""
+"""Seed theme_graph.sqlite from handoff v3.1 spec (附錄 A/B/C).
+
+2026-08-07 擴充（PS-20260806-002 §3.2 擴充包，571 核准）：Phase 4 曾裁定
+theme_graph.sqlite abolished（theme graph 現役層 = signals.sqlite／Workpack B）；
+本單依 T03 schema／seeding 規則要求灌 theme 4（光通訊/CPO）至 theme_graph.sqlite，
+故恢復本 script 為完整 4-theme seed。signals.sqlite theme 表不受影響。
+"""
 
 import sqlite3
 import yaml
@@ -22,6 +28,10 @@ THEMES = [
      "台電 10 年 5,645 億強韌電網執行高峰 + 半導體/AI 新增用電 5GW + 美國變壓器缺口至 2030",
      "2026–2030", "confirmed",
      "Seed 3 Dry-run — 重電 / 電網 Supply Chain Expansion Card v0.1"),
+    ("THEME-optical-cpo", "光通訊 / CPO",
+     "AI 資料中心光互連 800G→1.6T 升級＋CPO 滲透率提升＋美禁中國光收發器新機型轉單（假設場景 2026-08-06）",
+     "2026–2027", "confirmed",
+     "TH-20260806-002（晉十 T04 findings A3）"),
 ]
 
 NODES = [
@@ -73,6 +83,16 @@ NODES = [
      "用量增加", "medium", "持平", "medium", "medium"),
     ("NODE-upstream-material", "上游材料（矽鋼片/非晶質）", "material",
      "用量增加", "unknown", "unknown", "unknown", "low"),
+    ("NODE-optical-module", "光收發模組（TOSA/ROSA/元件封裝）", "component",
+     "800G→1.6T 升級＋去中化轉單", "medium", "上升", "strong", "high"),
+    ("NODE-iii-v-epi", "III-V 磊晶（InP/GaAs）", "material",
+     "高階 EML/VCSEL 磊晶需求", "high", "上升", "strong", "high"),
+    ("NODE-fiber-passive", "光纖被動元件（WDM/濾光片/光纖陣列）", "component",
+     "CPO 光纖套件＋資料中心互連", "medium", "持平偏升", "strong", "medium"),
+    ("NODE-cpo-packaging", "CPO 封裝（SiP/光引擎/雷射封裝）", "service",
+     "CPO 滲透率提升", "medium", "上升", "strong", "high"),
+    ("NODE-cpo-test", "CPO 測試/對位設備", "equipment",
+     "CPO 產線測試與對位", "medium", "持平", "strong", "medium"),
 ]
 
 SEED1_COMPANIES = [
@@ -124,7 +144,7 @@ SEED3_COMPANIES = [
     ("1612", "宏泰", "NODE-cable", "二階", "二階", "low-medium", "電線電纜", None, "medium"),
     ("1608", "華榮", "NODE-cable", "二階", "二階", "low", "電線電纜", None, "low"),
     ("1618", "合機", "NODE-cable", "三階", "三階", "low", "電線電纜、統包工程", None, "low"),
-    ("5536", "聖暏", "NODE-epc", "二階", "二階", "medium", "統包工程", None, "medium"),
+    ("5536", "聖暉", "NODE-epc", "二階", "二階", "medium", "統包工程", None, "medium"),
     ("2404", "漢唐", "NODE-epc", "廠務 EPC", "二階", "medium", "統包工程（跨 theme：Seed 2 亦命中）", None, "medium"),
     ("1529", "樂事綠能", "NODE-transformer", "三階", "三階", "low", "變壓器、配電盤、重電", None, "low"),
     ("6750", "泰創工程", "NODE-epc", "重電工程", "三階", "low", "重電、電線電纜、統包工程", None, "low"),
@@ -133,6 +153,22 @@ SEED3_COMPANIES = [
     ("6873", "泓德能源", "NODE-ess", "綠能開發/儲能", "三階", "low", "變壓器、重電、儲能", None, "low"),
     ("3628", "盈正", "NODE-ess", "儲能 PCS", "三階", "low", "儲能", None, "medium"),
     ("6903", "巨漢", "NODE-epc", "機電/統包", "三階", "low", "配電盤、統包（跨 theme：Seed 2 CoWoS）", None, "low"),
+]
+
+SEED4_COMPANIES = [
+    ("4979", "華星光", "NODE-optical-module", "光收發模組/TOSA/ROSA/LD-PD 封裝代工", "龍頭", "high", "光通訊", "high", "high"),
+    ("4908", "前鼎", "NODE-optical-module", "XGS-PON/400G/800G 光模組（去中化轉單受惠）", "二階", "medium", "光收發模組、CPO", None, "medium"),
+    ("4977", "眾達-KY", "NODE-optical-module", "100G/400G 光收發模組", "二階", "medium", "CPO、光通訊", None, "medium"),
+    ("3234", "光環", "NODE-optical-module", "TO-CAN/LD 元件封裝", "三階", "low", "VCSEL、磊晶", None, "medium"),
+    ("3081", "聯亞", "NODE-iii-v-epi", "InP/GaAs 磊晶、雷射光源", "龍頭", "medium", "磊晶、矽光子", "medium", "high"),
+    ("3163", "波若威", "NODE-fiber-passive", "WDM/PLC 被動元件、CPO 光纖套件", "龍頭", "medium", "CPO、矽光子", "high", "high"),
+    ("6426", "統新", "NODE-fiber-passive", "光通訊薄膜濾光片", "二階", "low", "光通訊", None, "medium"),
+    ("3363", "上詮", "NODE-fiber-passive", "光纖被動元件、CPO 光纖陣列", "二階", "medium", "CPO", None, "medium"),
+    ("6451", "訊芯-KY", "NODE-cpo-packaging", "光收發模組 SiP 封裝", "二階", "medium", "VCSEL、光通訊", None, "medium"),
+    ("3450", "聯鈞", "NODE-cpo-packaging", "雷射封裝（EML/VCSEL）", "龍頭", "high", "CPO、矽光子", None, "high"),
+    ("6515", "穎崴", "NODE-cpo-test", "CPO 測試座（跨 theme：Seed 2 測試介面）", "龍頭", "high", "CPO", None, "high"),
+    ("6706", "惠特", "NODE-cpo-test", "CPO 測試/對位設備", "二階", "medium", "CPO、矽光子", None, "medium"),
+    ("4573", "高明鐵", "NODE-cpo-test", "精密對位設備", "三階", "low", "CPO、矽光子", None, "medium"),
 ]
 
 PENDING_MANUAL_REVIEW = [
@@ -172,18 +208,21 @@ def seed_db(conn):
         nid, name, ntype = n[0], n[1], n[2]
         cur.execute("INSERT OR IGNORE INTO nodes (id, name, node_type, created_at) VALUES (?, ?, ?, datetime('now'))", (nid, name, ntype))
 
-    # Theme_nodes
-    seed1_nodes = set(n[0] for n in NODES[:8])
-    seed2_nodes = set(n[0] for n in NODES[8:17])
-    seed3_nodes = set(n[0] for n in NODES[17:])
-
-    theme_map = {
-        "THEME-liquid-cooling": seed1_nodes,
-        "THEME-cowos-adv-pkg": seed2_nodes,
-        "THEME-heavy-electric": seed3_nodes,
+    # Theme_nodes（顯式 node 集合；2026-08-07 由切片改為 THEME_NODE_MAP，避免新增 theme 時位移）
+    THEME_NODE_MAP = {
+        "THEME-liquid-cooling": {"NODE-cold-plate", "NODE-cdu", "NODE-manifold", "NODE-qd",
+                                 "NODE-vapor-chamber", "NODE-plate-heat-exchanger", "NODE-fan-wall",
+                                 "NODE-liquid-cabinet"},
+        "THEME-cowos-adv-pkg": {"NODE-cowos-frontend", "NODE-osat", "NODE-abf", "NODE-packaging-eq",
+                                "NODE-test-interface", "NODE-specialty-chem", "NODE-carrier",
+                                "NODE-asic-design", "NODE-cleanroom"},
+        "THEME-heavy-electric": {"NODE-transformer", "NODE-gis", "NODE-switchboard", "NODE-cable",
+                                 "NODE-ess", "NODE-epc", "NODE-upstream-material"},
+        "THEME-optical-cpo": {"NODE-optical-module", "NODE-iii-v-epi", "NODE-fiber-passive",
+                              "NODE-cpo-packaging", "NODE-cpo-test"},
     }
 
-    for theme_id, node_ids in theme_map.items():
+    for theme_id, node_ids in THEME_NODE_MAP.items():
         for n in NODES:
             if n[0] in node_ids:
                 nid, name, ntype, di, br, asp, te, conf = n
@@ -193,7 +232,7 @@ def seed_db(conn):
                 )
 
     # Node companies
-    all_companies = SEED1_COMPANIES + SEED2_COMPANIES + SEED3_COMPANIES
+    all_companies = SEED1_COMPANIES + SEED2_COMPANIES + SEED3_COMPANIES + SEED4_COMPANIES
     for c in all_companies:
         ticker, name, node_id, role, mpos, crowd, hit, rev, conf = c
         cur.execute(
@@ -217,16 +256,15 @@ def seed_db(conn):
     for n in NODES:
         nid, name, ntype, di, br, asp, te, conf = n
         theme_id = None
-        if nid in seed1_nodes:
-            theme_id = "THEME-liquid-cooling"
-        elif nid in seed2_nodes:
-            theme_id = "THEME-cowos-adv-pkg"
-        elif nid in seed3_nodes:
-            theme_id = "THEME-heavy-electric"
+        for tid, node_ids in THEME_NODE_MAP.items():
+            if nid in node_ids:
+                theme_id = tid
+                break
         if theme_id:
+            src_ref = "thesis-20260806-t04-findings/A3.md" if theme_id == "THEME-optical-cpo" else "handoff_card"
             cur.execute(
                 "INSERT OR IGNORE INTO evidence (id, entity_type, entity_key, source_type, source_ref, verify_score, note, observed_at) VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))",
-                (evidence_id, "theme_node", f"{theme_id}|{nid}", "handoff_card", "handoff_card", None, f"節點 {name} 在 {theme_id}")
+                (evidence_id, "theme_node", f"{theme_id}|{nid}", "handoff_card", src_ref, None, f"節點 {name} 在 {theme_id}")
             )
             evidence_id += 1
 
@@ -256,14 +294,17 @@ def seed_db(conn):
         cur.execute("INSERT OR IGNORE INTO node_aliases (node_id, concept) VALUES (?, ?)", (node_id, concept))
     # 571 ruling: NODE-ess dual挂 (energy storage)
     cur.execute("INSERT OR IGNORE INTO node_aliases (node_id, concept) VALUES (?, ?)", ("NODE-ess", "儲能"))
+    # Theme 4（光通訊/CPO）：alias_map.yaml 無光通訊概念（液冷/先進封裝/重電/儲能 4 概念），
+    # 既有護欄「node_aliases 只掛 validated 詞」→ theme 4 nodes 不掛任何 alias（2026-08-07 擴充）
 
     conn.commit()
 
 def verify_counts(conn):
     cur = conn.cursor()
+    # 六條數量斷言（比照 T04 模式；2026-08-07 擴充 theme 4 後更新）
     expected = {
-        "distinct_tickers": 48, "node_companies_rows": 51,
-        "nodes": 24, "theme_nodes": 24, "themes": 3,
+        "distinct_tickers": 60, "node_companies_rows": 64,
+        "nodes": 29, "theme_nodes": 29, "themes": 4, "node_aliases": 24,
     }
     results = {}
     results["distinct_tickers"] = cur.execute("SELECT COUNT(DISTINCT ticker) FROM node_companies").fetchone()[0]
@@ -271,6 +312,7 @@ def verify_counts(conn):
     results["nodes"] = cur.execute("SELECT COUNT(*) FROM nodes").fetchone()[0]
     results["theme_nodes"] = cur.execute("SELECT COUNT(*) FROM theme_nodes").fetchone()[0]
     results["themes"] = cur.execute("SELECT COUNT(*) FROM themes").fetchone()[0]
+    results["node_aliases"] = cur.execute("SELECT COUNT(*) FROM node_aliases").fetchone()[0]
     all_ok = True
     for k, exp in expected.items():
         actual = results[k]
@@ -292,7 +334,7 @@ def verify_q1(conn):
         HAVING theme_count >= 2
         ORDER BY theme_count DESC
     """).fetchall()
-    print(f"\nQ1 Cross-theme repeat: {len(rows)} rows (expected exactly 3)")
+    print(f"\nQ1 Cross-theme repeat: {len(rows)} rows (expected exactly 4)")
     for r in rows:
         print(f"  {r[0]} {r[1]} (themes: {r[3]})")
     return rows
@@ -373,14 +415,37 @@ def verify_q5(conn):
     print(f"Q5 (node_aliases): {row[0]} nodes, {row[1]} total entries")
     return row[0] > 0 and row[1] > 0
 
+def export_cross_theme_repeat(conn):
+    """Regenerate theme_graph/cross_theme_repeat.md from Q1 query."""
+    from datetime import datetime
+    cur = conn.cursor()
+    rows = cur.execute("""
+        SELECT nc.ticker, nc.company_name,
+               COUNT(DISTINCT tn.theme_id) AS theme_count,
+               GROUP_CONCAT(DISTINCT tn.theme_id) AS themes
+        FROM node_companies nc
+        JOIN theme_nodes tn ON tn.node_id = nc.node_id
+        GROUP BY nc.ticker
+        HAVING theme_count >= 2
+        ORDER BY theme_count DESC
+    """).fetchall()
+    lines = ["# Cross-theme Repeat Companies", "",
+             "| Ticker | Company | Theme Count | Themes |",
+             "|--------|---------|-------------|--------|"]
+    for r in rows:
+        themes = ", ".join(t.replace("THEME-", "") for t in r[3].split(","))
+        lines.append(f"| {r[0]} | {r[1]} | {r[2]} | {themes} |")
+    lines += ["", f"*Generated: {datetime.now():%Y-%m-%d %H:%M:%S}*",
+              f"*Total: {len(rows)} companies*",
+              "*Source: theme_graph.sqlite (Seed 1/2/3/4)*"]
+    export_path = REPO_ROOT / "theme_graph" / "cross_theme_repeat.md"
+    export_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"\n--- Export ---\n  wrote {export_path} ({len(rows)} companies)")
+    return export_path
+
 def main():
-    import sys
-    print("WARNING: seed_theme_graph.py is DEPRECATED. "
-          "Theme graph now lives in signals.sqlite (theme_nodes etc.). "
-          "theme_graph.sqlite file is abolished.", file=sys.stderr)
-    sys.exit(1)
     print("=" * 60)
-    print("Theme Graph Seeding — Handoff v3.1")
+    print("Theme Graph Seeding — Handoff v3.1 (+ 2026-08-07 theme 4 光通訊/CPO 擴充)")
     print("=" * 60)
     if not DB_PATH.exists():
         print(f"ERROR: {DB_PATH} not found. Run migration first.")
@@ -388,12 +453,12 @@ def main():
     conn = sqlite3.connect(str(DB_PATH))
     seed_db(conn)
 
-    print("\n--- Count assertions ---")
+    print("\n--- Count assertions (六條) ---")
     counts, counts_ok = verify_counts(conn)
 
     print("\n--- Q1 Cross-theme repeat ---")
     q1_rows = verify_q1(conn)
-    q1_ok = len(q1_rows) == 3 and set(r[0] for r in q1_rows) == {"6691", "6903", "2404"}
+    q1_ok = len(q1_rows) == 4 and set(r[0] for r in q1_rows) == {"6691", "6903", "2404", "6515"}
 
     print("\n--- Q4 護欄 ---")
     q4_ok = verify_q4(conn)
@@ -413,6 +478,9 @@ def main():
 
     print("\n--- Q5 alias_map 概念詞 ---")
     q5_ok = verify_q5(conn)
+
+    print("\n--- Export cross_theme_repeat.md ---")
+    export_cross_theme_repeat(conn)
 
     print("\n" + "=" * 60)
     all_pass = counts_ok and q1_ok and q4_ok and llm_ok and q2_ok and q3_ok and q5_ok
