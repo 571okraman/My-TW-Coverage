@@ -87,6 +87,8 @@ NODES = [
      "800G→1.6T 升級＋去中化轉單", "medium", "上升", "strong", "high"),
     ("NODE-iii-v-epi", "III-V 磊晶（InP/GaAs）", "material",
      "高階 EML/VCSEL 磊晶需求", "high", "上升", "strong", "high"),
+    ("NODE-inp-foundry", "InP／III-V foundry 服務（DFB/PiC 代工）", "service",
+     "高階雷射/PiC 代工需求", "high", "上升", "strong", "high"),
     ("NODE-fiber-passive", "光纖被動元件（WDM/濾光片/光纖陣列）", "component",
      "CPO 光纖套件＋資料中心互連", "medium", "持平偏升", "strong", "medium"),
     ("NODE-cpo-packaging", "CPO 封裝（SiP/光引擎/雷射封裝）", "service",
@@ -169,6 +171,8 @@ SEED4_COMPANIES = [
     ("6515", "穎崴", "NODE-cpo-test", "CPO 測試座（跨 theme：Seed 2 測試介面）", "龍頭", "high", "CPO", None, "high"),
     ("6706", "惠特", "NODE-cpo-test", "CPO 測試/對位設備", "二階", "medium", "CPO、矽光子", None, "medium"),
     ("4573", "高明鐵", "NODE-cpo-test", "精密對位設備", "三階", "low", "CPO、矽光子", None, "medium"),
+    ("3105", "穩懋", "NODE-inp-foundry", "InP DFB／PiC foundry、Sivers 合作對象（T08 新增）",
+     "龍頭", "medium", "磊晶", "high", "high"),
 ]
 
 PENDING_MANUAL_REVIEW = [
@@ -219,7 +223,7 @@ def seed_db(conn):
         "THEME-heavy-electric": {"NODE-transformer", "NODE-gis", "NODE-switchboard", "NODE-cable",
                                  "NODE-ess", "NODE-epc", "NODE-upstream-material"},
         "THEME-optical-cpo": {"NODE-optical-module", "NODE-iii-v-epi", "NODE-fiber-passive",
-                              "NODE-cpo-packaging", "NODE-cpo-test"},
+                              "NODE-cpo-packaging", "NODE-cpo-test", "NODE-inp-foundry"},
     }
 
     for theme_id, node_ids in THEME_NODE_MAP.items():
@@ -241,6 +245,10 @@ def seed_db(conn):
         )
 
     # Evidence - company edges
+    # 冪等修復（2026-08-12 T08 實測）：evidence.id 由 seed 手動指派（1 起跳），
+    # 對既有 DB 重跑時 INSERT OR IGNORE 撞舊 id 被跳過 → 新增 entity 的 evidence 永遠插不進（Q4 掛）。
+    # evidence 為 seed 全量派生資料（唯一寫入者＝本 script），故每次 seed 清空重產，確保 Q4 護欄有效。
+    cur.execute("DELETE FROM evidence")
     evidence_id = 1
     for c in all_companies:
         ticker, name, node_id, role, mpos, crowd, hit, rev, conf = c
@@ -261,7 +269,12 @@ def seed_db(conn):
                 theme_id = tid
                 break
         if theme_id:
-            src_ref = "thesis-20260806-t04-findings/A3.md" if theme_id == "THEME-optical-cpo" else "handoff_card"
+            if nid == "NODE-inp-foundry":
+                src_ref = "t08-execution-20260812"   # T08 新增節點（PS-20260806-002 T08），非 T04 findings
+            elif theme_id == "THEME-optical-cpo":
+                src_ref = "thesis-20260806-t04-findings/A3.md"
+            else:
+                src_ref = "handoff_card"
             cur.execute(
                 "INSERT OR IGNORE INTO evidence (id, entity_type, entity_key, source_type, source_ref, verify_score, note, observed_at) VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))",
                 (evidence_id, "theme_node", f"{theme_id}|{nid}", "handoff_card", src_ref, None, f"節點 {name} 在 {theme_id}")
@@ -295,16 +308,17 @@ def seed_db(conn):
     # 571 ruling: NODE-ess dual挂 (energy storage)
     cur.execute("INSERT OR IGNORE INTO node_aliases (node_id, concept) VALUES (?, ?)", ("NODE-ess", "儲能"))
     # Theme 4（光通訊/CPO）：alias_map.yaml 無光通訊概念（液冷/先進封裝/重電/儲能 4 概念），
-    # 既有護欄「node_aliases 只掛 validated 詞」→ theme 4 nodes 不掛任何 alias（2026-08-07 擴充）
+    # 既有護欄「node_aliases 只掛 validated 詞」→ theme 4 nodes 不掛任何 alias
+    # （2026-08-07 擴充；2026-08-12 T08 新增 NODE-inp-foundry 同規則不掛 alias，未入 alias_map 前不得直寫）
 
     conn.commit()
 
 def verify_counts(conn):
     cur = conn.cursor()
-    # 六條數量斷言（比照 T04 模式；2026-08-07 擴充 theme 4 後更新）
+    # 六條數量斷言（比照 T04 模式；2026-08-07 擴充 theme 4 後更新；2026-08-12 T08 加 NODE-inp-foundry + 3105 後再更新）
     expected = {
-        "distinct_tickers": 60, "node_companies_rows": 64,
-        "nodes": 29, "theme_nodes": 29, "themes": 4, "node_aliases": 24,
+        "distinct_tickers": 61, "node_companies_rows": 65,
+        "nodes": 30, "theme_nodes": 30, "themes": 4, "node_aliases": 24,
     }
     results = {}
     results["distinct_tickers"] = cur.execute("SELECT COUNT(DISTINCT ticker) FROM node_companies").fetchone()[0]
@@ -445,7 +459,7 @@ def export_cross_theme_repeat(conn):
 
 def main():
     print("=" * 60)
-    print("Theme Graph Seeding — Handoff v3.1 (+ 2026-08-07 theme 4 光通訊/CPO 擴充)")
+    print("Theme Graph Seeding — Handoff v3.1 (+ 2026-08-07 theme 4 光通訊/CPO 擴充 + 2026-08-12 T08 NODE-inp-foundry)")
     print("=" * 60)
     if not DB_PATH.exists():
         print(f"ERROR: {DB_PATH} not found. Run migration first.")
