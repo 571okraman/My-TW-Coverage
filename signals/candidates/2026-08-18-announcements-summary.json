@@ -1,0 +1,20 @@
+{
+  "date": "2026-08-18",
+  "type": "announcements",
+  "sources": [
+    {
+      "source": "TWSE T187AP04",
+      "market": "上市",
+      "count": 0,
+      "retries": 0,
+      "timestamp": "2026-08-17T20:00:01.700196"
+    },
+    {
+      "source": "TPEx T187AP04",
+      "market": "上櫃",
+      "count": 5,
+      "retries": 0,
+      "timestamp": "2026-08-17T20:00:01.700196"
+    }
+  ]
+}
