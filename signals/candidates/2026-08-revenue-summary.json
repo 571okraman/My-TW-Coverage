@@ -5,16 +5,16 @@
     {
       "source": "TWSE T187AP05",
       "market": "上市",
-      "count": 1074,
+      "count": 1081,
       "retries": 0,
-      "timestamp": "2026-09-15T20:00:07.447603"
+      "timestamp": "2026-09-16T20:00:07.887236"
     },
     {
       "source": "TPEx T187AP05",
       "market": "上櫃",
       "count": 0,
       "retries": 3,
-      "timestamp": "2026-09-15T20:00:07.447603"
+      "timestamp": "2026-09-16T20:00:07.887236"
     }
   ]
 }
