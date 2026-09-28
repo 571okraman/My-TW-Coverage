@@ -7,14 +7,14 @@
       "market": "上市",
       "count": 1086,
       "retries": 0,
-      "timestamp": "2026-09-27T20:00:07.234399"
+      "timestamp": "2026-09-28T20:00:09.278529"
     },
     {
       "source": "TPEx T187AP05",
       "market": "上櫃",
       "count": 0,
       "retries": 3,
-      "timestamp": "2026-09-27T20:00:07.234399"
+      "timestamp": "2026-09-28T20:00:09.278529"
     }
   ]
 }
