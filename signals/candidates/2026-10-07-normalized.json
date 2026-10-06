@@ -1,0 +1,58 @@
+[
+  {
+    "ticker": "8390",
+    "event_date": "2026-10-06",
+    "source_url": "",
+    "source_type": "announcement",
+    "clause_number": "第12款",
+    "summary": "8390 公告本公司受邀參加中信證券舉辦之線上法人說明會",
+    "raw_data": {
+      "Date": "1151006",
+      "發言日期": "1151005",
+      "發言時間": "153754",
+      "SecuritiesCompanyCode": "8390",
+      "CompanyName": "金益鼎",
+      "主旨": "公告本公司受邀參加中信證券舉辦之線上法人說明會",
+      "符合條款": "第12款",
+      "事實發生日": "1151006",
+      "說明": "符合條款第四條第XX款：12\r\n事實發生日：115/10/06\r\n1.召開法人說明會之日期：115/10/06\r\n2.召開法人說明會之時間：14 時 30 分 \r\n3.召開法人說明會之地點：線上法說會\r\n4.法人說明會擇要訊息：本公司受邀參加中信證券舉辦之線上法人說明會，說明本公司營運成果及未來展望。\r\n5.其他應敘明事項：會後將於「公開資訊觀測站」及公司網站揭露相關資訊。\r\n完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。"
+    },
+    "market": "tpex",
+    "flag": "announcement",
+    "flags": [
+      "announcement"
+    ],
+    "title": "[8644ff] 8390 ann 2026-10-06 公告本公司受邀參加中信證券舉辦之線上法人說明會",
+    "trigger_type": "policy_regulation",
+    "priority": "medium",
+    "expires_at": null
+  },
+  {
+    "ticker": "3105",
+    "event_date": "2026-10-05",
+    "source_url": "",
+    "source_type": "announcement",
+    "clause_number": "第11款",
+    "summary": "3105 代重要子公司Chainwin Biotech and Agrotech\r\n(Cayman Islands) Co. Ltd.公告董事長訂定增資基準\r\n日",
+    "raw_data": {
+      "Date": "1151006",
+      "發言日期": "1151005",
+      "發言時間": "175935",
+      "SecuritiesCompanyCode": "3105",
+      "CompanyName": "穩懋",
+      "主旨": "代重要子公司Chainwin Biotech and Agrotech\r\n(Cayman Islands) Co. Ltd.公告董事長訂定增資基準\r\n日",
+      "符合條款": "第11款",
+      "事實發生日": "1151005",
+      "說明": "1.董事會決議或公司決定日期:115/10/05\n2.發行股數:15,034,127股\n3.每股面額:美金1元\n4.發行總金額:美金15,034,127元\n5.發行價格:美金1元\n6.員工認股股數:不適用\n7.原股東認購比率:0.23%\n8.公開銷售方式及股數:不適用\n9.畸零股及逾期未認購股份之處理方式:不適用\n10.本次發行新股之權利義務:新股之權利義務與原已發行之股份相同\n11.本次增資資金用途:充實營運資金暨增資子公司\n12.現金增資認股基準日:115/10/31\n13.最後過戶日:不適用\n14.停止過戶起始日期:不適用\n15.停止過戶截止日期:不適用\n16.股款繳納期間:不適用\n17.與代收及專戶存儲價款行庫訂約日期:不適用\n18.委託代收款項機構:不適用\n19.委託存儲款項機構:不適用\n20.其他應敘明事項:本次增資之資金來源係由Chainwin Biotech and Agrotech\n(Cayman Islands) Co.,Ltd.洽其他股東與特定人所募得，待募資完成後本公\n司對Chainwin Biotech and Agrotech (Cayman Islands) Co.,Ltd.之持股比\n率降低至65.09%。"
+    },
+    "market": "tpex",
+    "flag": "announcement",
+    "flags": [
+      "announcement"
+    ],
+    "title": "[d26288] 3105 ann 2026-10-05 代重要子公司Chainwin Biotech and Agrotech\r\n(Cayman Islands) Co. Ltd.公告董事長訂定增資基準\r\n日",
+    "trigger_type": "policy_regulation",
+    "priority": "medium",
+    "expires_at": null
+  }
+]
