@@ -1,0 +1,198 @@
+[
+  {
+    "ticker": "5426",
+    "event_date": "2026-10-21",
+    "source_url": "",
+    "source_type": "announcement",
+    "clause_number": "第12款",
+    "summary": "5426 本公司受邀參加亞東證券舉辦之法人說明會",
+    "raw_data": {
+      "Date": "1151021",
+      "發言日期": "1151020",
+      "發言時間": "135214",
+      "SecuritiesCompanyCode": "5426",
+      "CompanyName": "振發",
+      "主旨": "本公司受邀參加亞東證券舉辦之法人說明會",
+      "符合條款": "第12款",
+      "事實發生日": "1151021",
+      "說明": "符合條款第四條第XX款：12\r\n事實發生日：115/10/21\r\n1.召開法人說明會之日期：115/10/21\r\n2.召開法人說明會之時間：14 時 30 分 \r\n3.召開法人說明會之地點：亞東證券14樓會議室(新北市板橋區新站路16號14樓)\r\n4.法人說明會擇要訊息：本公司受邀參加亞東證券舉辦之法人說明會，說明本公司財務及業務相關資訊。\r\n5.其他應敘明事項：無\r\n完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。"
+    },
+    "market": "tpex",
+    "flag": "announcement",
+    "flags": [
+      "announcement"
+    ],
+    "title": "[a6f372] 5426 ann 2026-10-21 本公司受邀參加亞東證券舉辦之法人說明會",
+    "trigger_type": "policy_regulation",
+    "priority": "medium",
+    "expires_at": null
+  },
+  {
+    "ticker": "6530",
+    "event_date": "2026-10-27",
+    "source_url": "",
+    "source_type": "announcement",
+    "clause_number": "第12款",
+    "summary": "6530 公告本公司受邀參加宏遠證券所舉辦之115年Q3法人說明會",
+    "raw_data": {
+      "Date": "1151021",
+      "發言日期": "1151020",
+      "發言時間": "143216",
+      "SecuritiesCompanyCode": "6530",
+      "CompanyName": "創威",
+      "主旨": "公告本公司受邀參加宏遠證券所舉辦之115年Q3法人說明會",
+      "符合條款": "第12款",
+      "事實發生日": "1151027",
+      "說明": "符合條款第四條第XX款：12\r\n事實發生日：115/10/27\r\n1.召開法人說明會之日期：115/10/27\r\n2.召開法人說明會之時間：14 時 30 分 \r\n3.召開法人說明會之地點：台北市信義路四段236號7樓(宏遠證券會議室)\r\n4.法人說明會擇要訊息：報告公司營運現況及未來展望\r\n5.其他應敘明事項：簡報內容檔案於當日會後公告於公開資訊觀測站。\r\n完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。"
+    },
+    "market": "tpex",
+    "flag": "announcement",
+    "flags": [
+      "announcement"
+    ],
+    "title": "[52b991] 6530 ann 2026-10-27 公告本公司受邀參加宏遠證券所舉辦之115年Q3法人說明會",
+    "trigger_type": "policy_regulation",
+    "priority": "medium",
+    "expires_at": null
+  },
+  {
+    "ticker": "5347",
+    "event_date": "2026-11-06",
+    "source_url": "",
+    "source_type": "announcement",
+    "clause_number": "第12款",
+    "summary": "5347 公告本公司將於11月06日召開線上法人說明會",
+    "raw_data": {
+      "Date": "1151021",
+      "發言日期": "1151020",
+      "發言時間": "150905",
+      "SecuritiesCompanyCode": "5347",
+      "CompanyName": "世界",
+      "主旨": "公告本公司將於11月06日召開線上法人說明會",
+      "符合條款": "第12款",
+      "事實發生日": "1151106",
+      "說明": "符合條款第四條第XX款：12\r\n事實發生日：115/11/06\r\n1.召開法人說明會之日期：115/11/06\r\n2.召開法人說明會之時間：14 時 00 分 \r\n3.召開法人說明會之地點：線上法人說明會\r\n4.法人說明會擇要訊息：公司將於法人說明會中，公布2026年第三季的財務結果以及對2026年第四季的營運展望。法人說明會當日請造訪下列網址：\r\nhttps://www.zucast.com/webcast/VPjhUyjk\r\n5.其他應敘明事項：無\r\n完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。"
+    },
+    "market": "tpex",
+    "flag": "announcement",
+    "flags": [
+      "announcement"
+    ],
+    "title": "[1fa883] 5347 ann 2026-11-06 公告本公司將於11月06日召開線上法人說明會",
+    "trigger_type": "policy_regulation",
+    "priority": "medium",
+    "expires_at": null
+  },
+  {
+    "ticker": "6488",
+    "event_date": "2026-11-03",
+    "source_url": "",
+    "source_type": "announcement",
+    "clause_number": "第12款",
+    "summary": "6488 本公司召開2026Q3英文線上法說會",
+    "raw_data": {
+      "Date": "1151021",
+      "發言日期": "1151020",
+      "發言時間": "150910",
+      "SecuritiesCompanyCode": "6488",
+      "CompanyName": "環球晶",
+      "主旨": "本公司召開2026Q3英文線上法說會",
+      "符合條款": "第12款",
+      "事實發生日": "1151103",
+      "說明": "符合條款第四條第XX款：12\r\n事實發生日：115/11/03\r\n1.召開法人說明會之日期：115/11/03\r\n2.召開法人說明會之時間：16 時 00 分 \r\n3.召開法人說明會之地點：https://www.surveycake.com/s/WqqX0\r\n4.法人說明會擇要訊息：本公司召開2026Q3英文線上法說會\r\n5.其他應敘明事項：請線上註冊取得會議ID及密碼，註冊後，與會者將會收到會議連結及會議密碼。\r\n完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。"
+    },
+    "market": "tpex",
+    "flag": "announcement",
+    "flags": [
+      "announcement"
+    ],
+    "title": "[5b1568] 6488 ann 2026-11-03 本公司召開2026Q3英文線上法說會",
+    "trigger_type": "policy_regulation",
+    "priority": "medium",
+    "expires_at": null
+  },
+  {
+    "ticker": "3081",
+    "event_date": "2026-10-28",
+    "source_url": "",
+    "source_type": "announcement",
+    "clause_number": "第12款",
+    "summary": "3081 本公司受邀參加元大證券所舉辦之線上法人說明會",
+    "raw_data": {
+      "Date": "1151021",
+      "發言日期": "1151020",
+      "發言時間": "152918",
+      "SecuritiesCompanyCode": "3081",
+      "CompanyName": "聯亞",
+      "主旨": "本公司受邀參加元大證券所舉辦之線上法人說明會",
+      "符合條款": "第12款",
+      "事實發生日": "1151028",
+      "說明": "符合條款第四條第XX款：12\r\n事實發生日：115/10/28\r\n1.召開法人說明會之日期：115/10/28\r\n2.召開法人說明會之時間：14 時 00 分 \r\n3.召開法人說明會之地點：線上會議\r\n4.法人說明會擇要訊息：本公司受邀參加元大證券所舉辦之線上法人說明會，說明本公司2026年第3季營運概況。\r\n法說會網址: https://yuanta-cbd.webex.com/yuanta-cbd/j.php?MTID=m6d159a3783dc3527d0b05d3199b649bc，會議號： 2512 021 2535，密碼： 3081，本會議將以中文進行。\r\n5.其他應敘明事項：無\r\n完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。"
+    },
+    "market": "tpex",
+    "flag": "announcement",
+    "flags": [
+      "announcement"
+    ],
+    "title": "[a8905b] 3081 ann 2026-10-28 本公司受邀參加元大證券所舉辦之線上法人說明會",
+    "trigger_type": "policy_regulation",
+    "priority": "medium",
+    "expires_at": null
+  },
+  {
+    "ticker": "8182",
+    "event_date": "2026-10-21",
+    "source_url": "",
+    "source_type": "announcement",
+    "clause_number": "第12款",
+    "summary": "8182 本公司受邀參加凱基證券舉辦之線上法人說明會",
+    "raw_data": {
+      "Date": "1151021",
+      "發言日期": "1151020",
+      "發言時間": "160637",
+      "SecuritiesCompanyCode": "8182",
+      "CompanyName": "加高",
+      "主旨": "本公司受邀參加凱基證券舉辦之線上法人說明會",
+      "符合條款": "第12款",
+      "事實發生日": "1151021",
+      "說明": "符合條款第四條第XX款：12\r\n事實發生日：115/10/21\r\n1.召開法人說明會之日期：115/10/21\r\n2.召開法人說明會之時間：15 時 00 分 \r\n3.召開法人說明會之地點：線上法人說明會\r\n4.法人說明會擇要訊息：本公司受邀參加凱基證券舉辦之線上法人說明會，說明公司營運概況。\r\n5.其他應敘明事項：無\r\n完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。"
+    },
+    "market": "tpex",
+    "flag": "announcement",
+    "flags": [
+      "announcement"
+    ],
+    "title": "[ea820d] 8182 ann 2026-10-21 本公司受邀參加凱基證券舉辦之線上法人說明會",
+    "trigger_type": "policy_regulation",
+    "priority": "medium",
+    "expires_at": null
+  },
+  {
+    "ticker": "6561",
+    "event_date": "2026-11-03",
+    "source_url": "",
+    "source_type": "announcement",
+    "clause_number": "第12款",
+    "summary": "6561 本公司受邀參加元大證券舉辦之線上法人說明會",
+    "raw_data": {
+      "Date": "1151021",
+      "發言日期": "1151020",
+      "發言時間": "193021",
+      "SecuritiesCompanyCode": "6561",
+      "CompanyName": "是方",
+      "主旨": "本公司受邀參加元大證券舉辦之線上法人說明會",
+      "符合條款": "第12款",
+      "事實發生日": "1151103",
+      "說明": "符合條款第四條第XX款：12\r\n事實發生日：115/11/03\r\n1.召開法人說明會之日期：115/11/03\r\n2.召開法人說明會之時間：14 時 30 分 \r\n3.召開法人說明會之地點：線上法說會\r\n4.法人說明會擇要訊息：本公司受邀參加元大證券舉辦之線上法說會，向投資人說明本公司115年第3季之營運狀況。\r\n5.其他應敘明事項：無\r\n完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。"
+    },
+    "market": "tpex",
+    "flag": "announcement",
+    "flags": [
+      "announcement"
+    ],
+    "title": "[9151bf] 6561 ann 2026-11-03 本公司受邀參加元大證券舉辦之線上法人說明會",
+    "trigger_type": "policy_regulation",
+    "priority": "medium",
+    "expires_at": null
+  }
+]
