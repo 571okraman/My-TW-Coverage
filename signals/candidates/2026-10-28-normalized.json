@@ -1,0 +1,30 @@
+[
+  {
+    "ticker": "3272",
+    "event_date": "2026-10-26",
+    "source_url": "",
+    "source_type": "announcement",
+    "clause_number": "第31款",
+    "summary": "3272 公告本公司115年第三季合併財務報告董事會召開日期為\r\n115年11月03日",
+    "raw_data": {
+      "Date": "1151027",
+      "發言日期": "1151026",
+      "發言時間": "141242",
+      "SecuritiesCompanyCode": "3272",
+      "CompanyName": "東碩",
+      "主旨": "公告本公司115年第三季合併財務報告董事會召開日期為\r\n115年11月03日",
+      "符合條款": "第31款",
+      "事實發生日": "1151026",
+      "說明": "1.董事會召集通知日:115/10/26\n2.董事會預計召開日期:115/11/03\n3.預計提報董事會或經董事會決議之財務報告或年度自結財務資訊年季:\n 115年第三季合併財務報告\n4.其他應敘明事項:無"
+    },
+    "market": "tpex",
+    "flag": "announcement",
+    "flags": [
+      "announcement"
+    ],
+    "title": "[e52f5f] 3272 ann 2026-10-26 公告本公司115年第三季合併財務報告董事會召開日期為\r\n115年11月03日",
+    "trigger_type": "policy_regulation",
+    "priority": "medium",
+    "expires_at": null
+  }
+]
