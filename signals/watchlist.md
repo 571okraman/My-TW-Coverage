@@ -1,3 +1,3 @@
-# Watchlist — 2026-11-14
+# Watchlist — 2026-11-15
 
 *No thesis candidates currently.*
